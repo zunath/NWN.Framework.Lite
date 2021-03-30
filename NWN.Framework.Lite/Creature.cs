@@ -295,7 +295,7 @@ namespace NWN.Framework.Lite
         /// </summary>
         public static void SetCreatureAppearanceType(uint oCreature, AppearanceType nAppearanceType)
         {
-            Internal.NativeFunctions.StackPushInteger((int)nAppearanceType);
+            Internal.NativeFunctions.StackPushInteger(nAppearanceType.InternalValue);
             Internal.NativeFunctions.StackPushObject(oCreature);
             Internal.NativeFunctions.CallBuiltIn(765);
         }
@@ -349,7 +349,7 @@ namespace NWN.Framework.Lite
         /// </summary>
         public static bool GetActionMode(uint oCreature, ActionModeType nMode)
         {
-            Internal.NativeFunctions.StackPushInteger((int)nMode);
+            Internal.NativeFunctions.StackPushInteger(nMode.InternalValue);
             Internal.NativeFunctions.StackPushObject(oCreature);
             Internal.NativeFunctions.CallBuiltIn(735);
             return Internal.NativeFunctions.StackPopInteger() == 1;
@@ -361,7 +361,7 @@ namespace NWN.Framework.Lite
         public static void SetActionMode(uint oCreature, ActionModeType nMode, bool nStatus)
         {
             Internal.NativeFunctions.StackPushInteger(nStatus ? 1 : 0);
-            Internal.NativeFunctions.StackPushInteger((int)nMode);
+            Internal.NativeFunctions.StackPushInteger(nMode.InternalValue);
             Internal.NativeFunctions.StackPushObject(oCreature);
             Internal.NativeFunctions.CallBuiltIn(736);
         }
@@ -431,7 +431,7 @@ namespace NWN.Framework.Lite
         {
             Internal.NativeFunctions.StackPushObject(oTarget);
             Internal.NativeFunctions.CallBuiltIn(712);
-            return (AILevelType)Internal.NativeFunctions.StackPopInteger();
+            return new AILevelType(Internal.NativeFunctions.StackPopInteger());
         }
 
         /// <summary>
@@ -452,7 +452,7 @@ namespace NWN.Framework.Lite
         /// </summary>
         public static void SetAILevel(uint oTarget, AILevelType nAILevel)
         {
-            Internal.NativeFunctions.StackPushInteger((int)nAILevel);
+            Internal.NativeFunctions.StackPushInteger(nAILevel.InternalValue);
             Internal.NativeFunctions.StackPushObject(oTarget);
             Internal.NativeFunctions.CallBuiltIn(713);
         }
@@ -616,7 +616,7 @@ namespace NWN.Framework.Lite
         {
             Internal.NativeFunctions.StackPushObject(oCreature);
             Internal.NativeFunctions.CallBuiltIn(577);
-            return (AppearanceType)Internal.NativeFunctions.StackPopInteger();
+            return new AppearanceType(Internal.NativeFunctions.StackPopInteger());
         }
 
         /// <summary>
@@ -977,7 +977,7 @@ namespace NWN.Framework.Lite
         public static int GetAbilityModifier(AbilityType nAbility, uint oCreature = OBJECT_INVALID)
         {
             Internal.NativeFunctions.StackPushObject(oCreature);
-            Internal.NativeFunctions.StackPushInteger((int)nAbility);
+            Internal.NativeFunctions.StackPushInteger(nAbility.InternalValue);
             Internal.NativeFunctions.CallBuiltIn(331);
             return Internal.NativeFunctions.StackPopInteger();
         }

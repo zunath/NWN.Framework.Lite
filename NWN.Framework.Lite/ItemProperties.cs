@@ -88,7 +88,7 @@ namespace NWN.Framework.Lite
         public static ItemProperty ItemPropertyAbilityBonus(AbilityType nAbility, int nBonus)
         {
             Internal.NativeFunctions.StackPushInteger(nBonus);
-            Internal.NativeFunctions.StackPushInteger((int)nAbility);
+            Internal.NativeFunctions.StackPushInteger(nAbility.InternalValue);
             Internal.NativeFunctions.CallBuiltIn(616);
             return Internal.NativeFunctions.StackPopGameDefinedStructure((int)EngineStructureType.ItemProperty);
         }

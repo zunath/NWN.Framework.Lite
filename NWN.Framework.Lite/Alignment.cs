@@ -34,7 +34,7 @@ namespace NWN.Framework.Lite
         {
             Internal.NativeFunctions.StackPushInteger(bAllPartyMembers ? 1 : 0);
             Internal.NativeFunctions.StackPushInteger(nShift);
-            Internal.NativeFunctions.StackPushInteger((int)nAlignment);
+            Internal.NativeFunctions.StackPushInteger(nAlignment.InternalValue);
             Internal.NativeFunctions.StackPushObject(oSubject);
             Internal.NativeFunctions.CallBuiltIn(201);
         }
@@ -73,7 +73,7 @@ namespace NWN.Framework.Lite
         {
             Internal.NativeFunctions.StackPushObject(oCreature);
             Internal.NativeFunctions.CallBuiltIn(126);
-            return (AlignmentType)Internal.NativeFunctions.StackPopInteger();
+            return new AlignmentType(Internal.NativeFunctions.StackPopInteger());
         }
 
         /// <summary>
@@ -84,7 +84,7 @@ namespace NWN.Framework.Lite
         {
             Internal.NativeFunctions.StackPushObject(oCreature);
             Internal.NativeFunctions.CallBuiltIn(127);
-            return (AlignmentType)Internal.NativeFunctions.StackPopInteger();
+            return new AlignmentType(Internal.NativeFunctions.StackPopInteger());
         }
 
         /// <summary>

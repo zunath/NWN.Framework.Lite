@@ -1,14 +1,19 @@
 namespace NWN.Framework.Lite.Enum
 {
-    public enum AbilityType
+    // should be the same as in nwseffectlist.cpp
+    public class AbilityType: NWEnumBase<int>
     {
-        Invalid = -1,
-        // should be the same as in nwseffectlist.cpp
-        Strength,
-        Dexterity,
-        Constitution,
-        Intelligence,
-        Wisdom,
-        Charisma
+        public static readonly AbilityType Invalid = new (-1);
+        public static readonly AbilityType Strength = new(0);
+        public static readonly AbilityType Dexterity = new(1);
+        public static readonly AbilityType Constitution = new(2);
+        public static readonly AbilityType Intelligence = new(3);
+        public static readonly AbilityType Wisdom = new(4);
+        public static readonly AbilityType Charisma = new(5);
+
+        public AbilityType(int internalValue) 
+            : base(internalValue)
+        {
+        }
     }
 }

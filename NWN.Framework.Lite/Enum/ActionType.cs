@@ -1,36 +1,44 @@
 ﻿namespace NWN.Framework.Lite.Enum
 {
-    public enum ActionType
+    public class ActionType
     {
-        AnimalEmpathy = 16,
-        AttackObject = 3,
-        CastSpell = 4,
-        CloseDoor = 6,
-        CounterSpell = 31,
-        DialogObject = 7,
-        DisableTrap = 8,
-        DropItem = 2,
-        ExamineTrap = 11,
-        FlagTrap = 10,
-        Follow = 35,
-        Heal = 33,
-        Invalid = 65535,
-        ItemCastSpell = 19,
-        KiDamage = 41,
-        Lock = 14,
-        MoveToPoint = 0,
-        OpenDoor = 5,
-        OpenLock = 13,
-        PickPocket = 34,
-        PickUpItem = 1,
-        RandomWalk = 43,
-        RecoverTrap = 9, 
-        Rest = 17,
-        SetTrap = 12,
-        Sit = 37,
-        SmiteGood = 40,
-        Taunt = 18,
-        UseObject = 15,
-        Wait = 36
+        public static readonly ActionType AnimalEmpathy = new(16);
+        public static readonly ActionType AttackObject = new(3);
+        public static readonly ActionType CastSpell = new(4);
+        public static readonly ActionType CloseDoor = new(6);
+        public static readonly ActionType CounterSpell = new(31);
+        public static readonly ActionType DialogObject = new(7);
+        public static readonly ActionType DisableTrap = new(8);
+        public static readonly ActionType DropItem = new(2);
+        public static readonly ActionType ExamineTrap = new(11);
+        public static readonly ActionType FlagTrap = new(10);
+        public static readonly ActionType Follow = new(35);
+        public static readonly ActionType Heal = new(33);
+        public static readonly ActionType Invalid = new(65535);
+        public static readonly ActionType ItemCastSpell = new(19);
+        public static readonly ActionType KiDamage = new(41);
+        public static readonly ActionType Lock = new(14);
+        public static readonly ActionType MoveToPoint = new(0);
+        public static readonly ActionType OpenDoor = new(5);
+        public static readonly ActionType OpenLock = new(13);
+        public static readonly ActionType PickPocket = new(34);
+        public static readonly ActionType PickUpItem = new(1);
+        public static readonly ActionType RandomWalk = new(43);
+        public static readonly ActionType RecoverTrap = new(9);
+        public static readonly ActionType Rest = new(17);
+        public static readonly ActionType SetTrap = new(12);
+        public static readonly ActionType Sit = new(37);
+        public static readonly ActionType SmiteGood = new(40);
+        public static readonly ActionType Taunt = new(18);
+        public static readonly ActionType UseObject = new(15);
+        public static readonly ActionType Wait = new(36);
+
+        public int InternalValue { get; protected set; }
+
+        public ActionType(int internalValue)
+        {
+            InternalValue = internalValue;
+        }
+
     }
 }

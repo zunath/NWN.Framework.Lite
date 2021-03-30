@@ -311,7 +311,7 @@ namespace NWN.Framework.Lite
         {
             Internal.NativeFunctions.StackPushFloat(fDurationSeconds);
             Internal.NativeFunctions.StackPushFloat(fSpeed);
-            Internal.NativeFunctions.StackPushInteger((int)nAnimation);
+            Internal.NativeFunctions.StackPushInteger(nAnimation.InternalValue);
             Internal.NativeFunctions.CallBuiltIn(40);
         }
 
@@ -832,7 +832,7 @@ namespace NWN.Framework.Lite
         public static int GetAbilityScore(uint oCreature, AbilityType nAbilityType, bool nBaseAbilityScore = false)
         {
             Internal.NativeFunctions.StackPushInteger(nBaseAbilityScore ? 1 : 0);
-            Internal.NativeFunctions.StackPushInteger((int)nAbilityType);
+            Internal.NativeFunctions.StackPushInteger(nAbilityType.InternalValue);
             Internal.NativeFunctions.StackPushObject(oCreature);
             Internal.NativeFunctions.CallBuiltIn(139);
             return Internal.NativeFunctions.StackPopInteger();
@@ -1905,7 +1905,7 @@ namespace NWN.Framework.Lite
         {
             Internal.NativeFunctions.StackPushFloat(fSeconds);
             Internal.NativeFunctions.StackPushFloat(fSpeed);
-            Internal.NativeFunctions.StackPushInteger((int)nAnimation);
+            Internal.NativeFunctions.StackPushInteger(nAnimation.InternalValue);
             Internal.NativeFunctions.CallBuiltIn(300);
         }
 
@@ -2511,7 +2511,7 @@ namespace NWN.Framework.Lite
         {
             Internal.NativeFunctions.StackPushObject(oObject);
             Internal.NativeFunctions.CallBuiltIn(522);
-            return (ActionType)Internal.NativeFunctions.StackPopInteger();
+            return new ActionType(Internal.NativeFunctions.StackPopInteger());
         }
 
         /// <summary>

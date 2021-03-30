@@ -393,10 +393,10 @@ namespace NWN.Framework.Lite
         ///   * Default value for nDamageType should only ever be used in this function prototype.
         /// </summary>
         public static Effect EffectACIncrease(int nValue,
-            ItemPropertyArmorClassModiferType nModifyType = ItemPropertyArmorClassModiferType.Dodge,
-            ACType nDamageType = ACType.VsDamageTypeAll)
+            ItemPropertyArmorClassModiferType nModifyType,
+            ACType nDamageType)
         {
-            Internal.NativeFunctions.StackPushInteger((int)nDamageType);
+            Internal.NativeFunctions.StackPushInteger(nDamageType.InternalValue);
             Internal.NativeFunctions.StackPushInteger((int)nModifyType);
             Internal.NativeFunctions.StackPushInteger(nValue);
             Internal.NativeFunctions.CallBuiltIn(115);
@@ -513,7 +513,7 @@ namespace NWN.Framework.Lite
         public static Effect EffectAbilityIncrease(AbilityType nAbilityToIncrease, int nModifyBy)
         {
             Internal.NativeFunctions.StackPushInteger(nModifyBy);
-            Internal.NativeFunctions.StackPushInteger((int)nAbilityToIncrease);
+            Internal.NativeFunctions.StackPushInteger(nAbilityToIncrease.InternalValue);
             Internal.NativeFunctions.CallBuiltIn(80);
             return Internal.NativeFunctions.StackPopGameDefinedStructure((int)EngineStructureType.Effect);
         }
@@ -928,7 +928,7 @@ namespace NWN.Framework.Lite
         public static Effect EffectAbilityDecrease(AbilityType nAbility, int nModifyBy)
         {
             Internal.NativeFunctions.StackPushInteger(nModifyBy);
-            Internal.NativeFunctions.StackPushInteger((int)nAbility);
+            Internal.NativeFunctions.StackPushInteger(nAbility.InternalValue);
             Internal.NativeFunctions.CallBuiltIn(446);
             return Internal.NativeFunctions.StackPopGameDefinedStructure((int)EngineStructureType.Effect);
         }
@@ -980,10 +980,10 @@ namespace NWN.Framework.Lite
         ///   * Default value for nDamageType should only ever be used in this function prototype.
         /// </summary>
         public static Effect EffectACDecrease(int nValue,
-            ItemPropertyArmorClassModiferType nModifyType = ItemPropertyArmorClassModiferType.Dodge,
-            ACType nDamageType = ACType.VsDamageTypeAll)
+            ItemPropertyArmorClassModiferType nModifyType,
+            ACType nDamageType)
         {
-            Internal.NativeFunctions.StackPushInteger((int)nDamageType);
+            Internal.NativeFunctions.StackPushInteger(nDamageType.InternalValue);
             Internal.NativeFunctions.StackPushInteger((int)nModifyType);
             Internal.NativeFunctions.StackPushInteger(nValue);
             Internal.NativeFunctions.CallBuiltIn(450);
@@ -1088,11 +1088,11 @@ namespace NWN.Framework.Lite
         ///   - nGoodEvil: ALIGNMENT_GOOD/ALIGNMENT_EVIL/ALIGNMENT_ALL
         /// </summary>
         public static Effect VersusAlignmentEffect(Effect eEffect,
-            AlignmentType nLawChaos = AlignmentType.All,
-            AlignmentType nGoodEvil = AlignmentType.All)
+            AlignmentType nLawChaos,
+            AlignmentType nGoodEvil)
         {
-            Internal.NativeFunctions.StackPushInteger((int)nGoodEvil);
-            Internal.NativeFunctions.StackPushInteger((int)nLawChaos);
+            Internal.NativeFunctions.StackPushInteger(nGoodEvil.InternalValue);
+            Internal.NativeFunctions.StackPushInteger(nLawChaos.InternalValue);
             Internal.NativeFunctions.StackPushGameDefinedStructure((int)EngineStructureType.Effect, eEffect);
             Internal.NativeFunctions.CallBuiltIn(355);
             return Internal.NativeFunctions.StackPopGameDefinedStructure((int)EngineStructureType.Effect);

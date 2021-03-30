@@ -188,7 +188,7 @@ namespace NWN.Framework.Lite.NWNX
         {
             Internal.NativeFunctions.nwnxSetFunction(PLUGIN_NAME, "SetRawAbilityScore");
             Internal.NativeFunctions.nwnxPushInt(value);
-            Internal.NativeFunctions.nwnxPushInt((int)ability);
+            Internal.NativeFunctions.nwnxPushInt(ability.InternalValue);
             Internal.NativeFunctions.nwnxPushObject(creature);
             Internal.NativeFunctions.nwnxCallFunction();
         }
@@ -197,7 +197,7 @@ namespace NWN.Framework.Lite.NWNX
         public static int GetRawAbilityScore(uint creature, AbilityType ability)
         {
             Internal.NativeFunctions.nwnxSetFunction(PLUGIN_NAME, "GetRawAbilityScore");
-            Internal.NativeFunctions.nwnxPushInt((int)ability);
+            Internal.NativeFunctions.nwnxPushInt(ability.InternalValue);
             Internal.NativeFunctions.nwnxPushObject(creature);
             Internal.NativeFunctions.nwnxCallFunction();
             return Internal.NativeFunctions.nwnxPopInt();
@@ -208,7 +208,7 @@ namespace NWN.Framework.Lite.NWNX
         {
             Internal.NativeFunctions.nwnxSetFunction(PLUGIN_NAME, "ModifyRawAbilityScore");
             Internal.NativeFunctions.nwnxPushInt(modifier);
-            Internal.NativeFunctions.nwnxPushInt((int)ability);
+            Internal.NativeFunctions.nwnxPushInt(ability.InternalValue);
             Internal.NativeFunctions.nwnxPushObject(creature);
             Internal.NativeFunctions.nwnxCallFunction();
         }
@@ -217,7 +217,7 @@ namespace NWN.Framework.Lite.NWNX
         public static int GetPrePolymorphAbilityScore(uint creature, AbilityType ability)
         {
             Internal.NativeFunctions.nwnxSetFunction(PLUGIN_NAME, "GetPrePolymorphAbilityScore");
-            Internal.NativeFunctions.nwnxPushInt((int)ability);
+            Internal.NativeFunctions.nwnxPushInt(ability.InternalValue);
             Internal.NativeFunctions.nwnxPushObject(creature);
             Internal.NativeFunctions.nwnxCallFunction();
             return Internal.NativeFunctions.nwnxPopInt();
