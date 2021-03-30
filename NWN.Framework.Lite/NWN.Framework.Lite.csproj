@@ -25,7 +25,7 @@
     <Configurations>Debug;Release;</Configurations>
     <Platforms>AnyCPU</Platforms>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>0.0.4</Version>
+    <Version>0.0.7</Version>
   </PropertyGroup>
 
   <Target Name="NWN" AfterTargets="Build">
@@ -38,13 +38,7 @@
   </Target>
 
   <ItemGroup>
-    <Resource Include="NWN.Framework.Lite.runtimeconfig.json" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Update="NWN.Framework.Lite.runtimeconfig.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    <None Update="NWN.Framework.Lite.runtimeconfig.json" Pack="true" CopyToOutputDirectory="PreserveNewest" PackageCopyToOutput="true" />
   </ItemGroup>
 
 </Project>
