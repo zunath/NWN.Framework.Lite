@@ -39,7 +39,9 @@ And that's it!
 # Additional Resources
 
 [![NWNX Unified](https://github.com/nwnxee/unified/)] - The NWNX project which has guides on setting up a server.
+
 [![NWN Lexicon](https://nwnlexicon.com/index.php?title=Main_Page)] - Contains a wealth of useful information about NWScript.
+
 [![NWN Managed](https://github.com/nwn-dotnet/NWN.Managed)] - An alternative, opinionated framework.
 
 # Contributing
