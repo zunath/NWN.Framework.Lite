@@ -1,0 +1,24 @@
+namespace NWN.Framework.Lite.Enum
+{
+    public enum ItemPropertyDamageType
+    {
+        Bludgeoning,
+        Piercing,
+        Slashing,
+        Subdual,
+        Physical,
+        Magical,
+        Acid,
+        Cold,
+        Divine,
+        Electrical,
+        Fire,
+        Negative,
+        Positive,
+        Sonic,
+
+        Ballistic = 14,
+        Energy = 15,
+        Bullet = 16
+    }
+}

@@ -1,0 +1,10 @@
+namespace NWN.Framework.Lite.NWNX.Enum
+{
+    public enum DialogNodeType
+    {
+        Invalid = -1,
+        StartingNode = 0,
+        EntryNode = 1,
+        ReplyNode = 2
+    }
+}

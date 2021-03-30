@@ -18,7 +18,7 @@ Its intention is to provide you with minimal structure to your project while bei
 // Script names must adhere to the NWN restrictions (alphanumeric with some special characters and no longer than 16 characters)
 // The method name is arbitrary and can be called whatever you want.
 // Methods must be public and static so that the framework can pick them up when the module loads.
-[NWNEventHandler("sit")]
+[ScriptHandler("sit")]
 public static void SitOnAChair()
 {
     var player = NWScript.GetLastUsedBy();

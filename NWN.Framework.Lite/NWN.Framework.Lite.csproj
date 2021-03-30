@@ -19,13 +19,12 @@
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <NoWarn>1591</NoWarn>
-    <RootNamespace />
-    <LangVersion>9.0</LangVersion>
+    <RootNamespace>NWN.Framework.Lite</RootNamespace>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <Configurations>Debug;Release;</Configurations>
     <Platforms>AnyCPU</Platforms>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>0.0.7</Version>
+    <Version>0.0.24</Version>
   </PropertyGroup>
 
   <Target Name="NWN" AfterTargets="Build">
