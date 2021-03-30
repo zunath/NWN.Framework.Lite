@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Reflection;
-using static NWN.Framework.Lite.Core.NWScript.NWScript;
+using System.Text;
 
 namespace NWN.Framework.Lite.Core
 {
@@ -54,7 +55,7 @@ namespace NWN.Framework.Lite.Core
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.ToMessageAndCompleteStacktrace());
+                Console.WriteLine(ToMessageAndCompleteStacktrace(ex));
             }
 
             OnScriptContextEnd?.Invoke();
@@ -76,7 +77,6 @@ namespace NWN.Framework.Lite.Core
             if (retVal == -1) return ScriptNotHandled;
             else return retVal;
         }
-
         //
         // This is called once when the internal structures have been initialized
         // The module is not yet loaded, so most NWScript functions will fail if
@@ -88,7 +88,9 @@ namespace NWN.Framework.Lite.Core
             {
                 Console.WriteLine("Registering scripts...");
                 LoadHandlersFromAssembly();
-                Console.WriteLine("Scripts registered successfully.");
+
+                var count = _conditionalScripts.Count + _scripts.Count;
+                Console.WriteLine($"{count} Scripts registered successfully.");
             }
         }
 
@@ -150,7 +152,7 @@ namespace NWN.Framework.Lite.Core
                         }
                         catch (Exception ex)
                         {
-                            var details = ex.ToMessageAndCompleteStacktrace();
+                            var details = ToMessageAndCompleteStacktrace(ex);
                             Console.WriteLine($"C# Script '{script}' threw an exception. Details: {Environment.NewLine}{Environment.NewLine}{details}");
                         }
                     }
@@ -163,13 +165,50 @@ namespace NWN.Framework.Lite.Core
         }
 
 
+        private static List<Assembly> GetAssemblies()
+        {
+            var returnAssemblies = new List<Assembly>();
+            var loadedAssemblies = new HashSet<string>();
+            var assembliesToCheck = new Queue<Assembly>();
+
+            assembliesToCheck.Enqueue(Assembly.GetEntryAssembly());
+
+            while (assembliesToCheck.Any())
+            {
+                var assemblyToCheck = assembliesToCheck.Dequeue();
+
+                foreach (var reference in assemblyToCheck.GetReferencedAssemblies())
+                {
+                    if (!loadedAssemblies.Contains(reference.FullName))
+                    {
+                        var assembly = Assembly.Load(reference);
+                        assembliesToCheck.Enqueue(assembly);
+                        loadedAssemblies.Add(reference.FullName);
+                        returnAssemblies.Add(assembly);
+                    }
+                }
+            }
+
+            return returnAssemblies;
+        }
         private static void LoadHandlersFromAssembly()
         {
             _scripts = new Dictionary<string, List<ActionScript>>();
             _conditionalScripts = new Dictionary<string, List<ConditionalScript>>();
 
-            var handlers = Assembly.GetExecutingAssembly()
-                .GetTypes()
+            var directory = Path.GetDirectoryName(Environment.GetEnvironmentVariable("NWNX_DOTNET_ASSEMBLY"));
+
+            if (string.IsNullOrWhiteSpace(directory))
+            {
+                Console.WriteLine("Failed to locate directory containing DLLs. Check your NWNX_DOTNET_ASSEMBLY environment variable.");
+                return;
+            }
+
+            var assemblies = Directory.GetFiles(directory, "*.dll")
+                .Select(s => Assembly.Load(AssemblyName.GetAssemblyName(s)));
+
+            var handlers = assemblies
+                .SelectMany(s => s.GetTypes())
                 .SelectMany(t => t.GetMethods())
                 .Where(m => m.GetCustomAttributes(typeof(NWNEventHandler), false).Length > 0)
                 .ToArray();
@@ -220,6 +259,26 @@ namespace NWN.Framework.Lite.Core
 
                 }
             }
+        }
+
+        private static string ToMessageAndCompleteStacktrace(Exception exception)
+        {
+            var e = exception;
+            var s = new StringBuilder();
+            while (e != null)
+            {
+                s.AppendLine("Exception type: " + e.GetType().FullName);
+                s.AppendLine("Message       : " + (e.Message ?? string.Empty));
+                s.AppendLine("Stacktrace:");
+                s.AppendLine(e.StackTrace);
+
+                s.AppendLine();
+                e = e.InnerException;
+            }
+
+
+
+            return s.ToString();
         }
     }
 }
