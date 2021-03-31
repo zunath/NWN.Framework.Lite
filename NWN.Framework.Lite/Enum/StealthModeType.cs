@@ -1,8 +1,10 @@
 namespace NWN.Framework.Lite.Enum
 {
-    public enum StealthModeType
+    public class StealthModeType : NWEnumBase<int>
     {
-        Passive,
-        Active
+        public static readonly StealthModeType Passive = new(0);
+        public static readonly StealthModeType Active = new(1);
+
+        public StealthModeType(int internalValue) : base(internalValue) { }
     }
 }
