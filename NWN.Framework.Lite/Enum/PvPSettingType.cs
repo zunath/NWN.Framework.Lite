@@ -1,10 +1,12 @@
 ﻿namespace NWN.Framework.Lite.Enum
 {
-    public enum PvPSettingType
+    public class PvPSettingType : NWEnumBase<int>
     {
-        NoPvP,
-        PartyPvP,
-        FullPvP,
-        ServerDefault
+        public static readonly PvPSettingType NoPvP = new(0);
+        public static readonly PvPSettingType PartyPvP = new(1);
+        public static readonly PvPSettingType FullPvP = new(2);
+        public static readonly PvPSettingType ServerDefault = new(3);
+
+        public PvPSettingType(int internalValue) : base(internalValue) { }
     }
 }
