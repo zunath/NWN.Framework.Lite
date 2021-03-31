@@ -1,10 +1,14 @@
 namespace NWN.Framework.Lite.Enum
 {
-    public enum ItemPropertyLightBrightnessType
+    public class ItemPropertyLightBrightnessType: NWEnumBase<int>
     {
-        LIGHTBRIGHTNESS_DIM = 1,
-        LIGHTBRIGHTNESS_LOW = 2,
-        LIGHTBRIGHTNESS_NORMAL = 3,
-        LIGHTBRIGHTNESS_BRIGHT = 4
+        public static readonly ItemPropertyLightBrightnessType LightBrightnessDim = new(1);
+        public static readonly ItemPropertyLightBrightnessType LightBrightnessLow = new(2);
+        public static readonly ItemPropertyLightBrightnessType LightBrightnessNormal = new(3);
+        public static readonly ItemPropertyLightBrightnessType LightBrightnessBright = new(4);
+
+        public ItemPropertyLightBrightnessType(int internalValue) : base(internalValue)
+        {
+        }
     }
 }

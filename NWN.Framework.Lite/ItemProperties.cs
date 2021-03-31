@@ -454,7 +454,7 @@ namespace NWN.Framework.Lite
         ///   modifier type constant(IP_CONST_ACMODIFIERTYPE_*) and the armor class penalty.
         ///   The penalty must be a POSITIVE integer between 1 and 5 (ie. 1 = -1).
         /// </summary>
-        public static ItemProperty ItemPropertyDecreaseAC(ItemPropertyArmorClassModiferType nModifierType, int nPenalty)
+        public static ItemProperty ItemPropertyDecreaseAC(ItemPropertyArmorClassModifierType nModifierType, int nPenalty)
         {
             Internal.NativeFunctions.StackPushInteger(nPenalty);
             Internal.NativeFunctions.StackPushInteger((int)nModifierType);

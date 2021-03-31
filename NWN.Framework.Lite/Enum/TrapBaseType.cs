@@ -1,6 +1,6 @@
 namespace NWN.Framework.Lite.Enum
 {
-    public class TrapBaseType
+    public class TrapBaseType: NWEnumBase<int>
     {
         public static readonly TrapBaseType MinorSpike = new(0);
         public static readonly TrapBaseType AverageSpike = new(1);
@@ -51,8 +51,8 @@ namespace NWN.Framework.Lite.Enum
         public static readonly TrapBaseType EpicFrost = new(46);
         public static readonly TrapBaseType EpicSonic = new(47);
 
-        public int InternalValue { get; protected set; }
-
-        public TrapBaseType(int internalValue) => InternalValue = internalValue;
+        public TrapBaseType(int internalValue) : base(internalValue)
+        {
+        }
     }
 }

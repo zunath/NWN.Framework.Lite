@@ -1,15 +1,19 @@
 namespace NWN.Framework.Lite.Enum
 {
-    public enum ItemPropertyUnlimitedType
+    public class ItemPropertyUnlimitedType: NWEnumBase<int>
     {
-        Basic = 1,
-        OneD6Fire = 2,
-        OneD6Cold = 3,
-        OneD6Light = 4,
-        Plus1 = 11,
-        Plus2 = 12,
-        Plus3 = 13,
-        Plus4 = 14,
-        Plus5 = 15
+        public static readonly ItemPropertyUnlimitedType Basic = new(1);
+        public static readonly ItemPropertyUnlimitedType OneD6Fire = new(2);
+        public static readonly ItemPropertyUnlimitedType OneD6Cold = new(3);
+        public static readonly ItemPropertyUnlimitedType OneD6Light = new(4);
+        public static readonly ItemPropertyUnlimitedType Plus1 = new(11);
+        public static readonly ItemPropertyUnlimitedType Plus2 = new(12);
+        public static readonly ItemPropertyUnlimitedType Plus3 = new(13);
+        public static readonly ItemPropertyUnlimitedType Plus4 = new(14);
+        public static readonly ItemPropertyUnlimitedType Plus5 = new(15);
+
+        public ItemPropertyUnlimitedType(int internalValue) : base(internalValue)
+        {
+        }
     }
 }

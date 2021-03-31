@@ -1,13 +1,17 @@
 namespace NWN.Framework.Lite.Enum
 {
-    public enum ItemPropertyOnHitSaveDcType
+    public class ItemPropertyOnHitSaveDcType: NWEnumBase<int>
     {
-        Fourteen = 0,
-        Sixteen = 1,
-        Eightteen = 2,
-        Twenty = 3,
-        TwentyTwo = 4,
-        TwentyFour = 5,
-        TwentySix = 6
+        public static readonly ItemPropertyOnHitSaveDcType Fourteen = new(0);
+        public static readonly ItemPropertyOnHitSaveDcType Sixteen = new(1);
+        public static readonly ItemPropertyOnHitSaveDcType Eighteen = new(2);
+        public static readonly ItemPropertyOnHitSaveDcType Twenty = new(3);
+        public static readonly ItemPropertyOnHitSaveDcType TwentyTwo = new(4);
+        public static readonly ItemPropertyOnHitSaveDcType TwentyFour = new(5);
+        public static readonly ItemPropertyOnHitSaveDcType TwentySix = new(6);
+
+        public ItemPropertyOnHitSaveDcType(int internalValue) : base(internalValue)
+        {
+        }
     }
 }

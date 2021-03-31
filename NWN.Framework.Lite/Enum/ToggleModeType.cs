@@ -1,6 +1,6 @@
 namespace NWN.Framework.Lite.Enum
 {
-    public class ToggleModeType
+    public class ToggleModeType: NWEnumBase<int>
     {
         public static readonly ToggleModeType Detect = new(0);
         public static readonly ToggleModeType Stealth = new(1);
@@ -16,8 +16,8 @@ namespace NWN.Framework.Lite.Enum
         public static readonly ToggleModeType DirtyFighting = new(11);
         public static readonly ToggleModeType DefensiveStance = new(12);
 
-        public int InternalValue { get; protected set; }
-
-        public ToggleModeType(int internalValue) => InternalValue = internalValue;
+        public ToggleModeType(int internalValue) : base(internalValue)
+        {
+        }
     }
 }

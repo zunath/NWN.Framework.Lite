@@ -393,7 +393,7 @@ namespace NWN.Framework.Lite
         ///   * Default value for nDamageType should only ever be used in this function prototype.
         /// </summary>
         public static Effect EffectACIncrease(int nValue,
-            ItemPropertyArmorClassModiferType nModifyType,
+            ItemPropertyArmorClassModifierType nModifyType,
             ACType nDamageType)
         {
             Internal.NativeFunctions.StackPushInteger(nDamageType.InternalValue);
@@ -978,7 +978,7 @@ namespace NWN.Framework.Lite
         ///   * Default value for nDamageType should only ever be used in this function prototype.
         /// </summary>
         public static Effect EffectACDecrease(int nValue,
-            ItemPropertyArmorClassModiferType nModifyType,
+            ItemPropertyArmorClassModifierType nModifyType,
             ACType nDamageType)
         {
             Internal.NativeFunctions.StackPushInteger(nDamageType.InternalValue);

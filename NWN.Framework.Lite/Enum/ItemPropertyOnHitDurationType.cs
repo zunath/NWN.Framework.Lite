@@ -1,11 +1,15 @@
 namespace NWN.Framework.Lite.Enum
 {
-    public enum ItemPropertyOnHitDurationType
+    public class ItemPropertyOnHitDurationType: NWEnumBase<int>
     {
-        Five_PERCENT_5_ROUNDS = 0,
-        Ten_PERCENT_4_ROUNDS = 1,
-        TwentyFive_PERCENT_3_ROUNDS = 2,
-        Fifty_PERCENT_2_ROUNDS = 3,
-        SeventyFive_PERCENT_1_ROUND = 4
+        public static readonly ItemPropertyOnHitDurationType FivePercent5Rounds = new(0);
+        public static readonly ItemPropertyOnHitDurationType TenPercent4Rounds = new(1);
+        public static readonly ItemPropertyOnHitDurationType TwentyFivePercent3Rounds = new(2);
+        public static readonly ItemPropertyOnHitDurationType FiftyPercent2Rounds = new(3);
+        public static readonly ItemPropertyOnHitDurationType SeventyFivePercent1Round = new(4);
+
+        public ItemPropertyOnHitDurationType(int internalValue) : base(internalValue)
+        {
+        }
     }
 }

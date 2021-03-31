@@ -1,12 +1,16 @@
 namespace NWN.Framework.Lite.Enum
 {
-    public enum ItemPropertyPoisonOneDTwoType
+    public class ItemPropertyPoisonOneDTwoType: NWEnumBase<int>
     {
-        StrengthDamage,
-        DexterityDamage,
-        ConstitutionDamage,
-        IntelligenceDamage,
-        WisdomDamage,
-        CharismaDamage
+        public static readonly ItemPropertyPoisonOneDTwoType StrengthDamage = new(0);
+        public static readonly ItemPropertyPoisonOneDTwoType DexterityDamage = new(1);
+        public static readonly ItemPropertyPoisonOneDTwoType ConstitutionDamage = new(2);
+        public static readonly ItemPropertyPoisonOneDTwoType IntelligenceDamage = new(3);
+        public static readonly ItemPropertyPoisonOneDTwoType WisdomDamage = new(4);
+        public static readonly ItemPropertyPoisonOneDTwoType CharismaDamage = new(5);
+
+        public ItemPropertyPoisonOneDTwoType(int internalValue) : base(internalValue)
+        {
+        }
     }
 }

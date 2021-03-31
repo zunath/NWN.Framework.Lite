@@ -1,6 +1,6 @@
 ﻿namespace NWN.Framework.Lite.Enum
 {
-    public class VoiceChatType
+    public class VoiceChatType: NWEnumBase<int>
     {
         public static readonly VoiceChatType Attack = new(0);
         public static readonly VoiceChatType BadIdea = new(47);
@@ -51,8 +51,9 @@
         public static readonly VoiceChatType Threaten = new(48);
         public static readonly VoiceChatType WeaponSucks = new(21);
         public static readonly VoiceChatType Yes = new(35);
-        public int InternalValue { get; protected set; }
 
-        public VoiceChatType(int internalValue) => InternalValue = internalValue;
+        public VoiceChatType(int internalValue) : base(internalValue)
+        {
+        }
     }
 }

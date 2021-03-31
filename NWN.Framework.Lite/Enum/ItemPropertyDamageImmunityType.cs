@@ -1,13 +1,17 @@
 namespace NWN.Framework.Lite.Enum
 {
-    public enum ItemPropertyDamageImmunityType
+    public class ItemPropertyDamageImmunityType: NWEnumBase<int>
     {
-        FivePercent = 1,
-        TenPercent = 2,
-        TwentyFivePercent = 3,
-        FiftyPercent = 4,
-        SeventyFivePercent = 5,
-        NinetyPercent = 6,
-        OneHundredPercent = 7
+        public static readonly ItemPropertyDamageImmunityType FivePercent = new(1);
+        public static readonly ItemPropertyDamageImmunityType TenPercent = new(2);
+        public static readonly ItemPropertyDamageImmunityType TwentyFivePercent = new(3);
+        public static readonly ItemPropertyDamageImmunityType FiftyPercent = new(4);
+        public static readonly ItemPropertyDamageImmunityType SeventyFivePercent = new(5);
+        public static readonly ItemPropertyDamageImmunityType NinetyPercent = new(6);
+        public static readonly ItemPropertyDamageImmunityType OneHundredPercent = new(7);
+
+        public ItemPropertyDamageImmunityType(int internalValue) : base(internalValue)
+        {
+        }
     }
 }

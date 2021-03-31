@@ -1,16 +1,20 @@
 namespace NWN.Framework.Lite.Enum
 {
-    public enum ItemPropertyDamageSoakType
+    public class ItemPropertyDamageSoakType: NWEnumBase<int>
     {
-        Five_HP = 1,
-        Ten_HP = 2,
-        Fifteen_HP = 3,
-        Twenty_HP = 4,
-        TwentyFive_HP = 5,
-        Thirty_HP = 6,
-        ThirtyFive_HP = 7,
-        Fourty_HP = 8,
-        FiftyFive_HP = 9,
-        Fifty_HP = 10
+        public static readonly ItemPropertyDamageSoakType FiveHP = new(1);
+        public static readonly ItemPropertyDamageSoakType TenHP = new(2);
+        public static readonly ItemPropertyDamageSoakType FifteenHP = new(3);
+        public static readonly ItemPropertyDamageSoakType TwentyHP = new(4);
+        public static readonly ItemPropertyDamageSoakType TwentyFiveHP = new(5);
+        public static readonly ItemPropertyDamageSoakType ThirtyHP = new(6);
+        public static readonly ItemPropertyDamageSoakType ThirtyFiveHP = new(7);
+        public static readonly ItemPropertyDamageSoakType FortyHP = new(8);
+        public static readonly ItemPropertyDamageSoakType FiftyFiveHP = new(9);
+        public static readonly ItemPropertyDamageSoakType FiftyHP = new(10);
+
+        public ItemPropertyDamageSoakType(int internalValue) : base(internalValue)
+        {
+        }
     }
 }

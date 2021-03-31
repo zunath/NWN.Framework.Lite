@@ -1,22 +1,26 @@
 namespace NWN.Framework.Lite.Enum
 {
-    public enum ItemPropertyQualityType
+    public class ItemPropertyQualityType: NWEnumBase<int>
     {
-        Unkown = 0,
-        Destroyed = 1,
-        Ruined = 2,
-        VeryPoor = 3,
-        Poor = 4,
-        BelowAverage = 5,
-        Average = 6,
-        AboveAverage = 7,
-        Good = 8,
-        VeryGood = 9,
-        Excellent = 10,
-        Masterwork = 11,
-        GodLike = 12,
-        Raw = 13,
-        Cut = 14,
-        Polished = 15
+        public static readonly ItemPropertyQualityType Unknown = new(0);
+        public static readonly ItemPropertyQualityType Destroyed = new(1);
+        public static readonly ItemPropertyQualityType Ruined = new(2);
+        public static readonly ItemPropertyQualityType VeryPoor = new(3);
+        public static readonly ItemPropertyQualityType Poor = new(4);
+        public static readonly ItemPropertyQualityType BelowAverage = new(5);
+        public static readonly ItemPropertyQualityType Average = new(6);
+        public static readonly ItemPropertyQualityType AboveAverage = new(7);
+        public static readonly ItemPropertyQualityType Good = new(8);
+        public static readonly ItemPropertyQualityType VeryGood = new(9);
+        public static readonly ItemPropertyQualityType Excellent = new(10);
+        public static readonly ItemPropertyQualityType Masterwork = new(11);
+        public static readonly ItemPropertyQualityType GodLike = new(12);
+        public static readonly ItemPropertyQualityType Raw = new(13);
+        public static readonly ItemPropertyQualityType Cut = new(14);
+        public static readonly ItemPropertyQualityType Polished = new(15);
+
+        public ItemPropertyQualityType(int internalValue) : base(internalValue)
+        {
+        }
     }
 }

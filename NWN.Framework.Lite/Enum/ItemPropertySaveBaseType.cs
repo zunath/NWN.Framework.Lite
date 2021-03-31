@@ -1,9 +1,13 @@
 namespace NWN.Framework.Lite.Enum
 {
-    public enum ItemPropertySaveBaseType
+    public class ItemPropertySaveBaseType: NWEnumBase<int>
     {
-        Fortitude = 1,
-        Will = 2,
-        Reflex = 3
+        public static readonly ItemPropertySaveBaseType Fortitude = new(1);
+        public static readonly ItemPropertySaveBaseType Will = new(2);
+        public static readonly ItemPropertySaveBaseType Reflex = new(3);
+
+        public ItemPropertySaveBaseType(int internalValue) : base(internalValue)
+        {
+        }
     }
 }

@@ -1,26 +1,30 @@
 namespace NWN.Framework.Lite.Enum
 {
-    public enum ItemPropertyDamageBonusType
+    public class ItemPropertyDamageBonusType: NWEnumBase<int>
     {
-        DAMAGEBONUS_1 = 1,
-        DAMAGEBONUS_2 = 2,
-        DAMAGEBONUS_3 = 3,
-        DAMAGEBONUS_4 = 4,
-        DAMAGEBONUS_5 = 5,
-        DAMAGEBONUS_1d4 = 6,
-        DAMAGEBONUS_1d6 = 7,
-        DAMAGEBONUS_1d8 = 8,
-        DAMAGEBONUS_1d10 = 9,
-        DAMAGEBONUS_2d6 = 10,
-        DAMAGEBONUS_2d8 = 11,
-        DAMAGEBONUS_2d4 = 12,
-        DAMAGEBONUS_2d10 = 13,
-        DAMAGEBONUS_1d12 = 14,
-        DAMAGEBONUS_2d12 = 15,
-        DAMAGEBONUS_6 = 16,
-        DAMAGEBONUS_7 = 17,
-        DAMAGEBONUS_8 = 18,
-        DAMAGEBONUS_9 = 19,
-        DAMAGEBONUS_10 = 20
+        public static readonly ItemPropertyDamageBonusType DamageBonus1 = new(1);
+        public static readonly ItemPropertyDamageBonusType DamageBonus2 = new(2);
+        public static readonly ItemPropertyDamageBonusType DamageBonus3 = new(3);
+        public static readonly ItemPropertyDamageBonusType DamageBonus4 = new(4);
+        public static readonly ItemPropertyDamageBonusType DamageBonus5 = new(5);
+        public static readonly ItemPropertyDamageBonusType DamageBonus1d4 = new(6);
+        public static readonly ItemPropertyDamageBonusType DamageBonus1d6 = new(7);
+        public static readonly ItemPropertyDamageBonusType DamageBonus1d8 = new(8);
+        public static readonly ItemPropertyDamageBonusType DamageBonus1d10 = new(9);
+        public static readonly ItemPropertyDamageBonusType DamageBonus2d6 = new(10);
+        public static readonly ItemPropertyDamageBonusType DamageBonus2d8 = new(11);
+        public static readonly ItemPropertyDamageBonusType DamageBonus2d4 = new(12);
+        public static readonly ItemPropertyDamageBonusType DamageBonus2d10 = new(13);
+        public static readonly ItemPropertyDamageBonusType DamageBonus1d12 = new(14);
+        public static readonly ItemPropertyDamageBonusType DamageBonus2d12 = new(15);
+        public static readonly ItemPropertyDamageBonusType DamageBonus6 = new(16);
+        public static readonly ItemPropertyDamageBonusType DamageBonus7 = new(17);
+        public static readonly ItemPropertyDamageBonusType DamageBonus8 = new(18);
+        public static readonly ItemPropertyDamageBonusType DamageBonus9 = new(19);
+        public static readonly ItemPropertyDamageBonusType DamageBonus10 = new(20);
+
+        public ItemPropertyDamageBonusType(int internalValue) : base(internalValue)
+        {
+        }
     }
 }

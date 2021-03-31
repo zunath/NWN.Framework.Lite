@@ -1,12 +1,16 @@
 namespace NWN.Framework.Lite.Enum
 {
-    public enum ItemPropertyWeightIncreaseType
+    public class ItemPropertyWeightIncreaseType: NWEnumBase<int>
     {
-        FivePounds = 0,
-        TenPounds = 1,
-        FifteenPounds = 2,
-        ThirtyPounds = 3,
-        FiftyPounds = 4,
-        HundredPounds = 5
+        public static readonly ItemPropertyWeightIncreaseType FivePounds = new(0);
+        public static readonly ItemPropertyWeightIncreaseType TenPounds = new(1);
+        public static readonly ItemPropertyWeightIncreaseType FifteenPounds = new(2);
+        public static readonly ItemPropertyWeightIncreaseType ThirtyPounds = new(3);
+        public static readonly ItemPropertyWeightIncreaseType FiftyPounds = new(4);
+        public static readonly ItemPropertyWeightIncreaseType HundredPounds = new(5);
+
+        public ItemPropertyWeightIncreaseType(int internalValue) : base(internalValue)
+        {
+        }
     }
 }
