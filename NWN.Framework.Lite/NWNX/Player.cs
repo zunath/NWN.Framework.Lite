@@ -442,7 +442,7 @@ namespace NWN.Framework.Lite.NWNX
         {
             Internal.NativeFunctions.nwnxSetFunction(PLUGIN_NAME, "SetObjectMouseCursorOverride");
 
-            Internal.NativeFunctions.nwnxPushInt((int)nCursor);
+            Internal.NativeFunctions.nwnxPushInt(nCursor.InternalValue);
             Internal.NativeFunctions.nwnxPushObject(oObject);
             Internal.NativeFunctions.nwnxPushObject(oPlayer);
 

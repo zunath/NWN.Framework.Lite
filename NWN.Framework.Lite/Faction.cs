@@ -256,7 +256,7 @@ namespace NWN.Framework.Lite
         {
             Internal.NativeFunctions.StackPushObject(oCreature);
             Internal.NativeFunctions.StackPushInteger(nNewReputation);
-            Internal.NativeFunctions.StackPushInteger((int)nStandardFaction);
+            Internal.NativeFunctions.StackPushInteger(nStandardFaction.InternalValue);
             Internal.NativeFunctions.CallBuiltIn(523);
         }
 
@@ -273,7 +273,7 @@ namespace NWN.Framework.Lite
         public static int GetStandardFactionReputation(StandardFactionType nStandardFaction, uint oCreature = OBJECT_INVALID)
         {
             Internal.NativeFunctions.StackPushObject(oCreature);
-            Internal.NativeFunctions.StackPushInteger((int)nStandardFaction);
+            Internal.NativeFunctions.StackPushInteger(nStandardFaction.InternalValue);
             Internal.NativeFunctions.CallBuiltIn(524);
             return Internal.NativeFunctions.StackPopInteger();
         }
@@ -285,7 +285,7 @@ namespace NWN.Framework.Lite
         /// </summary>
         public static void ChangeToStandardFaction(uint oCreatureToChange, StandardFactionType nStandardFaction)
         {
-            Internal.NativeFunctions.StackPushInteger((int)nStandardFaction);
+            Internal.NativeFunctions.StackPushInteger(nStandardFaction.InternalValue);
             Internal.NativeFunctions.StackPushObject(oCreatureToChange);
             Internal.NativeFunctions.CallBuiltIn(412);
         }

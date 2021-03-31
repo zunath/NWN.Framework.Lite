@@ -376,17 +376,15 @@ namespace NWN.Framework.Lite
         ///   the end-user to simulate a high-level magic-user having lots of advance
         ///   warning of impending trouble
         /// </summary>
-        public static void ActionCastSpellAtObject(SpellType nSpell, uint oTarget, MetaMagicType nMetaMagic = MetaMagicType.Any,
-            bool nCheat = false, int nDomainLevel = 0,
-            ProjectilePathType nProjectilePathType = ProjectilePathType.Default, bool bInstantSpell = false)
+        public static void ActionCastSpellAtObject(SpellType nSpell, uint oTarget, MetaMagicType nMetaMagic, bool nCheat, int nDomainLevel, ProjectilePathType nProjectilePathType, bool bInstantSpell = false)
         {
             Internal.NativeFunctions.StackPushInteger(bInstantSpell ? 1 : 0);
-            Internal.NativeFunctions.StackPushInteger((int)nProjectilePathType);
+            Internal.NativeFunctions.StackPushInteger(nProjectilePathType.InternalValue);
             Internal.NativeFunctions.StackPushInteger(nDomainLevel);
             Internal.NativeFunctions.StackPushInteger(nCheat ? 1 : 0);
-            Internal.NativeFunctions.StackPushInteger((int)nMetaMagic);
+            Internal.NativeFunctions.StackPushInteger(nMetaMagic.InternalValue);
             Internal.NativeFunctions.StackPushObject(oTarget);
-            Internal.NativeFunctions.StackPushInteger((int)nSpell);
+            Internal.NativeFunctions.StackPushInteger(nSpell.InternalValue);
             Internal.NativeFunctions.CallBuiltIn(48);
         }
 
@@ -631,11 +629,10 @@ namespace NWN.Framework.Lite
         ///   Note: If used within an Area of Effect Object Script (On Enter, OnExit, OnHeartbeat), you MUST pass
         ///   GetAreaOfEffectCreator() into oSaveVersus!!
         /// </summary>
-        public static int FortitudeSave(uint oCreature, int nDC, SavingThrowType nSaveType = SavingThrowType.All,
-            uint oSaveVersus = OBJECT_INVALID)
+        public static int FortitudeSave(uint oCreature, int nDC, SavingThrowType nSaveType, uint oSaveVersus = OBJECT_INVALID)
         {
             Internal.NativeFunctions.StackPushObject(oSaveVersus);
-            Internal.NativeFunctions.StackPushInteger((int)nSaveType);
+            Internal.NativeFunctions.StackPushInteger(nSaveType.InternalValue);
             Internal.NativeFunctions.StackPushInteger(nDC);
             Internal.NativeFunctions.StackPushObject(oCreature);
             Internal.NativeFunctions.CallBuiltIn(108);
@@ -654,15 +651,14 @@ namespace NWN.Framework.Lite
         ///   Note: If used within an Area of Effect Object Script (On Enter, OnExit, OnHeartbeat), you MUST pass
         ///   GetAreaOfEffectCreator() into oSaveVersus!!
         /// </summary>
-        public static SaveReturnType ReflexSave(uint oCreature, int nDC, SavingThrowType nSaveType = SavingThrowType.All,
-            uint oSaveVersus = OBJECT_INVALID)
+        public static SaveReturnType ReflexSave(uint oCreature, int nDC, SavingThrowType nSaveType, uint oSaveVersus = OBJECT_INVALID)
         {
             Internal.NativeFunctions.StackPushObject(oSaveVersus);
-            Internal.NativeFunctions.StackPushInteger((int)nSaveType);
+            Internal.NativeFunctions.StackPushInteger(nSaveType.InternalValue);
             Internal.NativeFunctions.StackPushInteger(nDC);
             Internal.NativeFunctions.StackPushObject(oCreature);
             Internal.NativeFunctions.CallBuiltIn(109);
-            return (SaveReturnType)Internal.NativeFunctions.StackPopInteger();
+            return new SaveReturnType(Internal.NativeFunctions.StackPopInteger());
         }
 
         /// <summary>
@@ -677,11 +673,10 @@ namespace NWN.Framework.Lite
         ///   Note: If used within an Area of Effect Object Script (On Enter, OnExit, OnHeartbeat), you MUST pass
         ///   GetAreaOfEffectCreator() into oSaveVersus!!
         /// </summary>
-        public static int WillSave(uint oCreature, int nDC, SavingThrowType nSaveType = SavingThrowType.All,
-            uint oSaveVersus = OBJECT_INVALID)
+        public static int WillSave(uint oCreature, int nDC, SavingThrowType nSaveType, uint oSaveVersus = OBJECT_INVALID)
         {
             Internal.NativeFunctions.StackPushObject(oSaveVersus);
-            Internal.NativeFunctions.StackPushInteger((int)nSaveType);
+            Internal.NativeFunctions.StackPushInteger(nSaveType.InternalValue);
             Internal.NativeFunctions.StackPushInteger(nDC);
             Internal.NativeFunctions.StackPushObject(oCreature);
             Internal.NativeFunctions.CallBuiltIn(110);
@@ -725,15 +720,14 @@ namespace NWN.Framework.Lite
         ///   origin of the effect(normally the spell-caster's position).
         ///   Return value on error: OBJECT_INVALID
         /// </summary>
-        public static uint GetFirstObjectInShape(ShapeType nShape, float fSize, Location lTarget, bool bLineOfSight = false,
-            ObjectType nObjectFilter = ObjectType.Creature, Vector3 vOrigin = default)
+        public static uint GetFirstObjectInShape(ShapeType nShape, float fSize, Location lTarget, bool bLineOfSight, ObjectType nObjectFilter, Vector3 vOrigin = default)
         {
             Internal.NativeFunctions.StackPushVector(vOrigin);
-            Internal.NativeFunctions.StackPushInteger((int)nObjectFilter);
+            Internal.NativeFunctions.StackPushInteger(nObjectFilter.InternalValue);
             Internal.NativeFunctions.StackPushInteger(bLineOfSight ? 1 : 0);
             Internal.NativeFunctions.StackPushGameDefinedStructure((int)EngineStructureType.Location, lTarget);
             Internal.NativeFunctions.StackPushFloat(fSize);
-            Internal.NativeFunctions.StackPushInteger((int)nShape);
+            Internal.NativeFunctions.StackPushInteger(nShape.InternalValue);
             Internal.NativeFunctions.CallBuiltIn(128);
             return Internal.NativeFunctions.StackPopObject();
         }
@@ -764,15 +758,14 @@ namespace NWN.Framework.Lite
         ///   of the effect (normally the spell-caster's position).
         ///   Return value on error: OBJECT_INVALID
         /// </summary>
-        public static uint GetNextObjectInShape(ShapeType nShape, float fSize, Location lTarget, bool bLineOfSight = false,
-            ObjectType nObjectFilter = ObjectType.Creature, Vector3 vOrigin = default)
+        public static uint GetNextObjectInShape(ShapeType nShape, float fSize, Location lTarget, bool bLineOfSight, ObjectType nObjectFilter, Vector3 vOrigin = default)
         {
             Internal.NativeFunctions.StackPushVector(vOrigin);
-            Internal.NativeFunctions.StackPushInteger((int)nObjectFilter);
+            Internal.NativeFunctions.StackPushInteger(nObjectFilter.InternalValue);
             Internal.NativeFunctions.StackPushInteger(bLineOfSight ? 1 : 0);
             Internal.NativeFunctions.StackPushGameDefinedStructure((int)EngineStructureType.Location, lTarget);
             Internal.NativeFunctions.StackPushFloat(fSize);
-            Internal.NativeFunctions.StackPushInteger((int)nShape);
+            Internal.NativeFunctions.StackPushInteger(nShape.InternalValue);
             Internal.NativeFunctions.CallBuiltIn(129);
             return Internal.NativeFunctions.StackPopObject();
         }
@@ -1290,16 +1283,14 @@ namespace NWN.Framework.Lite
         ///   the end-user to simulate
         ///   a high-level magic user having lots of advance warning of impending trouble.
         /// </summary>
-        public static void ActionCastSpellAtLocation(SpellType nSpell, Location lTargetLocation,
-            MetaMagicType nMetaMagic = MetaMagicType.Any, bool bCheat = false,
-            ProjectilePathType nProjectilePathType = ProjectilePathType.Default, bool bInstantSpell = false)
+        public static void ActionCastSpellAtLocation(SpellType nSpell, Location lTargetLocation, MetaMagicType nMetaMagic, bool bCheat, ProjectilePathType nProjectilePathType, bool bInstantSpell = false)
         {
             Internal.NativeFunctions.StackPushInteger(bInstantSpell ? 1 : 0);
-            Internal.NativeFunctions.StackPushInteger((int)nProjectilePathType);
+            Internal.NativeFunctions.StackPushInteger(nProjectilePathType.InternalValue);
             Internal.NativeFunctions.StackPushInteger(bCheat ? 1 : 0);
-            Internal.NativeFunctions.StackPushInteger((int)nMetaMagic);
+            Internal.NativeFunctions.StackPushInteger(nMetaMagic.InternalValue);
             Internal.NativeFunctions.StackPushGameDefinedStructure((int)EngineStructureType.Location, lTargetLocation);
-            Internal.NativeFunctions.StackPushInteger((int)nSpell);
+            Internal.NativeFunctions.StackPushInteger(nSpell.InternalValue);
             Internal.NativeFunctions.CallBuiltIn(234);
         }
 
@@ -1365,7 +1356,7 @@ namespace NWN.Framework.Lite
         public static Event EventSpellCastAt(uint oCaster, SpellType nSpell, bool bHarmful = true)
         {
             Internal.NativeFunctions.StackPushInteger(bHarmful ? 1 : 0);
-            Internal.NativeFunctions.StackPushInteger((int)nSpell);
+            Internal.NativeFunctions.StackPushInteger(nSpell.InternalValue);
             Internal.NativeFunctions.StackPushObject(oCaster);
             Internal.NativeFunctions.CallBuiltIn(244);
             return Internal.NativeFunctions.StackPopGameDefinedStructure((int)EngineStructureType.Event);
@@ -1415,9 +1406,9 @@ namespace NWN.Framework.Lite
         ///   Generate a random name.
         ///   nNameType: The type of random name to be generated (NAME_*)
         /// </summary>
-        public static string RandomName(RandomNameType nNameType = RandomNameType.FirstGenericMale)
+        public static string RandomName(RandomNameType nNameType)
         {
-            Internal.NativeFunctions.StackPushInteger((int)nNameType);
+            Internal.NativeFunctions.StackPushInteger(nNameType.InternalValue);
             Internal.NativeFunctions.CallBuiltIn(249);
             return Internal.NativeFunctions.StackPopStringUTF8();
         }
@@ -1531,12 +1522,10 @@ namespace NWN.Framework.Lite
         ///   PERSISTENT_ZONE_FOLLOW, but this is no longer used.]
         ///   * Returns OBJECT_INVALID if no object is found.
         /// </summary>
-        public static uint GetFirstInPersistentObject(uint oPersistentObject = OBJECT_INVALID,
-            ObjectType nResidentObjectType = ObjectType.Creature,
-            PersistentZoneType nPersistentZone = PersistentZoneType.Active)
+        public static uint GetFirstInPersistentObject(uint oPersistentObject, ObjectType nResidentObjectType, PersistentZoneType nPersistentZone)
         {
-            Internal.NativeFunctions.StackPushInteger((int)nPersistentZone);
-            Internal.NativeFunctions.StackPushInteger((int)nResidentObjectType);
+            Internal.NativeFunctions.StackPushInteger(nPersistentZone.InternalValue);
+            Internal.NativeFunctions.StackPushInteger(nResidentObjectType.InternalValue);
             Internal.NativeFunctions.StackPushObject(oPersistentObject);
             Internal.NativeFunctions.CallBuiltIn(262);
             return Internal.NativeFunctions.StackPopObject();
@@ -1550,12 +1539,10 @@ namespace NWN.Framework.Lite
         ///   PERSISTENT_ZONE_FOLLOW, but this is no longer used.]
         ///   * Returns OBJECT_INVALID if no object is found.
         /// </summary>
-        public static uint GetNextInPersistentObject(uint oPersistentObject = OBJECT_INVALID,
-            ObjectType nResidentObjectType = ObjectType.Creature,
-            PersistentZoneType nPersistentZone = PersistentZoneType.Active)
+        public static uint GetNextInPersistentObject(uint oPersistentObject, ObjectType nResidentObjectType, PersistentZoneType nPersistentZone)
         {
-            Internal.NativeFunctions.StackPushInteger((int)nPersistentZone);
-            Internal.NativeFunctions.StackPushInteger((int)nResidentObjectType);
+            Internal.NativeFunctions.StackPushInteger(nPersistentZone.InternalValue);
+            Internal.NativeFunctions.StackPushInteger(nResidentObjectType.InternalValue);
             Internal.NativeFunctions.StackPushObject(oPersistentObject);
             Internal.NativeFunctions.CallBuiltIn(263);
             return Internal.NativeFunctions.StackPopObject();
@@ -1749,7 +1736,7 @@ namespace NWN.Framework.Lite
         public static bool GetHasSkill(SkillType nSkill, uint oCreature = OBJECT_INVALID)
         {
             Internal.NativeFunctions.StackPushObject(oCreature);
-            Internal.NativeFunctions.StackPushInteger((int)nSkill);
+            Internal.NativeFunctions.StackPushInteger(nSkill.InternalValue);
             Internal.NativeFunctions.CallBuiltIn(286);
             return Internal.NativeFunctions.StackPopInteger() != 0;
         }
@@ -1774,13 +1761,12 @@ namespace NWN.Framework.Lite
         ///   - nSubSkill: SUBSKILL_*
         ///   - oItemUsed: Item to use in conjunction with the skill
         /// </summary>
-        public static void ActionUseSkill(SkillType nSkill, uint oTarget, SubSkillType nSubSkill = SubSkillType.None,
-            uint oItemUsed = OBJECT_INVALID)
+        public static void ActionUseSkill(SkillType nSkill, uint oTarget, SubSkillType nSubSkill, uint oItemUsed = OBJECT_INVALID)
         {
             Internal.NativeFunctions.StackPushObject(oItemUsed);
-            Internal.NativeFunctions.StackPushInteger((int)nSubSkill);
+            Internal.NativeFunctions.StackPushInteger(nSubSkill.InternalValue);
             Internal.NativeFunctions.StackPushObject(oTarget);
-            Internal.NativeFunctions.StackPushInteger((int)nSkill);
+            Internal.NativeFunctions.StackPushInteger(nSkill.InternalValue);
             Internal.NativeFunctions.CallBuiltIn(288);
         }
 
@@ -1882,11 +1868,10 @@ namespace NWN.Framework.Lite
         ///   - nSaveType: SAVING_THROW_TYPE_*
         ///   - oSaveVersus
         /// </summary>
-        public static int GetReflexAdjustedDamage(int nDamage, uint oTarget, int nDC,
-            SavingThrowType nSaveType = SavingThrowType.All, uint oSaveVersus = OBJECT_INVALID)
+        public static int GetReflexAdjustedDamage(int nDamage, uint oTarget, int nDC, SavingThrowType nSaveType, uint oSaveVersus = OBJECT_INVALID)
         {
             Internal.NativeFunctions.StackPushObject(oSaveVersus);
-            Internal.NativeFunctions.StackPushInteger((int)nSaveType);
+            Internal.NativeFunctions.StackPushInteger(nSaveType.InternalValue);
             Internal.NativeFunctions.StackPushInteger(nDC);
             Internal.NativeFunctions.StackPushObject(oTarget);
             Internal.NativeFunctions.StackPushInteger(nDamage);
@@ -1914,7 +1899,7 @@ namespace NWN.Framework.Lite
         /// </summary>
         public static Talent TalentSpell(SpellType nSpell)
         {
-            Internal.NativeFunctions.StackPushInteger((int)nSpell);
+            Internal.NativeFunctions.StackPushInteger(nSpell.InternalValue);
             Internal.NativeFunctions.CallBuiltIn(301);
             return Internal.NativeFunctions.StackPopGameDefinedStructure((int)EngineStructureType.Talent);
         }
@@ -1936,7 +1921,7 @@ namespace NWN.Framework.Lite
         /// </summary>
         public static Talent TalentSkill(SkillType nSkill)
         {
-            Internal.NativeFunctions.StackPushInteger((int)nSkill);
+            Internal.NativeFunctions.StackPushInteger(nSkill.InternalValue);
             Internal.NativeFunctions.CallBuiltIn(303);
             return Internal.NativeFunctions.StackPopGameDefinedStructure((int)EngineStructureType.Talent);
         }
@@ -1952,7 +1937,7 @@ namespace NWN.Framework.Lite
         public static bool GetHasSpellEffect(SpellType nSpell, uint oObject = OBJECT_INVALID)
         {
             Internal.NativeFunctions.StackPushObject(oObject);
-            Internal.NativeFunctions.StackPushInteger((int)nSpell);
+            Internal.NativeFunctions.StackPushInteger(nSpell.InternalValue);
             Internal.NativeFunctions.CallBuiltIn(304);
             return Internal.NativeFunctions.StackPopInteger() != 0;
         }
@@ -1987,7 +1972,7 @@ namespace NWN.Framework.Lite
         public static Talent GetCreatureTalentRandom(TalentCategoryType nCategory, uint oCreature = OBJECT_INVALID)
         {
             Internal.NativeFunctions.StackPushObject(oCreature);
-            Internal.NativeFunctions.StackPushInteger((int)nCategory);
+            Internal.NativeFunctions.StackPushInteger(nCategory.InternalValue);
             Internal.NativeFunctions.CallBuiltIn(307);
             return Internal.NativeFunctions.StackPopGameDefinedStructure((int)EngineStructureType.Talent);
         }
@@ -2004,7 +1989,7 @@ namespace NWN.Framework.Lite
         {
             Internal.NativeFunctions.StackPushObject(oCreature);
             Internal.NativeFunctions.StackPushInteger(nCRMax);
-            Internal.NativeFunctions.StackPushInteger((int)nCategory);
+            Internal.NativeFunctions.StackPushInteger(nCategory.InternalValue);
             Internal.NativeFunctions.CallBuiltIn(308);
             return Internal.NativeFunctions.StackPopGameDefinedStructure((int)EngineStructureType.Talent);
         }
@@ -2061,7 +2046,7 @@ namespace NWN.Framework.Lite
         {
             Internal.NativeFunctions.StackPushInteger(nBaseSkillRank ? 1 : 0);
             Internal.NativeFunctions.StackPushObject(oTarget);
-            Internal.NativeFunctions.StackPushInteger((int)nSkill);
+            Internal.NativeFunctions.StackPushInteger(nSkill.InternalValue);
             Internal.NativeFunctions.CallBuiltIn(315);
             return Internal.NativeFunctions.StackPopInteger();
         }
@@ -2085,7 +2070,7 @@ namespace NWN.Framework.Lite
         {
             Internal.NativeFunctions.StackPushObject(oCreature);
             Internal.NativeFunctions.CallBuiltIn(317);
-            return (SpecialAttackType)Internal.NativeFunctions.StackPopInteger();
+            return new SpecialAttackType(Internal.NativeFunctions.StackPopInteger());
         }
 
         /// <summary>
@@ -2451,10 +2436,9 @@ namespace NWN.Framework.Lite
         ///   - oTarget
         ///   - nProjectilePathType: PROJECTILE_PATH_TYPE_*
         /// </summary>
-        public static void ActionCastFakeSpellAtObject(int nSpell, uint oTarget,
-            ProjectilePathType nProjectilePathType = ProjectilePathType.Default)
+        public static void ActionCastFakeSpellAtObject(int nSpell, uint oTarget, ProjectilePathType nProjectilePathType)
         {
-            Internal.NativeFunctions.StackPushInteger((int)nProjectilePathType);
+            Internal.NativeFunctions.StackPushInteger(nProjectilePathType.InternalValue);
             Internal.NativeFunctions.StackPushObject(oTarget);
             Internal.NativeFunctions.StackPushInteger(nSpell);
             Internal.NativeFunctions.CallBuiltIn(501);
@@ -2467,10 +2451,9 @@ namespace NWN.Framework.Lite
         ///   - lTarget
         ///   - nProjectilePathType: PROJECTILE_PATH_TYPE_*
         /// </summary>
-        public static void ActionCastFakeSpellAtLocation(int nSpell, Location lTarget,
-            ProjectilePathType nProjectilePathType = ProjectilePathType.Default)
+        public static void ActionCastFakeSpellAtLocation(int nSpell, Location lTarget, ProjectilePathType nProjectilePathType)
         {
-            Internal.NativeFunctions.StackPushInteger((int)nProjectilePathType);
+            Internal.NativeFunctions.StackPushInteger(nProjectilePathType.InternalValue);
             Internal.NativeFunctions.StackPushGameDefinedStructure((int)EngineStructureType.Location, lTarget);
             Internal.NativeFunctions.StackPushInteger(nSpell);
             Internal.NativeFunctions.CallBuiltIn(502);
@@ -3192,7 +3175,7 @@ namespace NWN.Framework.Lite
         /// </summary>
         public static float GetObjectVisualTransform(uint oObject, ObjectVisualTransformType nTransform)
         {
-            Internal.NativeFunctions.StackPushInteger((int)nTransform);
+            Internal.NativeFunctions.StackPushInteger(nTransform.InternalValue);
             Internal.NativeFunctions.StackPushObject(oObject);
             Internal.NativeFunctions.CallBuiltIn(887);
             return Internal.NativeFunctions.StackPopFloat();
@@ -3205,13 +3188,13 @@ namespace NWN.Framework.Lite
         /// - fValue depends on the transformation to apply.
         /// Returns the old/previous value.
         /// </summary>
-        public static float SetObjectVisualTransform(uint oObject, ObjectVisualTransformType nTransform, float fValue, LerpType nLerpType = LerpType.None, float fLerpDuration = 0.0f, bool bPauseWithGame = true)
+        public static float SetObjectVisualTransform(uint oObject, ObjectVisualTransformType nTransform, float fValue, LerpType nLerpType, float fLerpDuration = 0.0f, bool bPauseWithGame = true)
         {
             Internal.NativeFunctions.StackPushInteger(bPauseWithGame ? 1 : 0);
             Internal.NativeFunctions.StackPushFloat(fLerpDuration);
-            Internal.NativeFunctions.StackPushInteger((int)nLerpType);
+            Internal.NativeFunctions.StackPushInteger(nLerpType.InternalValue);
             Internal.NativeFunctions.StackPushFloat(fValue);
-            Internal.NativeFunctions.StackPushInteger((int)nTransform);
+            Internal.NativeFunctions.StackPushInteger(nTransform.InternalValue);
             Internal.NativeFunctions.StackPushObject(oObject);
             Internal.NativeFunctions.CallBuiltIn(888);
             return Internal.NativeFunctions.StackPopFloat();
@@ -3417,7 +3400,7 @@ namespace NWN.Framework.Lite
         /// <param name="RGBA2"></param>
         /// <param name="ID"></param>
         /// <param name="font"></param>
-        public static void PostString(uint PC, string Msg, int X = 0, int Y = 0, ScreenAnchorType anchor = ScreenAnchorType.TopLeft,
+        public static void PostString(uint PC, string Msg, int X, int Y, ScreenAnchorType anchor,
             float life = 10.0f, int RGBA = 2147418367, int RGBA2 = 2147418367, int ID = 0, string font = "")
         {
             Internal.NativeFunctions.StackPushStringUTF8(font);
@@ -3425,7 +3408,7 @@ namespace NWN.Framework.Lite
             Internal.NativeFunctions.StackPushInteger(RGBA2);
             Internal.NativeFunctions.StackPushInteger(RGBA);
             Internal.NativeFunctions.StackPushFloat(life);
-            Internal.NativeFunctions.StackPushInteger((int)anchor);
+            Internal.NativeFunctions.StackPushInteger(anchor.InternalValue);
             Internal.NativeFunctions.StackPushInteger(Y);
             Internal.NativeFunctions.StackPushInteger(X);
             Internal.NativeFunctions.StackPushStringUTF8(Msg);
@@ -3441,7 +3424,7 @@ namespace NWN.Framework.Lite
             Internal.NativeFunctions.StackPushInteger(playerClass.InternalValue);
             Internal.NativeFunctions.StackPushObject(creature);
             Internal.NativeFunctions.CallBuiltIn(902);
-            return (SpellSchoolType)Internal.NativeFunctions.StackPopInteger();
+            return new SpellSchoolType(Internal.NativeFunctions.StackPopInteger());
         }
 
         // Returns oCreature's domain in nClass (DOMAIN_* constants)
@@ -3498,11 +3481,11 @@ namespace NWN.Framework.Lite
         /// Makes oPC enter a targeting mode, letting them select an object as a target
         /// If a PC selects a target, it will trigger the module OnPlayerTarget event.
         /// </summary>
-        public static void EnterTargetingMode(uint oPC, ObjectType nValidObjectTypes = ObjectType.All, MouseCursorType nMouseCursorId = MouseCursorType.Magic, MouseCursorType nBadTargetCursor = MouseCursorType.NoMagic)
+        public static void EnterTargetingMode(uint oPC, ObjectType nValidObjectTypes, MouseCursorType nMouseCursorId, MouseCursorType nBadTargetCursor)
         {
-            Internal.NativeFunctions.StackPushInteger((int)nBadTargetCursor);
-            Internal.NativeFunctions.StackPushInteger((int)nMouseCursorId);
-            Internal.NativeFunctions.StackPushInteger((int)nValidObjectTypes);
+            Internal.NativeFunctions.StackPushInteger(nBadTargetCursor.InternalValue);
+            Internal.NativeFunctions.StackPushInteger(nMouseCursorId.InternalValue);
+            Internal.NativeFunctions.StackPushInteger(nValidObjectTypes.InternalValue);
             Internal.NativeFunctions.StackPushObject(oPC);
             Internal.NativeFunctions.CallBuiltIn(912);
         }
@@ -3549,9 +3532,9 @@ namespace NWN.Framework.Lite
         /// <summary>
         /// Sets the cursor (MOUSECURSOR_*) to use when hovering over oObject
         /// </summary>
-        public static void SetObjectMouseCursor(uint oObject, MouseCursorType nCursor = MouseCursorType.Invalid)
+        public static void SetObjectMouseCursor(uint oObject, MouseCursorType nCursor)
         {
-            Internal.NativeFunctions.StackPushInteger((int)nCursor);
+            Internal.NativeFunctions.StackPushInteger(nCursor.InternalValue);
             Internal.NativeFunctions.StackPushObject(oObject);
             Internal.NativeFunctions.CallBuiltIn(917);
         }

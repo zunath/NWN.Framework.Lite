@@ -39,7 +39,7 @@ namespace NWN.Framework.Lite
         public static RestEventType GetLastRestEventType()
         {
             Internal.NativeFunctions.CallBuiltIn(508);
-            return (RestEventType)Internal.NativeFunctions.StackPopInteger();
+            return new RestEventType(Internal.NativeFunctions.StackPopInteger());
         }
 
         /// <summary>

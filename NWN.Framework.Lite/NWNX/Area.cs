@@ -50,7 +50,7 @@ namespace NWN.Framework.Lite.NWNX
             Internal.NativeFunctions.nwnxSetFunction(PLUGIN_NAME, "GetPVPSetting");
             Internal.NativeFunctions.nwnxPushObject(area);
             Internal.NativeFunctions.nwnxCallFunction();
-            return (PvPSettingType)Internal.NativeFunctions.nwnxPopInt();
+            return new PvPSettingType(Internal.NativeFunctions.nwnxPopInt());
         }
 
         // Set the PVP setting of area
@@ -58,7 +58,7 @@ namespace NWN.Framework.Lite.NWNX
         public static void SetPVPSetting(uint area, PvPSettingType pvpSetting)
         {
             Internal.NativeFunctions.nwnxSetFunction(PLUGIN_NAME, "SetPVPSetting");
-            Internal.NativeFunctions.nwnxPushInt((int)pvpSetting);
+            Internal.NativeFunctions.nwnxPushInt(pvpSetting.InternalValue);
             Internal.NativeFunctions.nwnxPushObject(area);
             Internal.NativeFunctions.nwnxCallFunction();
         }

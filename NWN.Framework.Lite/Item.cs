@@ -329,7 +329,7 @@ namespace NWN.Framework.Lite
         /// </summary>
         public static bool GetItemHasItemProperty(uint oItem, ItemPropertyType nProperty)
         {
-            Internal.NativeFunctions.StackPushInteger((int)nProperty);
+            Internal.NativeFunctions.StackPushInteger(nProperty.InternalValue);
             Internal.NativeFunctions.StackPushObject(oItem);
             Internal.NativeFunctions.CallBuiltIn(398);
             return Internal.NativeFunctions.StackPopInteger() == 1;

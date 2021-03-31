@@ -67,7 +67,7 @@ namespace NWN.Framework.Lite
         {
             Internal.NativeFunctions.StackPushGameDefinedStructure((int)EngineStructureType.ItemProperty, ip);
             Internal.NativeFunctions.CallBuiltIn(614);
-            return (ItemPropertyType)Internal.NativeFunctions.StackPopInteger();
+            return new ItemPropertyType(Internal.NativeFunctions.StackPopInteger());
         }
 
         /// <summary>
@@ -131,7 +131,7 @@ namespace NWN.Framework.Lite
         public static ItemProperty ItemPropertyACBonusVsDmgType(ItemPropertyDamageType nDamageType, int ACBonus)
         {
             Internal.NativeFunctions.StackPushInteger(ACBonus);
-            Internal.NativeFunctions.StackPushInteger((int)nDamageType);
+            Internal.NativeFunctions.StackPushInteger(nDamageType.InternalValue);
             Internal.NativeFunctions.CallBuiltIn(619);
             return Internal.NativeFunctions.StackPopGameDefinedStructure((int)EngineStructureType.ItemProperty);
         }
@@ -145,7 +145,7 @@ namespace NWN.Framework.Lite
         public static ItemProperty ItemPropertyACBonusVsRace(RacialType nRace, int nACBonus)
         {
             Internal.NativeFunctions.StackPushInteger(nACBonus);
-            Internal.NativeFunctions.StackPushInteger((int)nRace);
+            Internal.NativeFunctions.StackPushInteger(nRace.InternalValue);
             Internal.NativeFunctions.CallBuiltIn(620);
             return Internal.NativeFunctions.StackPopGameDefinedStructure((int)EngineStructureType.ItemProperty);
         }
@@ -200,7 +200,7 @@ namespace NWN.Framework.Lite
         public static ItemProperty ItemPropertyEnhancementBonusVsRace(RacialType nRace, int nBonus)
         {
             Internal.NativeFunctions.StackPushInteger(nBonus);
-            Internal.NativeFunctions.StackPushInteger((int)nRace);
+            Internal.NativeFunctions.StackPushInteger(nRace.InternalValue);
             Internal.NativeFunctions.CallBuiltIn(624);
             return Internal.NativeFunctions.StackPopGameDefinedStructure((int)EngineStructureType.ItemProperty);
         }
@@ -238,7 +238,7 @@ namespace NWN.Framework.Lite
         /// </summary>
         public static ItemProperty ItemPropertyWeightReduction(ItemPropertyReducedWeightType nReduction)
         {
-            Internal.NativeFunctions.StackPushInteger((int)nReduction);
+            Internal.NativeFunctions.StackPushInteger(nReduction.InternalValue);
             Internal.NativeFunctions.CallBuiltIn(627);
             return Internal.NativeFunctions.StackPopGameDefinedStructure((int)EngineStructureType.ItemProperty);
         }
@@ -249,7 +249,7 @@ namespace NWN.Framework.Lite
         /// </summary>
         public static ItemProperty ItemPropertyBonusFeat(ItemPropertyFeatType nFeat)
         {
-            Internal.NativeFunctions.StackPushInteger((int)nFeat);
+            Internal.NativeFunctions.StackPushInteger(nFeat.InternalValue);
             Internal.NativeFunctions.CallBuiltIn(628);
             return Internal.NativeFunctions.StackPopGameDefinedStructure((int)EngineStructureType.ItemProperty);
         }
@@ -262,8 +262,8 @@ namespace NWN.Framework.Lite
         /// </summary>
         public static ItemProperty ItemPropertyBonusLevelSpell(ItemPropertyUseLimitationClassType nClass, ItemPropertySpellLevelType nSpellLevel)
         {
-            Internal.NativeFunctions.StackPushInteger((int)nSpellLevel);
-            Internal.NativeFunctions.StackPushInteger((int)nClass);
+            Internal.NativeFunctions.StackPushInteger(nSpellLevel.InternalValue);
+            Internal.NativeFunctions.StackPushInteger(nClass.InternalValue);
             Internal.NativeFunctions.CallBuiltIn(629);
             return Internal.NativeFunctions.StackPopGameDefinedStructure((int)EngineStructureType.ItemProperty);
         }
@@ -284,8 +284,8 @@ namespace NWN.Framework.Lite
         /// </summary>
         public static ItemProperty ItemPropertyCastSpell(ItemPropertyCastSpellType nSpell, ItemPropertyCastSpellNumberUsesType nNumUses)
         {
-            Internal.NativeFunctions.StackPushInteger((int)nNumUses);
-            Internal.NativeFunctions.StackPushInteger((int)nSpell);
+            Internal.NativeFunctions.StackPushInteger(nNumUses.InternalValue);
+            Internal.NativeFunctions.StackPushInteger(nSpell.InternalValue);
             Internal.NativeFunctions.CallBuiltIn(630);
             return Internal.NativeFunctions.StackPopGameDefinedStructure((int)EngineStructureType.ItemProperty);
         }
@@ -299,8 +299,8 @@ namespace NWN.Framework.Lite
         public static ItemProperty ItemPropertyDamageBonus(ItemPropertyDamageType nDamageType,
             ItemPropertyDamageBonusType nDamage)
         {
-            Internal.NativeFunctions.StackPushInteger((int)nDamage);
-            Internal.NativeFunctions.StackPushInteger((int)nDamageType);
+            Internal.NativeFunctions.StackPushInteger(nDamage.InternalValue);
+            Internal.NativeFunctions.StackPushInteger(nDamageType.InternalValue);
             Internal.NativeFunctions.CallBuiltIn(631);
             return Internal.NativeFunctions.StackPopGameDefinedStructure((int)EngineStructureType.ItemProperty);
         }
@@ -315,8 +315,8 @@ namespace NWN.Framework.Lite
         public static ItemProperty ItemPropertyDamageBonusVsAlign(ItemPropertyAlignmentGroupType nAlignGroup,
             ItemPropertyDamageType nDamageType, ItemPropertyDamageBonusType nDamage)
         {
-            Internal.NativeFunctions.StackPushInteger((int)nDamage);
-            Internal.NativeFunctions.StackPushInteger((int)nDamageType);
+            Internal.NativeFunctions.StackPushInteger(nDamage.InternalValue);
+            Internal.NativeFunctions.StackPushInteger(nDamageType.InternalValue);
             Internal.NativeFunctions.StackPushInteger(nAlignGroup.InternalValue);
             Internal.NativeFunctions.CallBuiltIn(632);
             return Internal.NativeFunctions.StackPopGameDefinedStructure((int)EngineStructureType.ItemProperty);
@@ -332,9 +332,9 @@ namespace NWN.Framework.Lite
         public static ItemProperty ItemPropertyDamageBonusVsRace(RacialType nRace,
             ItemPropertyDamageType nDamageType, ItemPropertyDamageBonusType nDamage)
         {
-            Internal.NativeFunctions.StackPushInteger((int)nDamage);
-            Internal.NativeFunctions.StackPushInteger((int)nDamageType);
-            Internal.NativeFunctions.StackPushInteger((int)nRace);
+            Internal.NativeFunctions.StackPushInteger(nDamage.InternalValue);
+            Internal.NativeFunctions.StackPushInteger(nDamageType.InternalValue);
+            Internal.NativeFunctions.StackPushInteger(nRace.InternalValue);
             Internal.NativeFunctions.CallBuiltIn(633);
             return Internal.NativeFunctions.StackPopGameDefinedStructure((int)EngineStructureType.ItemProperty);
         }
@@ -349,8 +349,8 @@ namespace NWN.Framework.Lite
         public static ItemProperty ItemPropertyDamageBonusVsSAlign(ItemPropertyAlignmentType nAlign,
             ItemPropertyDamageType nDamageType, ItemPropertyDamageBonusType nDamage)
         {
-            Internal.NativeFunctions.StackPushInteger((int)nDamage);
-            Internal.NativeFunctions.StackPushInteger((int)nDamageType);
+            Internal.NativeFunctions.StackPushInteger(nDamage.InternalValue);
+            Internal.NativeFunctions.StackPushInteger(nDamageType.InternalValue);
             Internal.NativeFunctions.StackPushInteger(nAlign.InternalValue);
             Internal.NativeFunctions.CallBuiltIn(634);
             return Internal.NativeFunctions.StackPopGameDefinedStructure((int)EngineStructureType.ItemProperty);
@@ -366,8 +366,8 @@ namespace NWN.Framework.Lite
         public static ItemProperty ItemPropertyDamageImmunity(ItemPropertyDamageType nDamageType,
             ItemPropertyDamageImmunityType nImmuneBonus)
         {
-            Internal.NativeFunctions.StackPushInteger((int)nImmuneBonus);
-            Internal.NativeFunctions.StackPushInteger((int)nDamageType);
+            Internal.NativeFunctions.StackPushInteger(nImmuneBonus.InternalValue);
+            Internal.NativeFunctions.StackPushInteger(nDamageType.InternalValue);
             Internal.NativeFunctions.CallBuiltIn(635);
             return Internal.NativeFunctions.StackPopGameDefinedStructure((int)EngineStructureType.ItemProperty);
         }
@@ -393,8 +393,8 @@ namespace NWN.Framework.Lite
         /// </summary>
         public static ItemProperty ItemPropertyDamageReduction(ItemPropertyDamageReductionType nEnhancement, ItemPropertyDamageSoakType nHPSoak)
         {
-            Internal.NativeFunctions.StackPushInteger((int)nHPSoak);
-            Internal.NativeFunctions.StackPushInteger((int)nEnhancement);
+            Internal.NativeFunctions.StackPushInteger(nHPSoak.InternalValue);
+            Internal.NativeFunctions.StackPushInteger(nEnhancement.InternalValue);
             Internal.NativeFunctions.CallBuiltIn(637);
             return Internal.NativeFunctions.StackPopGameDefinedStructure((int)EngineStructureType.ItemProperty);
         }
@@ -407,8 +407,8 @@ namespace NWN.Framework.Lite
         public static ItemProperty ItemPropertyDamageResistance(ItemPropertyDamageType nDamageType,
             ItemPropertyDamageResistType nHPResist)
         {
-            Internal.NativeFunctions.StackPushInteger((int)nHPResist);
-            Internal.NativeFunctions.StackPushInteger((int)nDamageType);
+            Internal.NativeFunctions.StackPushInteger(nHPResist.InternalValue);
+            Internal.NativeFunctions.StackPushInteger(nDamageType.InternalValue);
             Internal.NativeFunctions.CallBuiltIn(638);
             return Internal.NativeFunctions.StackPopGameDefinedStructure((int)EngineStructureType.ItemProperty);
         }
@@ -421,8 +421,8 @@ namespace NWN.Framework.Lite
         public static ItemProperty ItemPropertyDamageVulnerability(ItemPropertyDamageType nDamageType,
             ItemPropertyDamageVulnerabilityType nVulnerability)
         {
-            Internal.NativeFunctions.StackPushInteger((int)nVulnerability);
-            Internal.NativeFunctions.StackPushInteger((int)nDamageType);
+            Internal.NativeFunctions.StackPushInteger(nVulnerability.InternalValue);
+            Internal.NativeFunctions.StackPushInteger(nDamageType.InternalValue);
             Internal.NativeFunctions.CallBuiltIn(639);
             return Internal.NativeFunctions.StackPopGameDefinedStructure((int)EngineStructureType.ItemProperty);
         }
@@ -457,7 +457,7 @@ namespace NWN.Framework.Lite
         public static ItemProperty ItemPropertyDecreaseAC(ItemPropertyArmorClassModifierType nModifierType, int nPenalty)
         {
             Internal.NativeFunctions.StackPushInteger(nPenalty);
-            Internal.NativeFunctions.StackPushInteger((int)nModifierType);
+            Internal.NativeFunctions.StackPushInteger(nModifierType.InternalValue);
             Internal.NativeFunctions.CallBuiltIn(642);
             return Internal.NativeFunctions.StackPopGameDefinedStructure((int)EngineStructureType.ItemProperty);
         }
@@ -470,7 +470,7 @@ namespace NWN.Framework.Lite
         public static ItemProperty ItemPropertyDecreaseSkill(SkillType nSkill, int nPenalty)
         {
             Internal.NativeFunctions.StackPushInteger(nPenalty);
-            Internal.NativeFunctions.StackPushInteger((int)nSkill);
+            Internal.NativeFunctions.StackPushInteger(nSkill.InternalValue);
             Internal.NativeFunctions.CallBuiltIn(643);
             return Internal.NativeFunctions.StackPopGameDefinedStructure((int)EngineStructureType.ItemProperty);
         }
@@ -482,7 +482,7 @@ namespace NWN.Framework.Lite
         /// </summary>
         public static ItemProperty ItemPropertyContainerReducedWeight(ItemPropertyContainerWeightType nContainerType)
         {
-            Internal.NativeFunctions.StackPushInteger((int)nContainerType);
+            Internal.NativeFunctions.StackPushInteger(nContainerType.InternalValue);
             Internal.NativeFunctions.CallBuiltIn(644);
             return Internal.NativeFunctions.StackPopGameDefinedStructure((int)EngineStructureType.ItemProperty);
         }
@@ -496,7 +496,7 @@ namespace NWN.Framework.Lite
         /// </summary>
         public static ItemProperty ItemPropertyExtraMeleeDamageType(ItemPropertyDamageType nDamageType)
         {
-            Internal.NativeFunctions.StackPushInteger((int)nDamageType);
+            Internal.NativeFunctions.StackPushInteger(nDamageType.InternalValue);
             Internal.NativeFunctions.CallBuiltIn(645);
             return Internal.NativeFunctions.StackPopGameDefinedStructure((int)EngineStructureType.ItemProperty);
         }
@@ -510,7 +510,7 @@ namespace NWN.Framework.Lite
         /// </summary>
         public static ItemProperty ItemPropertyExtraRangeDamageType(ItemPropertyDamageType nDamageType)
         {
-            Internal.NativeFunctions.StackPushInteger((int)nDamageType);
+            Internal.NativeFunctions.StackPushInteger(nDamageType.InternalValue);
             Internal.NativeFunctions.CallBuiltIn(646);
             return Internal.NativeFunctions.StackPopGameDefinedStructure((int)EngineStructureType.ItemProperty);
         }
@@ -539,7 +539,7 @@ namespace NWN.Framework.Lite
         /// </summary>
         public static ItemProperty ItemPropertyImmunityMisc(ItemPropertyImmunityMiscType nImmunityType)
         {
-            Internal.NativeFunctions.StackPushInteger((int)nImmunityType);
+            Internal.NativeFunctions.StackPushInteger(nImmunityType.InternalValue);
             Internal.NativeFunctions.CallBuiltIn(649);
             return Internal.NativeFunctions.StackPopGameDefinedStructure((int)EngineStructureType.ItemProperty);
         }
@@ -559,7 +559,7 @@ namespace NWN.Framework.Lite
         /// </summary>
         public static ItemProperty ItemPropertyBonusSpellResistance(ItemPropertySpellResistanceBonusType nBonus)
         {
-            Internal.NativeFunctions.StackPushInteger((int)nBonus);
+            Internal.NativeFunctions.StackPushInteger(nBonus.InternalValue);
             Internal.NativeFunctions.CallBuiltIn(651);
             return Internal.NativeFunctions.StackPopGameDefinedStructure((int)EngineStructureType.ItemProperty);
         }
@@ -573,7 +573,7 @@ namespace NWN.Framework.Lite
         public static ItemProperty ItemPropertyBonusSavingThrowVsX(ItemPropertySaveVsType nBonusType, int nBonus)
         {
             Internal.NativeFunctions.StackPushInteger(nBonus);
-            Internal.NativeFunctions.StackPushInteger((int)nBonusType);
+            Internal.NativeFunctions.StackPushInteger(nBonusType.InternalValue);
             Internal.NativeFunctions.CallBuiltIn(652);
             return Internal.NativeFunctions.StackPopGameDefinedStructure((int)EngineStructureType.ItemProperty);
         }
@@ -587,7 +587,7 @@ namespace NWN.Framework.Lite
         public static ItemProperty ItemPropertyBonusSavingThrow(ItemPropertySaveBaseType nBaseSaveType, int nBonus)
         {
             Internal.NativeFunctions.StackPushInteger(nBonus);
-            Internal.NativeFunctions.StackPushInteger((int)nBaseSaveType);
+            Internal.NativeFunctions.StackPushInteger(nBaseSaveType.InternalValue);
             Internal.NativeFunctions.CallBuiltIn(653);
             return Internal.NativeFunctions.StackPopGameDefinedStructure((int)EngineStructureType.ItemProperty);
         }
@@ -609,8 +609,8 @@ namespace NWN.Framework.Lite
         /// </summary>
         public static ItemProperty ItemPropertyLight(ItemPropertyLightBrightnessType nBrightness, ItemPropertyLightColorType nColor)
         {
-            Internal.NativeFunctions.StackPushInteger((int)nColor);
-            Internal.NativeFunctions.StackPushInteger((int)nBrightness);
+            Internal.NativeFunctions.StackPushInteger(nColor.InternalValue);
+            Internal.NativeFunctions.StackPushInteger(nBrightness.InternalValue);
             Internal.NativeFunctions.CallBuiltIn(655);
             return Internal.NativeFunctions.StackPopGameDefinedStructure((int)EngineStructureType.ItemProperty);
         }
@@ -696,7 +696,7 @@ namespace NWN.Framework.Lite
         public static ItemProperty ItemPropertyReducedSavingThrowVsX(ItemPropertySaveVsType nBaseSaveType, int nPenalty)
         {
             Internal.NativeFunctions.StackPushInteger(nPenalty);
-            Internal.NativeFunctions.StackPushInteger((int)nBaseSaveType);
+            Internal.NativeFunctions.StackPushInteger(nBaseSaveType.InternalValue);
             Internal.NativeFunctions.CallBuiltIn(659);
             return Internal.NativeFunctions.StackPopGameDefinedStructure((int)EngineStructureType.ItemProperty);
         }
@@ -710,7 +710,7 @@ namespace NWN.Framework.Lite
         public static ItemProperty ItemPropertyReducedSavingThrow(ItemPropertySaveBaseType nBonusType, int nPenalty)
         {
             Internal.NativeFunctions.StackPushInteger(nPenalty);
-            Internal.NativeFunctions.StackPushInteger((int)nBonusType);
+            Internal.NativeFunctions.StackPushInteger(nBonusType.InternalValue);
             Internal.NativeFunctions.CallBuiltIn(660);
             return Internal.NativeFunctions.StackPopGameDefinedStructure((int)EngineStructureType.ItemProperty);
         }
@@ -734,7 +734,7 @@ namespace NWN.Framework.Lite
         public static ItemProperty ItemPropertySkillBonus(SkillType nSkill, int nBonus)
         {
             Internal.NativeFunctions.StackPushInteger(nBonus);
-            Internal.NativeFunctions.StackPushInteger((int)nSkill);
+            Internal.NativeFunctions.StackPushInteger(nSkill.InternalValue);
             Internal.NativeFunctions.CallBuiltIn(662);
             return Internal.NativeFunctions.StackPopGameDefinedStructure((int)EngineStructureType.ItemProperty);
         }
@@ -745,7 +745,7 @@ namespace NWN.Framework.Lite
         /// </summary>
         public static ItemProperty ItemPropertySpellImmunitySpecific(ItemPropertyImmunitySpellType nSpell)
         {
-            Internal.NativeFunctions.StackPushInteger((int)nSpell);
+            Internal.NativeFunctions.StackPushInteger(nSpell.InternalValue);
             Internal.NativeFunctions.CallBuiltIn(663);
             return Internal.NativeFunctions.StackPopGameDefinedStructure((int)EngineStructureType.ItemProperty);
         }
@@ -756,7 +756,7 @@ namespace NWN.Framework.Lite
         /// </summary>
         public static ItemProperty ItemPropertySpellImmunitySchool(SpellSchoolType nSchool)
         {
-            Internal.NativeFunctions.StackPushInteger((int)nSchool);
+            Internal.NativeFunctions.StackPushInteger(nSchool.InternalValue);
             Internal.NativeFunctions.CallBuiltIn(664);
             return Internal.NativeFunctions.StackPopGameDefinedStructure((int)EngineStructureType.ItemProperty);
         }
@@ -805,7 +805,7 @@ namespace NWN.Framework.Lite
         public static ItemProperty ItemPropertyAttackBonusVsRace(RacialType nRace, int nBonus)
         {
             Internal.NativeFunctions.StackPushInteger(nBonus);
-            Internal.NativeFunctions.StackPushInteger((int)nRace);
+            Internal.NativeFunctions.StackPushInteger(nRace.InternalValue);
             Internal.NativeFunctions.CallBuiltIn(668);
             return Internal.NativeFunctions.StackPopGameDefinedStructure((int)EngineStructureType.ItemProperty);
         }
@@ -841,9 +841,9 @@ namespace NWN.Framework.Lite
         ///   bonus).  For this parmeter you use the constants beginning with:
         ///   (IP_CONST_UNLIMITEDAMMO_*).
         /// </summary>
-        public static ItemProperty ItemPropertyUnlimitedAmmo(ItemPropertyUnlimitedType nAmmoDamage = ItemPropertyUnlimitedType.Basic)
+        public static ItemProperty ItemPropertyUnlimitedAmmo(ItemPropertyUnlimitedType nAmmoDamage)
         {
-            Internal.NativeFunctions.StackPushInteger((int)nAmmoDamage);
+            Internal.NativeFunctions.StackPushInteger(nAmmoDamage.InternalValue);
             Internal.NativeFunctions.CallBuiltIn(671);
             return Internal.NativeFunctions.StackPopGameDefinedStructure((int)EngineStructureType.ItemProperty);
         }
@@ -865,7 +865,7 @@ namespace NWN.Framework.Lite
         /// </summary>
         public static ItemProperty ItemPropertyLimitUseByClass(ItemPropertyUseLimitationClassType nClass)
         {
-            Internal.NativeFunctions.StackPushInteger((int)nClass);
+            Internal.NativeFunctions.StackPushInteger(nClass.InternalValue);
             Internal.NativeFunctions.CallBuiltIn(673);
             return Internal.NativeFunctions.StackPopGameDefinedStructure((int)EngineStructureType.ItemProperty);
         }
@@ -876,7 +876,7 @@ namespace NWN.Framework.Lite
         /// </summary>
         public static ItemProperty ItemPropertyLimitUseByRace(RacialType nRace)
         {
-            Internal.NativeFunctions.StackPushInteger((int)nRace);
+            Internal.NativeFunctions.StackPushInteger(nRace.InternalValue);
             Internal.NativeFunctions.CallBuiltIn(674);
             return Internal.NativeFunctions.StackPopGameDefinedStructure((int)EngineStructureType.ItemProperty);
         }
@@ -918,8 +918,8 @@ namespace NWN.Framework.Lite
         /// </summary>
         public static ItemProperty ItemPropertyTrap(ItemPropertyTrapStrengthType nTrapLevel, ItemPropertyTrapType nTrapType)
         {
-            Internal.NativeFunctions.StackPushInteger((int)nTrapType);
-            Internal.NativeFunctions.StackPushInteger((int)nTrapLevel);
+            Internal.NativeFunctions.StackPushInteger(nTrapType.InternalValue);
+            Internal.NativeFunctions.StackPushInteger(nTrapLevel.InternalValue);
             Internal.NativeFunctions.CallBuiltIn(678);
             return Internal.NativeFunctions.StackPopGameDefinedStructure((int)EngineStructureType.ItemProperty);
         }
@@ -979,7 +979,7 @@ namespace NWN.Framework.Lite
         /// </summary>
         public static ItemProperty ItemPropertyMassiveCritical(ItemPropertyDamageBonusType nDamage)
         {
-            Internal.NativeFunctions.StackPushInteger((int)nDamage);
+            Internal.NativeFunctions.StackPushInteger(nDamage.InternalValue);
             Internal.NativeFunctions.CallBuiltIn(682);
             return Internal.NativeFunctions.StackPopGameDefinedStructure((int)EngineStructureType.ItemProperty);
         }
@@ -1001,7 +1001,7 @@ namespace NWN.Framework.Lite
         /// </summary>
         public static ItemProperty ItemPropertyMonsterDamage(ItemPropertyMonsterDamageType nDamage)
         {
-            Internal.NativeFunctions.StackPushInteger((int)nDamage);
+            Internal.NativeFunctions.StackPushInteger(nDamage.InternalValue);
             Internal.NativeFunctions.CallBuiltIn(684);
             return Internal.NativeFunctions.StackPopGameDefinedStructure((int)EngineStructureType.ItemProperty);
         }
@@ -1048,7 +1048,7 @@ namespace NWN.Framework.Lite
         /// </summary>
         public static ItemProperty ItemPropertyWeightIncrease(ItemPropertyWeightIncreaseType nWeight)
         {
-            Internal.NativeFunctions.StackPushInteger((int)nWeight);
+            Internal.NativeFunctions.StackPushInteger(nWeight.InternalValue);
             Internal.NativeFunctions.CallBuiltIn(688);
             return Internal.NativeFunctions.StackPopGameDefinedStructure((int)EngineStructureType.ItemProperty);
         }
@@ -1142,7 +1142,7 @@ namespace NWN.Framework.Lite
         public static ItemProperty ItemPropertyOnHitCastSpell(ItemPropertyOnHitCastSpellType nSpellType, int nLevel)
         {
             Internal.NativeFunctions.StackPushInteger(nLevel);
-            Internal.NativeFunctions.StackPushInteger((int)nSpellType);
+            Internal.NativeFunctions.StackPushInteger(nSpellType.InternalValue);
             Internal.NativeFunctions.CallBuiltIn(733);
             return Internal.NativeFunctions.StackPopGameDefinedStructure((int)EngineStructureType.ItemProperty);
         }
@@ -1212,7 +1212,7 @@ namespace NWN.Framework.Lite
         /// </summary>
         public static ItemProperty ItemPropertyQuality(ItemPropertyQualityType nQuality)
         {
-            Internal.NativeFunctions.StackPushInteger((int)nQuality);
+            Internal.NativeFunctions.StackPushInteger(nQuality.InternalValue);
             Internal.NativeFunctions.CallBuiltIn(846);
             return Internal.NativeFunctions.StackPopGameDefinedStructure((int)EngineStructureType.ItemProperty);
         }
@@ -1247,7 +1247,7 @@ namespace NWN.Framework.Lite
         /// </summary>
         public static ItemProperty ItemPropertyVisualEffect(ItemVisualType nEffect)
         {
-            Internal.NativeFunctions.StackPushInteger((int)nEffect);
+            Internal.NativeFunctions.StackPushInteger(nEffect.InternalValue);
             Internal.NativeFunctions.CallBuiltIn(739);
             return Internal.NativeFunctions.StackPopGameDefinedStructure((int)EngineStructureType.ItemProperty);
         }
@@ -1288,7 +1288,7 @@ namespace NWN.Framework.Lite
             Internal.NativeFunctions.StackPushInteger(nParam1Value);
             Internal.NativeFunctions.StackPushInteger(nCostTableValue);
             Internal.NativeFunctions.StackPushInteger(nSubType);
-            Internal.NativeFunctions.StackPushInteger((int)nType);
+            Internal.NativeFunctions.StackPushInteger(nType.InternalValue);
             Internal.NativeFunctions.CallBuiltIn(954);
             return Internal.NativeFunctions.StackPopGameDefinedStructure((int)EngineStructureType.ItemProperty);
         }

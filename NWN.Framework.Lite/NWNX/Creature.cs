@@ -370,7 +370,7 @@ namespace NWN.Framework.Lite.NWNX
         public static void SetMovementRate(uint creature, MovementRateType rate)
         {
             Internal.NativeFunctions.nwnxSetFunction(PLUGIN_NAME, "SetMovementRate");
-            Internal.NativeFunctions.nwnxPushInt((int)rate);
+            Internal.NativeFunctions.nwnxPushInt(rate.InternalValue);
             Internal.NativeFunctions.nwnxPushObject(creature);
             Internal.NativeFunctions.nwnxCallFunction();
         }
@@ -434,7 +434,7 @@ namespace NWN.Framework.Lite.NWNX
         {
             Internal.NativeFunctions.nwnxSetFunction(PLUGIN_NAME, "SetSkillRank");
             Internal.NativeFunctions.nwnxPushInt(rank);
-            Internal.NativeFunctions.nwnxPushInt((int)skill);
+            Internal.NativeFunctions.nwnxPushInt(skill.InternalValue);
             Internal.NativeFunctions.nwnxPushObject(creature);
             Internal.NativeFunctions.nwnxCallFunction();
         }
@@ -555,7 +555,7 @@ namespace NWN.Framework.Lite.NWNX
         public static void SetRacialType(uint creature, RacialType racialtype)
         {
             Internal.NativeFunctions.nwnxSetFunction(PLUGIN_NAME, "SetRacialType");
-            Internal.NativeFunctions.nwnxPushInt((int)racialtype);
+            Internal.NativeFunctions.nwnxPushInt(racialtype.InternalValue);
             Internal.NativeFunctions.nwnxPushObject(creature);
             Internal.NativeFunctions.nwnxCallFunction();
         }
@@ -566,7 +566,7 @@ namespace NWN.Framework.Lite.NWNX
             Internal.NativeFunctions.nwnxSetFunction(PLUGIN_NAME, "GetMovementType");
             Internal.NativeFunctions.nwnxPushObject(creature);
             Internal.NativeFunctions.nwnxCallFunction();
-            return (MovementType)Internal.NativeFunctions.nwnxPopInt();
+            return new MovementType(Internal.NativeFunctions.nwnxPopInt());
         }
 
         // Sets the maximum movement rate a creature can have while walking (not running)
@@ -709,15 +709,12 @@ namespace NWN.Framework.Lite.NWNX
         }
 
         // Get total effect bonus
-        public static int GetTotalEffectBonus(uint creature, BonusType bonusType,
-            uint target = NWScript.OBJECT_INVALID, bool isElemental = false,
-            bool isForceMax = false, int saveType = -1, int saveSpecificType = -1, SkillType skill = SkillType.Invalid,
-            int abilityScore = -1, bool isOffhand = false)
+        public static int GetTotalEffectBonus(uint creature, BonusType bonusType, uint target, bool isElemental, bool isForceMax, int saveType, int saveSpecificType, SkillType skill, int abilityScore = -1, bool isOffhand = false)
         {
             Internal.NativeFunctions.nwnxSetFunction(PLUGIN_NAME, "GetTotalEffectBonus");
             Internal.NativeFunctions.nwnxPushInt(isOffhand ? 1 : 0);
             Internal.NativeFunctions.nwnxPushInt(abilityScore);
-            Internal.NativeFunctions.nwnxPushInt((int)skill);
+            Internal.NativeFunctions.nwnxPushInt(skill.InternalValue);
             Internal.NativeFunctions.nwnxPushInt(saveSpecificType);
             Internal.NativeFunctions.nwnxPushInt(saveType);
             Internal.NativeFunctions.nwnxPushInt(isForceMax ? 1 : 0);

@@ -300,7 +300,7 @@ namespace NWN.Framework.Lite
         public static void SetSkyBox(SkyboxType nSkyBox, uint oArea = OBJECT_INVALID)
         {
             Internal.NativeFunctions.StackPushObject(oArea);
-            Internal.NativeFunctions.StackPushInteger((int)nSkyBox);
+            Internal.NativeFunctions.StackPushInteger(nSkyBox.InternalValue);
             Internal.NativeFunctions.CallBuiltIn(777);
         }
 
@@ -336,7 +336,7 @@ namespace NWN.Framework.Lite
         {
             Internal.NativeFunctions.StackPushObject(oArea);
             Internal.NativeFunctions.CallBuiltIn(782);
-            return (SkyboxType)Internal.NativeFunctions.StackPopInteger();
+            return new SkyboxType(Internal.NativeFunctions.StackPopInteger());
         }
 
         /// <summary>

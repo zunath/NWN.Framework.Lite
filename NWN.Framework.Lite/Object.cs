@@ -712,7 +712,7 @@ namespace NWN.Framework.Lite
             Internal.NativeFunctions.StackPushInteger(nUseAppearAnimation ? 1 : 0);
             Internal.NativeFunctions.StackPushGameDefinedStructure((int)EngineStructureType.Location, lLocation);
             Internal.NativeFunctions.StackPushStringUTF8(sTemplate);
-            Internal.NativeFunctions.StackPushInteger((int)nObjectType);
+            Internal.NativeFunctions.StackPushInteger(nObjectType.InternalValue);
             Internal.NativeFunctions.CallBuiltIn(243);
             return Internal.NativeFunctions.StackPopObject();
         }
@@ -724,11 +724,11 @@ namespace NWN.Framework.Lite
         ///   - nNth
         ///   * Return value on error: OBJECT_INVALID
         /// </summary>
-        public static uint GetNearestObject(ObjectType nObjectType = ObjectType.All, uint oTarget = OBJECT_INVALID, int nNth = 1)
+        public static uint GetNearestObject(ObjectType nObjectType, uint oTarget = OBJECT_INVALID, int nNth = 1)
         {
             Internal.NativeFunctions.StackPushInteger(nNth);
             Internal.NativeFunctions.StackPushObject(oTarget);
-            Internal.NativeFunctions.StackPushInteger((int)nObjectType);
+            Internal.NativeFunctions.StackPushInteger(nObjectType.InternalValue);
             Internal.NativeFunctions.CallBuiltIn(227);
             return Internal.NativeFunctions.StackPopObject();
         }
@@ -740,12 +740,12 @@ namespace NWN.Framework.Lite
         ///   - nNth
         ///   * Return value on error: OBJECT_INVALID
         /// </summary>
-        public static uint GetNearestObjectToLocation(Location lLocation, ObjectType nObjectType = ObjectType.All,
+        public static uint GetNearestObjectToLocation(Location lLocation, ObjectType nObjectType,
             int nNth = 1)
         {
             Internal.NativeFunctions.StackPushInteger(nNth);
             Internal.NativeFunctions.StackPushGameDefinedStructure((int)EngineStructureType.Location, lLocation);
-            Internal.NativeFunctions.StackPushInteger((int)nObjectType);
+            Internal.NativeFunctions.StackPushInteger(nObjectType.InternalValue);
             Internal.NativeFunctions.CallBuiltIn(228);
             return Internal.NativeFunctions.StackPopObject();
         }
@@ -785,7 +785,7 @@ namespace NWN.Framework.Lite
         {
             Internal.NativeFunctions.StackPushObject(oTarget);
             Internal.NativeFunctions.CallBuiltIn(106);
-            return (ObjectType)Internal.NativeFunctions.StackPopInteger();
+            return new ObjectType(Internal.NativeFunctions.StackPopInteger());
         }
 
         /// <summary>

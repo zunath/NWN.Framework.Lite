@@ -44,13 +44,9 @@ namespace NWN.Framework.Lite
         ///   If you turn on bReadyAllSpells, all memorized spells will be ready to cast without resting.
         ///   if nPackage is PACKAGE_INVALID then it will use the starting package assigned to that class or just the class package
         /// </summary>
-        public static int LevelUpHenchman(
-            uint oCreature, 
-            ClassType nClass,
-            bool bReadyAllSpells = false, 
-            PackageType nPackage = PackageType.Invalid)
+        public static int LevelUpHenchman(uint oCreature, ClassType nClass, bool bReadyAllSpells, PackageType nPackage)
         {
-            Internal.NativeFunctions.StackPushInteger((int)nPackage);
+            Internal.NativeFunctions.StackPushInteger(nPackage.InternalValue);
             Internal.NativeFunctions.StackPushInteger(bReadyAllSpells ? 1 : 0);
             Internal.NativeFunctions.StackPushInteger(nClass.InternalValue);
             Internal.NativeFunctions.StackPushObject(oCreature);

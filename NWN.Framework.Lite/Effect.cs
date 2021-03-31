@@ -295,10 +295,9 @@ namespace NWN.Framework.Lite
         ///   - nValue: size of the Saving Throw increase
         ///   - nSaveType: SAVING_THROW_TYPE_* (e.g. SAVING_THROW_TYPE_ACID )
         /// </summary>
-        public static Effect EffectSavingThrowIncrease(int nSave, int nValue,
-            SavingThrowType nSaveType = SavingThrowType.All)
+        public static Effect EffectSavingThrowIncrease(int nSave, int nValue, SavingThrowType nSaveType)
         {
-            Internal.NativeFunctions.StackPushInteger((int)nSaveType);
+            Internal.NativeFunctions.StackPushInteger(nSaveType.InternalValue);
             Internal.NativeFunctions.StackPushInteger(nValue);
             Internal.NativeFunctions.StackPushInteger(nSave);
             Internal.NativeFunctions.CallBuiltIn(117);
@@ -397,7 +396,7 @@ namespace NWN.Framework.Lite
             ACType nDamageType)
         {
             Internal.NativeFunctions.StackPushInteger(nDamageType.InternalValue);
-            Internal.NativeFunctions.StackPushInteger((int)nModifyType);
+            Internal.NativeFunctions.StackPushInteger(nModifyType.InternalValue);
             Internal.NativeFunctions.StackPushInteger(nValue);
             Internal.NativeFunctions.CallBuiltIn(115);
             return Internal.NativeFunctions.StackPopGameDefinedStructure((int)EngineStructureType.Effect);
@@ -578,10 +577,9 @@ namespace NWN.Framework.Lite
         ///   - nPercent - percentage of failure
         ///   - nSpellSchool - the school of spells affected.
         /// </summary>
-        public static Effect EffectSpellFailure(int nPercent = 100,
-            SpellSchoolType nSpellSchool = SpellSchoolType.General)
+        public static Effect EffectSpellFailure(int nPercent, SpellSchoolType nSpellSchool)
         {
-            Internal.NativeFunctions.StackPushInteger((int)nSpellSchool);
+            Internal.NativeFunctions.StackPushInteger(nSpellSchool.InternalValue);
             Internal.NativeFunctions.StackPushInteger(nPercent);
             Internal.NativeFunctions.CallBuiltIn(690);
             return Internal.NativeFunctions.StackPopGameDefinedStructure((int)EngineStructureType.Effect);
@@ -728,7 +726,7 @@ namespace NWN.Framework.Lite
         public static Effect EffectDamageShield(int nDamageAmount, ItemPropertyDamageBonusType nRandomAmount, DamageType nDamageType)
         {
             Internal.NativeFunctions.StackPushInteger(nDamageType.InternalValue);
-            Internal.NativeFunctions.StackPushInteger((int)nRandomAmount);
+            Internal.NativeFunctions.StackPushInteger(nRandomAmount.InternalValue);
             Internal.NativeFunctions.StackPushInteger(nDamageAmount);
             Internal.NativeFunctions.CallBuiltIn(487);
             return Internal.NativeFunctions.StackPopGameDefinedStructure((int)EngineStructureType.Effect);
@@ -743,9 +741,9 @@ namespace NWN.Framework.Lite
         ///     nPercentage>
         ///     100.
         /// </summary>
-        public static Effect EffectMissChance(int nPercentage, MissChanceType nMissChanceType = MissChanceType.Normal)
+        public static Effect EffectMissChance(int nPercentage, MissChanceType nMissChanceType)
         {
-            Internal.NativeFunctions.StackPushInteger((int)nMissChanceType);
+            Internal.NativeFunctions.StackPushInteger(nMissChanceType.InternalValue);
             Internal.NativeFunctions.StackPushInteger(nPercentage);
             Internal.NativeFunctions.CallBuiltIn(477);
             return Internal.NativeFunctions.StackPopGameDefinedStructure((int)EngineStructureType.Effect);
@@ -762,10 +760,9 @@ namespace NWN.Framework.Lite
         ///   nMaxSpellLevelAbsorbed is not between -1 and 9 inclusive, or nSpellSchool
         ///   is invalid.
         /// </summary>
-        public static Effect EffectSpellLevelAbsorption(int nMaxSpellLevelAbsorbed, int nTotalSpellLevelsAbsorbed = 0,
-            SpellSchoolType nSpellSchool = SpellSchoolType.General)
+        public static Effect EffectSpellLevelAbsorption(int nMaxSpellLevelAbsorbed, int nTotalSpellLevelsAbsorbed, SpellSchoolType nSpellSchool)
         {
-            Internal.NativeFunctions.StackPushInteger((int)nSpellSchool);
+            Internal.NativeFunctions.StackPushInteger(nSpellSchool.InternalValue);
             Internal.NativeFunctions.StackPushInteger(nTotalSpellLevelsAbsorbed);
             Internal.NativeFunctions.StackPushInteger(nMaxSpellLevelAbsorbed);
             Internal.NativeFunctions.CallBuiltIn(472);
@@ -807,9 +804,9 @@ namespace NWN.Framework.Lite
         ///     nPercentage>
         ///     100.
         /// </summary>
-        public static Effect EffectConcealment(int nPercentage, MissChanceType nMissType = MissChanceType.Normal)
+        public static Effect EffectConcealment(int nPercentage, MissChanceType nMissType)
         {
-            Internal.NativeFunctions.StackPushInteger((int)nMissType);
+            Internal.NativeFunctions.StackPushInteger(nMissType.InternalValue);
             Internal.NativeFunctions.StackPushInteger(nPercentage);
             Internal.NativeFunctions.CallBuiltIn(458);
             return Internal.NativeFunctions.StackPopGameDefinedStructure((int)EngineStructureType.Effect);
@@ -982,7 +979,7 @@ namespace NWN.Framework.Lite
             ACType nDamageType)
         {
             Internal.NativeFunctions.StackPushInteger(nDamageType.InternalValue);
-            Internal.NativeFunctions.StackPushInteger((int)nModifyType);
+            Internal.NativeFunctions.StackPushInteger(nModifyType.InternalValue);
             Internal.NativeFunctions.StackPushInteger(nValue);
             Internal.NativeFunctions.CallBuiltIn(450);
             return Internal.NativeFunctions.StackPopGameDefinedStructure((int)EngineStructureType.Effect);
@@ -1013,10 +1010,9 @@ namespace NWN.Framework.Lite
         ///   - nValue: size of the Saving Throw decrease
         ///   - nSaveType: SAVING_THROW_TYPE_* (e.g. SAVING_THROW_TYPE_ACID )
         /// </summary>
-        public static Effect EffectSavingThrowDecrease(int nSave, int nValue,
-            SavingThrowType nSaveType = SavingThrowType.All)
+        public static Effect EffectSavingThrowDecrease(int nSave, int nValue, SavingThrowType nSaveType)
         {
-            Internal.NativeFunctions.StackPushInteger((int)nSaveType);
+            Internal.NativeFunctions.StackPushInteger(nSaveType.InternalValue);
             Internal.NativeFunctions.StackPushInteger(nValue);
             Internal.NativeFunctions.StackPushInteger(nSave);
             Internal.NativeFunctions.CallBuiltIn(452);
@@ -1103,7 +1099,7 @@ namespace NWN.Framework.Lite
         /// </summary>
         public static Effect VersusRacialTypeEffect(Effect eEffect, RacialType nRacialType)
         {
-            Internal.NativeFunctions.StackPushInteger((int)nRacialType);
+            Internal.NativeFunctions.StackPushInteger(nRacialType.InternalValue);
             Internal.NativeFunctions.StackPushGameDefinedStructure((int)EngineStructureType.Effect, eEffect);
             Internal.NativeFunctions.CallBuiltIn(356);
             return Internal.NativeFunctions.StackPopGameDefinedStructure((int)EngineStructureType.Effect);
@@ -1128,7 +1124,7 @@ namespace NWN.Framework.Lite
         public static Effect EffectSkillIncrease(SkillType nSkill, int nValue)
         {
             Internal.NativeFunctions.StackPushInteger(nValue);
-            Internal.NativeFunctions.StackPushInteger((int)nSkill);
+            Internal.NativeFunctions.StackPushInteger(nSkill.InternalValue);
             Internal.NativeFunctions.CallBuiltIn(351);
             return Internal.NativeFunctions.StackPopGameDefinedStructure((int)EngineStructureType.Effect);
         }
@@ -1210,7 +1206,7 @@ namespace NWN.Framework.Lite
         /// </summary>
         public static Effect EffectPoison(PoisonType nPoisonType)
         {
-            Internal.NativeFunctions.StackPushInteger((int)nPoisonType);
+            Internal.NativeFunctions.StackPushInteger(nPoisonType.InternalValue);
             Internal.NativeFunctions.CallBuiltIn(250);
             return Internal.NativeFunctions.StackPopGameDefinedStructure((int)EngineStructureType.Effect);
         }
@@ -1447,9 +1443,9 @@ namespace NWN.Framework.Lite
         ///   * Returns an effect of type EFFECT_TYPE_INVALIDEFFECT if nImmunityToSpell is
         ///   invalid.
         /// </summary>
-        public static Effect EffectSpellImmunity(SpellType nImmunityToSpell = SpellType.AllSpells)
+        public static Effect EffectSpellImmunity(SpellType nImmunityToSpell)
         {
-            Internal.NativeFunctions.StackPushInteger((int)nImmunityToSpell);
+            Internal.NativeFunctions.StackPushInteger(nImmunityToSpell.InternalValue);
             Internal.NativeFunctions.CallBuiltIn(149);
             return Internal.NativeFunctions.StackPopGameDefinedStructure((int)EngineStructureType.Effect);
         }

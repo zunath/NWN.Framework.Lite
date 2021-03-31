@@ -222,7 +222,7 @@ namespace NWN.Framework.Lite
         {
             Internal.NativeFunctions.StackPushObject(oCreature);
             Internal.NativeFunctions.CallBuiltIn(778);
-            return (PhenoType)Internal.NativeFunctions.StackPopInteger();
+            return new PhenoType(Internal.NativeFunctions.StackPopInteger());
         }
 
         /// <summary>
@@ -239,7 +239,7 @@ namespace NWN.Framework.Lite
         public static void SetPhenoType(PhenoType nPhenoType, uint oCreature = OBJECT_INVALID)
         {
             Internal.NativeFunctions.StackPushObject(oCreature);
-            Internal.NativeFunctions.StackPushInteger((int)nPhenoType);
+            Internal.NativeFunctions.StackPushInteger(nPhenoType.InternalValue);
             Internal.NativeFunctions.CallBuiltIn(779);
         }
 
@@ -541,7 +541,7 @@ namespace NWN.Framework.Lite
         public static bool GetIsSkillSuccessful(uint oTarget, SkillType nSkill, int nDifficulty)
         {
             Internal.NativeFunctions.StackPushInteger(nDifficulty);
-            Internal.NativeFunctions.StackPushInteger((int)nSkill);
+            Internal.NativeFunctions.StackPushInteger(nSkill.InternalValue);
             Internal.NativeFunctions.StackPushObject(oTarget);
             Internal.NativeFunctions.CallBuiltIn(689);
             return Convert.ToBoolean(Internal.NativeFunctions.StackPopInteger());
@@ -580,7 +580,7 @@ namespace NWN.Framework.Lite
         {
             Internal.NativeFunctions.StackPushObject(oCreature);
             Internal.NativeFunctions.CallBuiltIn(574);
-            return (StealthModeType)Internal.NativeFunctions.StackPopInteger();
+            return new StealthModeType(Internal.NativeFunctions.StackPopInteger());
         }
 
         /// <summary>
@@ -885,7 +885,7 @@ namespace NWN.Framework.Lite
         public static int GetHasSpell(SpellType nSpell, uint oCreature = OBJECT_INVALID)
         {
             Internal.NativeFunctions.StackPushObject(oCreature);
-            Internal.NativeFunctions.StackPushInteger((int)nSpell);
+            Internal.NativeFunctions.StackPushInteger(nSpell.InternalValue);
             Internal.NativeFunctions.CallBuiltIn(377);
             return Internal.NativeFunctions.StackPopInteger();
         }
@@ -1065,7 +1065,7 @@ namespace NWN.Framework.Lite
         {
             Internal.NativeFunctions.StackPushObject(oCreature);
             Internal.NativeFunctions.CallBuiltIn(107);
-            return (RacialType)Internal.NativeFunctions.StackPopInteger();
+            return new RacialType(Internal.NativeFunctions.StackPopInteger());
         }
     }
 }

@@ -19,11 +19,11 @@ namespace NWN.Framework.Lite.NWNX
         {
             Internal.NativeFunctions.nwnxSetFunction(PLUGIN_NAME, "GetSkillFeatForSkillByIndex");
             Internal.NativeFunctions.nwnxPushInt(feat.InternalValue);
-            Internal.NativeFunctions.nwnxPushInt((int)skill);
+            Internal.NativeFunctions.nwnxPushInt(skill.InternalValue);
             Internal.NativeFunctions.nwnxCallFunction();
             return new SkillFeat
             {
-                skill = (int)skill,
+                skill = skill.InternalValue,
                 feat = Internal.NativeFunctions.nwnxPopInt(),
                 modifier = Internal.NativeFunctions.nwnxPopInt(),
                 focusFeat = Internal.NativeFunctions.nwnxPopInt(),
@@ -41,11 +41,11 @@ namespace NWN.Framework.Lite.NWNX
         {
             Internal.NativeFunctions.nwnxSetFunction(PLUGIN_NAME, "GetSkillFeat");
             Internal.NativeFunctions.nwnxPushInt(feat.InternalValue);
-            Internal.NativeFunctions.nwnxPushInt((int)skill);
+            Internal.NativeFunctions.nwnxPushInt(skill.InternalValue);
             Internal.NativeFunctions.nwnxCallFunction();
             return new SkillFeat
             {
-                skill = (int)skill,
+                skill = skill.InternalValue,
                 feat = feat.InternalValue,
                 modifier = Internal.NativeFunctions.nwnxPopInt(),
                 focusFeat = Internal.NativeFunctions.nwnxPopInt(),
@@ -106,7 +106,7 @@ namespace NWN.Framework.Lite.NWNX
         public static int GetAreaModifier(uint area, SkillType skill)
         {
             Internal.NativeFunctions.nwnxSetFunction(PLUGIN_NAME, "GetAreaModifier");
-            Internal.NativeFunctions.nwnxPushInt((int)skill);
+            Internal.NativeFunctions.nwnxPushInt(skill.InternalValue);
             Internal.NativeFunctions.nwnxPushObject(area);
             Internal.NativeFunctions.nwnxCallFunction();
             return Internal.NativeFunctions.nwnxPopInt();
@@ -116,7 +116,7 @@ namespace NWN.Framework.Lite.NWNX
         {
             Internal.NativeFunctions.nwnxSetFunction(PLUGIN_NAME, "SetAreaModifier");
             Internal.NativeFunctions.nwnxPushInt(modifier);
-            Internal.NativeFunctions.nwnxPushInt((int)skill);
+            Internal.NativeFunctions.nwnxPushInt(skill.InternalValue);
             Internal.NativeFunctions.nwnxPushObject(area);
             Internal.NativeFunctions.nwnxCallFunction();
         }

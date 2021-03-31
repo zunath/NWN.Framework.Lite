@@ -20,7 +20,7 @@ namespace NWN.Framework.Lite.NWNX
             Internal.NativeFunctions.nwnxPushInt((int)iParam2);
             Internal.NativeFunctions.nwnxPushInt((int)iParam1);
             Internal.NativeFunctions.nwnxPushInt((int)modifier);
-            Internal.NativeFunctions.nwnxPushInt((int)race);
+            Internal.NativeFunctions.nwnxPushInt(race.InternalValue);
             Internal.NativeFunctions.nwnxCallFunction();
         }
 
@@ -28,7 +28,7 @@ namespace NWN.Framework.Lite.NWNX
         public static int GetParentRace(RacialType race)
         {
             Internal.NativeFunctions.nwnxSetFunction(PLUGIN_NAME, "GetParentRace");
-            Internal.NativeFunctions.nwnxPushInt((int)race);
+            Internal.NativeFunctions.nwnxPushInt(race.InternalValue);
             Internal.NativeFunctions.nwnxCallFunction();
             return Internal.NativeFunctions.nwnxPopInt();
         }
@@ -37,7 +37,7 @@ namespace NWN.Framework.Lite.NWNX
         {
             Internal.NativeFunctions.nwnxSetFunction(PLUGIN_NAME, "SetFavoredEnemyFeat");
             Internal.NativeFunctions.nwnxPushInt(iFeat.InternalValue);
-            Internal.NativeFunctions.nwnxPushInt((int)iRace);
+            Internal.NativeFunctions.nwnxPushInt(iRace.InternalValue);
             Internal.NativeFunctions.nwnxCallFunction();
         }
     }
