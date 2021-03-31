@@ -425,9 +425,9 @@ namespace NWN.Framework.Lite
         ///   - nStrRef: Reference of the string in the talk table
         ///   - nTalkVolume: TALKVOLUME_*
         /// </summary>
-        public static void SpeakStringByStrRef(int nStrRef, TalkVolumeType nTalkVolume = TalkVolumeType.Talk)
+        public static void SpeakStringByStrRef(int nStrRef, TalkVolumeType nTalkVolume)
         {
-            Internal.NativeFunctions.StackPushInteger((int)nTalkVolume);
+            Internal.NativeFunctions.StackPushInteger(nTalkVolume.InternalValue);
             Internal.NativeFunctions.StackPushInteger(nStrRef);
             Internal.NativeFunctions.CallBuiltIn(691);
         }
@@ -593,7 +593,7 @@ namespace NWN.Framework.Lite
         public static void PlayVoiceChat(VoiceChatType nVoiceChatID, uint oTarget = OBJECT_INVALID)
         {
             Internal.NativeFunctions.StackPushObject(oTarget);
-            Internal.NativeFunctions.StackPushInteger((int)nVoiceChatID);
+            Internal.NativeFunctions.StackPushInteger(nVoiceChatID.InternalValue);
             Internal.NativeFunctions.CallBuiltIn(421);
         }
 

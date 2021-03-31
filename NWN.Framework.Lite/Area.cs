@@ -266,7 +266,7 @@ namespace NWN.Framework.Lite
         {
             Internal.NativeFunctions.StackPushObject(oArea);
             Internal.NativeFunctions.CallBuiltIn(724);
-            return (WeatherType)Internal.NativeFunctions.StackPopInteger();
+            return new WeatherType(Internal.NativeFunctions.StackPopInteger());
         }
 
         /// <summary>
@@ -614,7 +614,7 @@ namespace NWN.Framework.Lite
         /// </summary>
         public static void SetWeather(uint oTarget, WeatherType nWeather)
         {
-            Internal.NativeFunctions.StackPushInteger((int)nWeather);
+            Internal.NativeFunctions.StackPushInteger(nWeather.InternalValue);
             Internal.NativeFunctions.StackPushObject(oTarget);
             Internal.NativeFunctions.CallBuiltIn(507);
         }

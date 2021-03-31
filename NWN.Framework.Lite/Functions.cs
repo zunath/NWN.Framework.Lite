@@ -293,9 +293,9 @@ namespace NWN.Framework.Lite
         ///   - sStringToSpeak: String to be spoken
         ///   - nTalkVolume: TALKVOLUME_*
         /// </summary>
-        public static void ActionSpeakString(string sStringToSpeak, TalkVolumeType nTalkVolume = TalkVolumeType.Talk)
+        public static void ActionSpeakString(string sStringToSpeak, TalkVolumeType nTalkVolume)
         {
-            Internal.NativeFunctions.StackPushInteger((int)nTalkVolume);
+            Internal.NativeFunctions.StackPushInteger(nTalkVolume.InternalValue);
             Internal.NativeFunctions.StackPushString(sStringToSpeak);
             Internal.NativeFunctions.CallBuiltIn(39);
         }
@@ -891,7 +891,7 @@ namespace NWN.Framework.Lite
             Internal.NativeFunctions.StackPushInteger(bDisplayFeedback ? 1 : 0);
             Internal.NativeFunctions.StackPushObject(oTarget);
             Internal.NativeFunctions.CallBuiltIn(146);
-            return (TouchAttackReturnType)Internal.NativeFunctions.StackPopInteger();
+            return new TouchAttackReturnType(Internal.NativeFunctions.StackPopInteger());
         }
 
         /// <summary>
@@ -903,7 +903,7 @@ namespace NWN.Framework.Lite
             Internal.NativeFunctions.StackPushInteger(bDisplayFeedback ? 1 : 0);
             Internal.NativeFunctions.StackPushObject(oTarget);
             Internal.NativeFunctions.CallBuiltIn(147);
-            return (TouchAttackReturnType)Internal.NativeFunctions.StackPopInteger();
+            return new TouchAttackReturnType(Internal.NativeFunctions.StackPopInteger());
         }
 
         /// <summary>
@@ -1212,9 +1212,9 @@ namespace NWN.Framework.Lite
         ///   - sStringToSpeak
         ///   - nTalkVolume: TALKVOLUME_*
         /// </summary>
-        public static void SpeakString(string sStringToSpeak, TalkVolumeType nTalkVolume = TalkVolumeType.Talk)
+        public static void SpeakString(string sStringToSpeak, TalkVolumeType nTalkVolume)
         {
-            Internal.NativeFunctions.StackPushInteger((int)nTalkVolume);
+            Internal.NativeFunctions.StackPushInteger(nTalkVolume.InternalValue);
             Internal.NativeFunctions.StackPushString(sStringToSpeak);
             Internal.NativeFunctions.CallBuiltIn(221);
         }
@@ -1329,9 +1329,9 @@ namespace NWN.Framework.Lite
         ///   - nStrRef: Reference of the string in the talk table
         ///   - nTalkVolume: TALKVOLUME_*
         /// </summary>
-        public static void ActionSpeakStringByStrRef(int nStrRef, TalkVolumeType nTalkVolume = TalkVolumeType.Talk)
+        public static void ActionSpeakStringByStrRef(int nStrRef, TalkVolumeType nTalkVolume)
         {
-            Internal.NativeFunctions.StackPushInteger((int)nTalkVolume);
+            Internal.NativeFunctions.StackPushInteger(nTalkVolume.InternalValue);
             Internal.NativeFunctions.StackPushInteger(nStrRef);
             Internal.NativeFunctions.CallBuiltIn(240);
         }
@@ -2266,7 +2266,7 @@ namespace NWN.Framework.Lite
         {
             Internal.NativeFunctions.StackPushGameDefinedStructure((int)EngineStructureType.Talent, tTalent);
             Internal.NativeFunctions.CallBuiltIn(362);
-            return (TalentType)Internal.NativeFunctions.StackPopInteger();
+            return new TalentType(Internal.NativeFunctions.StackPopInteger());
         }
 
         /// <summary>

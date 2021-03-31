@@ -53,7 +53,7 @@ namespace NWN.Framework.Lite
         public static TalkVolumeType GetPCChatVolume()
         {
             Internal.NativeFunctions.CallBuiltIn(840);
-            return (TalkVolumeType)Internal.NativeFunctions.StackPopInteger();
+            return new TalkVolumeType(Internal.NativeFunctions.StackPopInteger());
         }
 
         /// <summary>
@@ -81,9 +81,9 @@ namespace NWN.Framework.Lite
         ///   TALKVOLUME_TELL (sends the chat message privately back to the original speaker)
         ///   Note: The new chat message gets sent after the OnPlayerChat script exits.
         /// </summary>
-        public static void SetPCChatVolume(TalkVolumeType nTalkVolume = TalkVolumeType.Talk)
+        public static void SetPCChatVolume(TalkVolumeType nTalkVolume)
         {
-            Internal.NativeFunctions.StackPushInteger((int)nTalkVolume);
+            Internal.NativeFunctions.StackPushInteger(nTalkVolume.InternalValue);
             Internal.NativeFunctions.CallBuiltIn(842);
         }
     }

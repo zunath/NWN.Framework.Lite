@@ -428,7 +428,7 @@ namespace NWN.Framework.Lite
             Internal.NativeFunctions.StackPushStringUTF8(sTag);
             Internal.NativeFunctions.StackPushFloat(fSize);
             Internal.NativeFunctions.StackPushGameDefinedStructure((int)EngineStructureType.Location, lLocation);
-            Internal.NativeFunctions.StackPushInteger((int)nTrapType);
+            Internal.NativeFunctions.StackPushInteger(nTrapType.InternalValue);
             Internal.NativeFunctions.CallBuiltIn(809);
             return Internal.NativeFunctions.StackPopObject();
         }

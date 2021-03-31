@@ -143,7 +143,7 @@ namespace NWN.Framework.Lite.NWNX
         public static int GetWeatherChance(uint area, WeatherEffectType type)
         {
             Internal.NativeFunctions.nwnxSetFunction(PLUGIN_NAME, "GetWeatherChance");
-            Internal.NativeFunctions.nwnxPushInt((int)type);
+            Internal.NativeFunctions.nwnxPushInt(type.InternalValue);
             Internal.NativeFunctions.nwnxPushObject(area);
             Internal.NativeFunctions.nwnxCallFunction();
             return Internal.NativeFunctions.nwnxPopInt();
@@ -156,7 +156,7 @@ namespace NWN.Framework.Lite.NWNX
         {
             Internal.NativeFunctions.nwnxSetFunction(PLUGIN_NAME, "SetWeatherChance");
             Internal.NativeFunctions.nwnxPushInt(chance);
-            Internal.NativeFunctions.nwnxPushInt((int)type);
+            Internal.NativeFunctions.nwnxPushInt(type.InternalValue);
             Internal.NativeFunctions.nwnxPushObject(area);
             Internal.NativeFunctions.nwnxCallFunction();
         }
