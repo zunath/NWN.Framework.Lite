@@ -1,9 +1,11 @@
 namespace NWN.Framework.Lite.Enum
 {
-    public enum SaveReturnType
+    public class SaveReturnType : NWEnumBase<int>
     {
-        Failed,
-        Success,
-        Immune
+        public static readonly SaveReturnType Failed = new(0);
+        public static readonly SaveReturnType Success = new(1);
+        public static readonly SaveReturnType Immune = new(2);
+
+        public SaveReturnType(int internalValue) : base(internalValue) { }
     }
 }

@@ -1,10 +1,12 @@
 ﻿namespace NWN.Framework.Lite.Enum
 {
-    public enum RestType
+    public class RestType : NWEnumBase<int>
     {
-        Invalid,
-        Started,
-        Finished,
-        Cancelled
+        public static readonly RestType Invalid = new(0);
+        public static readonly RestType Started = new(1);
+        public static readonly RestType Finished = new(2);
+        public static readonly RestType Cancelled = new(3);
+
+        public RestType(int internalValue) : base(internalValue) { }
     }
 }

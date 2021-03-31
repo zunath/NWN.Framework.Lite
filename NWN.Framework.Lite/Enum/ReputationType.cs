@@ -1,9 +1,11 @@
 ﻿namespace NWN.Framework.Lite.Enum
 {
-    public enum ReputationType
+    public class ReputationType : NWEnumBase<int>
     {
-        Enemy = 1,
-        Friend = 0,
-        Neutral = 2
+        public static readonly ReputationType Enemy = new(1);
+        public static readonly ReputationType Friend = new(0);
+        public static readonly ReputationType Neutral = new(2);
+
+        public ReputationType(int internalValue) : base(internalValue) { }
     }
 }

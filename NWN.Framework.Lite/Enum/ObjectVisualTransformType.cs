@@ -1,14 +1,16 @@
 namespace NWN.Framework.Lite.Enum
 {
-    public enum ObjectVisualTransformType
+    public class ObjectVisualTransformType : NWEnumBase<int>
     {
-        Scale = 10,
-        RotateX = 21,
-        RotateY = 22,
-        RotateZ = 23,
-        TranslateX = 31,
-        TranslateY = 32,
-        TranslateZ = 33,
-        AnimationSpeed = 40
+        public static readonly ObjectVisualTransformType Scale = new(10);
+        public static readonly ObjectVisualTransformType RotateX = new(21);
+        public static readonly ObjectVisualTransformType RotateY = new(22);
+        public static readonly ObjectVisualTransformType RotateZ = new(23);
+        public static readonly ObjectVisualTransformType TranslateX = new(31);
+        public static readonly ObjectVisualTransformType TranslateY = new(32);
+        public static readonly ObjectVisualTransformType TranslateZ = new(33);
+        public static readonly ObjectVisualTransformType AnimationSpeed = new(40);
+
+        public ObjectVisualTransformType(int internalValue) : base(internalValue) { }
     }
 }
