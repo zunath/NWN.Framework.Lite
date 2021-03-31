@@ -10,7 +10,7 @@
         public static readonly TalkVolumeType Party = new(5);
         public static readonly TalkVolumeType Tell = new(6);
 
-                public int InternalValue { get; protected set; }
+        public int InternalValue { get; protected set; }
 
         public TalkVolumeType(int internalValue) => InternalValue = internalValue;
     }
