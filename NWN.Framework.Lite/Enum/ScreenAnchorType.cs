@@ -1,11 +1,13 @@
 ﻿namespace NWN.Framework.Lite.Enum
 {
-    public enum ScreenAnchorType
+    public class ScreenAnchorType : NWEnumBase<int>
     {
-        TopLeft = 0,
-        TopRight = 1,
-        BottomLeft = 2,
-        BottomRight = 3,
-        Center = 4
+        public static readonly ScreenAnchorType TopLeft = new(0);
+        public static readonly ScreenAnchorType TopRight = new(1);
+        public static readonly ScreenAnchorType BottomLeft = new(2);
+        public static readonly ScreenAnchorType BottomRight = new(3);
+        public static readonly ScreenAnchorType Center = new(4);
+
+        public ScreenAnchorType(int internalValue) : base(internalValue) { }
     }
 }
