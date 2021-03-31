@@ -28,13 +28,18 @@ public static void SitOnAChair()
 }
 
 ```
+4. Configure your NWNX server with the following environment variables. Setting up an NWNX server is outside the scope of this guide - more information can be found in the Additional Resources section of this guide.
 
-4. Add the script "sit" to the OnUsed event of a placeable chair.
-5. Build the project and run the NWNX server
-6. Log in and click the chair. Your character should sit down.
+```csharp
+NWNX_DOTNET_ASSEMBLY=/nwn/home/dotnet/NWN.Framework.Lite 
+NWNX_DOTNET_ENTRYPOINT=NWN.Framework.Lite.Core.Internal
+```
+
+5. Add the script "sit" to the OnUsed event of a placeable chair.
+6. Build the project and run the NWNX server
+7. Log in and click the chair. Your character should sit down.
 
 And that's it!
-
 
 # Additional Resources
 
@@ -43,6 +48,8 @@ And that's it!
 [![NWN Lexicon](https://nwnlexicon.com/index.php?title=Main_Page)] - Contains a wealth of useful information about NWScript.
 
 [![NWN Managed](https://github.com/nwn-dotnet/NWN.Managed)] - An alternative, opinionated framework.
+
+[![Star Wars: LOR](https://github.com/zunath/SWLOR_NWN/tree/feature/ffo-rewrite)] - An example of this framework being used in a production environment.
 
 # Contributing
 We welcome all contributions via Pull Request. Please read the following as they serve as our guiding principles on this project. We expect all contributions to adhere to these guidelines.
