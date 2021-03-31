@@ -1,51 +1,55 @@
 namespace NWN.Framework.Lite.Enum
 {
-    public enum PoisonType
+    public class PoisonType: NWEnumBase<int>
     {
         // these constants must match those in poison.2da
-        Nightshade = 0,
-        Small_Centipede_Poison = 1,
-        Blade_Bane = 2,
-        Greenblood_Oil = 3,
-        Bloodroot = 4,
-        Purple_Worm_Poison = 5,
-        Large_Scorpion_Venom = 6,
-        Wyvern_Poison = 7,
-        Blue_Whinnis = 8,
-        Giant_Wasp_Poison = 9,
-        Shadow_Essence = 10,
-        Black_Adder_Venom = 11,
-        Deathblade = 12,
-        Malyss_Root_Paste = 13,
-        Nitharit = 14,
-        Dragon_Bile = 15,
-        Sassone_Leaf_Residue = 16,
-        Terinav_Root = 17,
-        Carrion_Crawler_Brain_Juice = 18,
-        Black_Lotus_Extract = 19,
-        Oil_Of_Taggit = 20,
-        Id_Moss = 21,
-        Striped_Toadstool = 22,
-        Arsenic = 23,
-        Lich_Dust = 24,
-        Dark_Reaver_Powder = 25,
-        Ungol_Dust = 26,
-        Burnt_Othur_Fumes = 27,
-        Chaos_Mist = 28,
-        Bebilith_Venom = 29,
-        Quasit_Venom = 30,
-        Pit_Fiend_Ichor = 31,
-        Ettercap_Venom = 32,
-        Aranea_Venom = 33,
-        Tiny_Spider_Venom = 34,
-        Small_Spider_Venom = 35,
-        Medium_Spider_Venom = 36,
-        Large_Spider_Venom = 37,
-        Huge_Spider_Venom = 38,
-        Gargantuan_Spider_Venom = 39,
-        Colossal_Spider_Venom = 40,
-        Phase_Spider_Venom = 41,
-        Wraith_Spider_Venom = 42,
-        Iron_Golem = 43
+        public static readonly PoisonType Nightshade = new(0);
+        public static readonly PoisonType SmallCentipedePoison = new(1);
+        public static readonly PoisonType BladeBane = new(2);
+        public static readonly PoisonType GreenbloodOil = new(3);
+        public static readonly PoisonType Bloodroot = new(4);
+        public static readonly PoisonType PurpleWormPoison = new(5);
+        public static readonly PoisonType LargeScorpionVenom = new(6);
+        public static readonly PoisonType WyvernPoison = new(7);
+        public static readonly PoisonType BlueWhinnis = new(8);
+        public static readonly PoisonType GiantWaspPoison = new(9);
+        public static readonly PoisonType ShadowEssence = new(10);
+        public static readonly PoisonType BlackAdderVenom = new(11);
+        public static readonly PoisonType Deathblade = new(12);
+        public static readonly PoisonType MalyssRootPaste = new(13);
+        public static readonly PoisonType Nitharit = new(14);
+        public static readonly PoisonType DragonBile = new(15);
+        public static readonly PoisonType SassoneLeafResidue = new(16);
+        public static readonly PoisonType TerinavRoot = new(17);
+        public static readonly PoisonType CarrionCrawlerBrainJuice = new(18);
+        public static readonly PoisonType BlackLotusExtract = new(19);
+        public static readonly PoisonType OilOfTaggit = new(20);
+        public static readonly PoisonType IdMoss = new(21);
+        public static readonly PoisonType StripedToadstool = new(22);
+        public static readonly PoisonType Arsenic = new(23);
+        public static readonly PoisonType LichDust = new(24);
+        public static readonly PoisonType DarkReaverPowder = new(25);
+        public static readonly PoisonType UngolDust = new(26);
+        public static readonly PoisonType BurntOthurFumes = new(27);
+        public static readonly PoisonType ChaosMist = new(28);
+        public static readonly PoisonType BebilithVenom = new(29);
+        public static readonly PoisonType QuasitVenom = new(30);
+        public static readonly PoisonType PitFiendIchor = new(31);
+        public static readonly PoisonType EttercapVenom = new(32);
+        public static readonly PoisonType AraneaVenom = new(33);
+        public static readonly PoisonType TinySpiderVenom = new(34);
+        public static readonly PoisonType SmallSpiderVenom = new(35);
+        public static readonly PoisonType MediumSpiderVenom = new(36);
+        public static readonly PoisonType LargeSpiderVenom = new(37);
+        public static readonly PoisonType HugeSpiderVenom = new(38);
+        public static readonly PoisonType GargantuanSpiderVenom = new(39);
+        public static readonly PoisonType ColossalSpiderVenom = new(40);
+        public static readonly PoisonType PhaseSpiderVenom = new(41);
+        public static readonly PoisonType WraithSpiderVenom = new(42);
+        public static readonly PoisonType IronGolem = new(43);
+
+        public PoisonType(int internalValue) : base(internalValue)
+        {
+        }
     }
 }

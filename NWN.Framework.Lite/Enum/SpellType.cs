@@ -1,403 +1,400 @@
 namespace NWN.Framework.Lite.Enum
 {
-    public enum SpellType
+    public class SpellType: NWEnumBase<int>
     {
-        Invalid = -2,
-        AllSpells = -1,
-        AcidFog,
-        Aid,
-        AnimateDead,
-        Barkskin,
-        BestowCurse,
-        BladeBarrier,
-        Bless,
-        BlindnessAndDeafness = 8,
-        BullsStrength,
-        BurningHands,
-        CallLightning,
-        CatsGrace = 13,
-        ChainLightning,
-        CharmMonster,
-        CharmPerson,
-        CharmPersonOrAnimal,
-        CircleOfDeath,
-        CircleOfDoom,
-        ClairaudienceAndClairvoyance,
-        Clarity,
-        CloakOfChaos,
-        Cloudkill,
-        ColorSpray,
-        ConeOfCold,
-        Confusion,
-        Contagion,
-        ControlUndead,
-        CreateGreaterUndead,
-        CreateUndead,
-        CureCriticalWounds,
-        CureLightWounds,
-        CureMinorWounds,
-        CureModerateWounds,
-        CureSeriousWounds,
-        Darkness,
-        Daze,
-        DeathWard,
-        DelayedBlastFireball,
-        Dismissal,
-        DispelMagic,
-        DivinePower,
-        DominateAnimal,
-        DominateMonster,
-        DominatePerson,
-        Doom,
-        ElementalShield,
-        ElementalSwarm,
-        Endurance,
-        EndureElements,
-        EnergyDrain,
-        Enervation,
-        Entangle,
-        Fear,
-        Feeblemind,
-        FingerOfDeath,
-        FireStorm,
-        Fireball,
-        FlameArrow,
-        FlameLash,
-        FlameStrike,
-        FreedomOfMovement,
-        NwnGate,
-        GhoulTouch,
-        GlobeOfInvulnerability,
-        Grease,
-        GreaterDispelling,
-        GreaterPlanarBinding = 69,
-        GreaterRestoration,
-        GreaterSpellBreach = 72,
-        GreaterSpellMantle,
-        GreaterStoneskin,
-        GustOfWind,
-        HammerOfTheGods,
-        Harm,
-        Haste,
-        Heal,
-        HealingCircle,
-        HoldAnimal,
-        HoldMonster,
-        HoldPerson,
-        HolyAura,
-        Identify = 86,
-        Implosio,
-        ImprovedInvisibilit,
-        IncendiaryClou,
-        Invisibilit,
-        InvisibilityPurg,
-        InvisibilitySpher,
-        Knoc,
-        LesserDispe,
-        LesserMindBlan,
-        LesserPlanarBindin,
-        LesserRestoratio,
-        LesserSpellBreac,
-        LesserSpellMantl,
-        Light,
-        LightningBolt,
-        MageArmor,
-        MagicCircleAgainstChaos,
-        MagicCircleAgainstEvil,
-        MagicCircleAgainstGood,
-        MagicCircleAgainstLaw,
-        MagicMissile,
-        MassBlindnessAndDeafness,
-        MassCharm,
-        MassHaste,
-        MassHeal,
-        MelfsAcidArrow,
-        MeteorSwarm,
-        MindBlank,
-        MindFog,
-        MinorGlobeOfInvulnerability,
-        GhostlyVisage,
-        EtherealVisage,
-        MordenkainensDisjunction,
-        MordenkainensSword,
-        NaturesBalance,
-        NegativeEnergyProtection,
-        NeutralizePoison,
-        PhantasmalKiller,
-        PlanarBinding,
-        Poison,
-        PolymorphSelf,
-        PowerWordKill,
-        PowerWordStun,
-        Prayer,
-        Premonition,
-        PrismaticSpray,
-        ProtectionFromChaos,
-        ProtectionFromElements,
-        ProtectionFromEvil,
-        ProtectionFromGood,
-        ProtectionFromLaw,
-        ProtectionFromSpells,
-        RaiseDead,
-        RayOfEnfeeblement,
-        RayOfFrost,
-        RemoveBlindnessAndDeafness,
-        RemoveCurse,
-        RemoveDisease,
-        RemoveFear,
-        RemoveParalysis,
-        ResistElements,
-        Resistance,
-        Restoration,
-        Resurrection,
-        Sanctuary,
-        Scare,
-        SearingLight,
-        SeeInvisibility,
-        Unused6,
-        Unused7,
-        ShadowShield,
-        Shapechange,
-        ShieldOfLaw,
-        Silence,
-        SlayLiving,
-        Sleep,
-        Slow,
-        SoundBurst,
-        SpellResistance,
-        SpellMantle,
-        SphereOfChaos,
-        StinkingCloud,
-        Stoneskin,
-        StormOfVengeance,
-        SummonCreatureI,
-        SummonCreatureIi,
-        SummonCreatureIii,
-        SummonCreatureIv,
-        SummonCreatureIx,
-        SummonCreatureV,
-        SummonCreatureVi,
-        SummonCreatureVii,
-        SummonCreatureViii,
-        Sunbeam,
-        TensersTransformation,
-        TimeStop,
-        TrueSeeing,
-        UnholyAura,
-        VampiricTouch,
-        Virtue,
-        WailOfTheBanshee,
-        WallOfFire,
-        Web,
-        Weird,
-        WordOfFaith,
-        ShadesSummonShadow = 324,
-        ShadesConeOfCold = 340,
-        ShadesFireball,
-        ShadesStoneskin,
-        ShadesWallOfFire,
-        ShadowConjurationSummonShadow,
-        ShadowConjurationDarkness,
-        ShadowConjurationInivsibility,
-        ShadowConjurationMageArmor,
-        ShadowConjurationMagicMissile,
-        GreaterShadowConjurationSummonShadow,
-        GreaterShadowConjurationAcidArrow,
-        GreaterShadowConjurationMirrorImage,
-        GreaterShadowConjurationWeb,
-        GreaterShadowConjurationMinorGlobe,
-        EagleSpledor,
-        OwlsWisdom,
-        FoxsCunning,
-        GreaterEagleSplendor,
-        GreaterOwlsWisdom,
-        GreaterFoxsCunning,
-        GreaterBullsStrength,
-        GreaterCatsGrace,
-        GreaterEndurance,
-        Awaken,
-        CreepingDoom,
-        Darkvision,
-        Destruction,
-        HorridWilting,
-        IceStorm,
-        EnergyBuffer,
-        NegativeEnergyBurst,
-        NegativeEnergyRay,
-        AuraOfVitality,
-        WarCry,
-        Regenerate,
-        EvardsBlackTentacles,
-        LegendLore,
-        FindTraps,
-        SummonMephit,
-        SummonCelestial,
-        BattleMastery,
-        DivineStrength,
-        DivineProtection,
-        NegativePlaneAvatar,
-        DivineTrickery,
-        RoguesCunning,
-        ActivateItem,
-        DragonFear = 412,
-        DivineFavor,
-        TrueStrike,
-        Flare,
-        Shield,
-        EntropicShield,
-        ContinualFlame,
-        OneWithTheLand,
-        Camoflage,
-        BloodFrenzy,
-        Bombardment,
-        AcidSplash,
-        Quillfire,
-        Earthquake,
-        Sunburst,
-        ActivateItemSelf2,
-        Auraofglory,
-        Banishment,
-        InflictMinorWounds,
-        InflictLightWounds,
-        InflictModerateWounds,
-        InflictSeriousWounds,
-        InflictCriticalWounds,
-        Balagarnsironhorn,
-        Drown,
-        OwlsInsight,
-        ElectricJolt,
-        Firebrand,
-        WoundingWhispers,
-        Amplify,
-        Etherealness,
-        UndeathsEternalFoe,
-        Dirge,
-        Inferno,
-        IsaacsLesserMissileStorm,
-        IsaacsGreaterMissileStorm,
-        Bane,
-        ShieldOfFaith,
-        PlanarAlly,
-        MagicFang,
-        GreaterMagicFang,
-        SpikeGrowth,
-        MassCamoflage,
-        ExpeditiousRetreat,
-        TashasHideousLaughter,
-        Displacement,
-        BigbysInterposingHand,
-        BigbysForcefulHand,
-        BigbysGraspingHand,
-        BigbysClenchedFist,
-        BigbysCrushingHand,
-        GrenadeFire,
-        GrenadeTangle,
-        GrenadeHoly,
-        GrenadeChoking,
-        GrenadeThunderstone,
-        GrenadeAcid,
-        GrenadeChicken,
-        GrenadeCaltrops,
-        ActivateItemPortal,
-        DivineMight,
-        DivineShield,
-        ShadowDaze,
-        SummonShadow,
-        ShadowEvade,
-        TymorasSmile,
-        CraftHarperItem,
-        FleshToStone = 485,
-        StoneToFlesh,
-        TrapArrow,
-        TrapBolt,
-        TrapDart = 493,
-        TrapShuriken,
-        RodOfWonder = 499,
-        DeckOfManyThings = 500,
-        Charger = 500,
-        ElementalSummoningItem = 502,
-        DeckAvatar,
-        DeckGemspray,
-        DeckButterflyspray,
-        Healingkit,
-        Powerstone,
-        Spellstaff,
-        Unused279,
-        Decharger,
-        KoboldJump,
-        Crumble,
-        InfestationOfMaggots,
-        HealingSting,
-        GreatThunderclap,
-        BallLightning,
-        Battletide,
-        Combust,
-        DeathArmor,
-        GedleesElectricLoop,
-        HorizikaulsBoom,
-        Ironguts,
-        MestilsAcidBreath,
-        MestilsAcidSheath,
-        MonstrousRegeneration,
-        ScintillatingSphere,
-        StoneBones,
-        UndeathToDeath,
-        VineMine,
-        VineMineEntangle,
-        VineMineHamperMovement,
-        VineMineCamouflage,
-        BlackBladeOfDisaster,
-        ShelgarnsPersistentBlade,
-        BladeThirst,
-        DeafeningClang,
-        HolySword,
-        CloudOfBewilderment,
-        KeenEdge,
-        Blackstaff = 541,
-        FlameWeapon,
-        IceDagger,
-        MagicWeapon,
-        GreaterMagicWeapon,
-        MagicVestment,
-        Stonehold,
-        Darkfire,
-        GlyphOfWarding,
-        IounStoneDustyRose = 554,
-        IounStonePaleBlue,
-        IounStoneScarletBlue,
-        IounStoneBlue,
-        IounStoneDeepRed,
-        IounStonePink,
-        IounStonePinkGreen,
-        FlyingDebris,
-        EpicHellball,
-        EpicMummyDust,
-        EpicDragonKnight,
-        EpicMageArmor,
-        EpicRuin,
-        CraftDyeClothColor1 = 648,
-        CraftDyeClothColor2,
-        CraftDyeLeatherColor1,
-        CraftDyeLeatherColor2,
-        CraftDyeMetalColor1,
-        CraftDyeMetalColor2,
-        CraftAddItemProperty,
-        CraftPoisonWeaponOrAmmo,
-        CraftCraftWeaponSkill,
-        CraftCraftArmorSkill,
-        HorseMenu = 812,
-        HorseMount,
-        HorseDismount,
-        HorsePartyMount,
-        HorsePartyDismount,
-        HorseAssignMount,
-        PaladinSummonMount,
+        public static readonly SpellType Invalid = new(-2);
+        public static readonly SpellType AllSpells = new(-1);
+        public static readonly SpellType AcidFog = new(0);
+        public static readonly SpellType Aid = new(1);
+        public static readonly SpellType AnimateDead = new(2);
+        public static readonly SpellType Barkskin = new(3);
+        public static readonly SpellType BestowCurse = new(4);
+        public static readonly SpellType BladeBarrier = new(5);
+        public static readonly SpellType Bless = new(6);
+        public static readonly SpellType BlindnessAndDeafness = new(8);
+        public static readonly SpellType BullsStrength = new(9);
+        public static readonly SpellType BurningHands = new(10);
+        public static readonly SpellType CallLightning = new(11);
+        public static readonly SpellType CatsGrace = new(13);
+        public static readonly SpellType ChainLightning = new(14);
+        public static readonly SpellType CharmMonster = new(15);
+        public static readonly SpellType CharmPerson = new(16);
+        public static readonly SpellType CharmPersonOrAnimal = new(17);
+        public static readonly SpellType CircleOfDeath = new(18);
+        public static readonly SpellType CircleOfDoom = new(19);
+        public static readonly SpellType ClairaudienceAndClairvoyance = new(20);
+        public static readonly SpellType Clarity = new(21);
+        public static readonly SpellType CloakOfChaos = new(22);
+        public static readonly SpellType Cloudkill = new(23);
+        public static readonly SpellType ColorSpray = new(24);
+        public static readonly SpellType ConeOfCold = new(25);
+        public static readonly SpellType Confusion = new(26);
+        public static readonly SpellType Contagion = new(27);
+        public static readonly SpellType ControlUndead = new(28);
+        public static readonly SpellType CreateGreaterUndead = new(29);
+        public static readonly SpellType CreateUndead = new(30);
+        public static readonly SpellType CureCriticalWounds = new(31);
+        public static readonly SpellType CureLightWounds = new(32);
+        public static readonly SpellType CureMinorWounds = new(33);
+        public static readonly SpellType CureModerateWounds = new(34);
+        public static readonly SpellType CureSeriousWounds = new(35);
+        public static readonly SpellType Darkness = new(36);
+        public static readonly SpellType Daze = new(37);
+        public static readonly SpellType DeathWard = new(38);
+        public static readonly SpellType DelayedBlastFireball = new(39);
+        public static readonly SpellType Dismissal = new(40);
+        public static readonly SpellType DispelMagic = new(41);
+        public static readonly SpellType DivinePower = new(42);
+        public static readonly SpellType DominateAnimal = new(43);
+        public static readonly SpellType DominateMonster = new(44);
+        public static readonly SpellType DominatePerson = new(45);
+        public static readonly SpellType Doom = new(46);
+        public static readonly SpellType ElementalShield = new(47);
+        public static readonly SpellType ElementalSwarm = new(48);
+        public static readonly SpellType Endurance = new(49);
+        public static readonly SpellType EndureElements = new(50);
+        public static readonly SpellType EnergyDrain = new(51);
+        public static readonly SpellType Enervation = new(52);
+        public static readonly SpellType Entangle = new(53);
+        public static readonly SpellType Fear = new(54);
+        public static readonly SpellType Feeblemind = new(55);
+        public static readonly SpellType FingerOfDeath = new(56);
+        public static readonly SpellType FireStorm = new(57);
+        public static readonly SpellType Fireball = new(58);
+        public static readonly SpellType FlameArrow = new(59);
+        public static readonly SpellType FlameLash = new(60);
+        public static readonly SpellType FlameStrike = new(61);
+        public static readonly SpellType FreedomOfMovement = new(62);
+        public static readonly SpellType Gate = new(63);
+        public static readonly SpellType GhoulTouch = new(64);
+        public static readonly SpellType GlobeOfInvulnerability = new(65);
+        public static readonly SpellType Grease = new(66);
+        public static readonly SpellType GreaterDispelling = new(67);
+        public static readonly SpellType GreaterPlanarBinding = new(69);
+        public static readonly SpellType GreaterRestoration = new(70);
+        public static readonly SpellType GreaterSpellBreach = new(72);
+        public static readonly SpellType GreaterSpellMantle = new(73);
+        public static readonly SpellType GreaterStoneskin = new(74);
+        public static readonly SpellType GustOfWind = new(75);
+        public static readonly SpellType HammerOfTheGods = new(76);
+        public static readonly SpellType Harm = new(77);
+        public static readonly SpellType Haste = new(78);
+        public static readonly SpellType Heal = new(79);
+        public static readonly SpellType HealingCircle = new(80);
+        public static readonly SpellType HoldAnimal = new(81);
+        public static readonly SpellType HoldMonster = new(82);
+        public static readonly SpellType HoldPerson = new(83);
+        public static readonly SpellType HolyAura = new(84);
+        public static readonly SpellType Identify = new(86);
+        public static readonly SpellType Implosio = new(87);
+        public static readonly SpellType ImprovedInvisibility = new(88);
+        public static readonly SpellType IncendiaryCloud = new(89);
+        public static readonly SpellType Invisibility = new(90);
+        public static readonly SpellType InvisibilityPurge = new(91);
+        public static readonly SpellType InvisibilitySphere = new(92);
+        public static readonly SpellType Knock = new(93);
+        public static readonly SpellType LesserDispel = new(94);
+        public static readonly SpellType LesserMindBlank = new(95);
+        public static readonly SpellType LesserPlanarBinding = new(96);
+        public static readonly SpellType LesserRestoration = new(97);
+        public static readonly SpellType LesserSpellBreach = new(98);
+        public static readonly SpellType LesserSpellMantle = new(99);
+        public static readonly SpellType Light = new(100);
+        public static readonly SpellType LightningBolt = new(101);
+        public static readonly SpellType MageArmor = new(102);
+        public static readonly SpellType MagicCircleAgainstChaos = new(103);
+        public static readonly SpellType MagicCircleAgainstEvil = new(104);
+        public static readonly SpellType MagicCircleAgainstGood = new(105);
+        public static readonly SpellType MagicCircleAgainstLaw = new(106);
+        public static readonly SpellType MagicMissile = new(107);
+        public static readonly SpellType MassBlindnessAndDeafness = new(108);
+        public static readonly SpellType MassCharm = new(109);
+        public static readonly SpellType MassHaste = new(110);
+        public static readonly SpellType MassHeal = new(111);
+        public static readonly SpellType MelfsAcidArrow = new(112);
+        public static readonly SpellType MeteorSwarm = new(113);
+        public static readonly SpellType MindBlank = new(114);
+        public static readonly SpellType MindFog = new(115);
+        public static readonly SpellType MinorGlobeOfInvulnerability = new(116);
+        public static readonly SpellType GhostlyVisage = new(117);
+        public static readonly SpellType EtherealVisage = new(118);
+        public static readonly SpellType MordenkainensDisjunction = new(119);
+        public static readonly SpellType MordenkainensSword = new(120);
+        public static readonly SpellType NaturesBalance = new(121);
+        public static readonly SpellType NegativeEnergyProtection = new(122);
+        public static readonly SpellType NeutralizePoison = new(123);
+        public static readonly SpellType PhantasmalKiller = new(124);
+        public static readonly SpellType PlanarBinding = new(125);
+        public static readonly SpellType Poison = new(126);
+        public static readonly SpellType PolymorphSelf = new(127);
+        public static readonly SpellType PowerWordKill = new(128);
+        public static readonly SpellType PowerWordStun = new(129);
+        public static readonly SpellType Prayer = new(130);
+        public static readonly SpellType Premonition = new(131);
+        public static readonly SpellType PrismaticSpray = new(132);
+        public static readonly SpellType ProtectionFromChaos = new(133);
+        public static readonly SpellType ProtectionFromElements = new(134);
+        public static readonly SpellType ProtectionFromEvil = new(135);
+        public static readonly SpellType ProtectionFromGood = new(136);
+        public static readonly SpellType ProtectionFromLaw = new(137);
+        public static readonly SpellType ProtectionFromSpells = new(138);
+        public static readonly SpellType RaiseDead = new(139);
+        public static readonly SpellType RayOfEnfeeblement = new(140);
+        public static readonly SpellType RayOfFrost = new(141);
+        public static readonly SpellType RemoveBlindnessAndDeafness = new(142);
+        public static readonly SpellType RemoveCurse = new(143);
+        public static readonly SpellType RemoveDisease = new(144);
+        public static readonly SpellType RemoveFear = new(145);
+        public static readonly SpellType RemoveParalysis = new(146);
+        public static readonly SpellType ResistElements = new(147);
+        public static readonly SpellType Resistance = new(148);
+        public static readonly SpellType Restoration = new(149);
+        public static readonly SpellType Resurrection = new(150);
+        public static readonly SpellType Sanctuary = new(151);
+        public static readonly SpellType Scare = new(152);
+        public static readonly SpellType SearingLight = new(153);
+        public static readonly SpellType SeeInvisibility = new(154);
+        public static readonly SpellType Unused6 = new(155);
+        public static readonly SpellType Unused7 = new(156);
+        public static readonly SpellType ShadowShield = new(157);
+        public static readonly SpellType Shapechange = new(158);
+        public static readonly SpellType ShieldOfLaw = new(159);
+        public static readonly SpellType Silence = new(160);
+        public static readonly SpellType SlayLiving = new(161);
+        public static readonly SpellType Sleep = new(162);
+        public static readonly SpellType Slow = new(163);
+        public static readonly SpellType SoundBurst = new(164);
+        public static readonly SpellType SpellResistance = new(165);
+        public static readonly SpellType SpellMantle = new(166);
+        public static readonly SpellType SphereOfChaos = new(167);
+        public static readonly SpellType StinkingCloud = new(168);
+        public static readonly SpellType Stoneskin = new(169);
+        public static readonly SpellType StormOfVengeance = new(170);
+        public static readonly SpellType SummonCreatureI = new(171);
+        public static readonly SpellType SummonCreatureII = new(172);
+        public static readonly SpellType SummonCreatureIII = new(173);
+        public static readonly SpellType SummonCreatureIV = new(174);
+        public static readonly SpellType SummonCreatureIX = new(175);
+        public static readonly SpellType SummonCreatureV = new(176);
+        public static readonly SpellType SummonCreatureVI = new(177);
+        public static readonly SpellType SummonCreatureVII = new(178);
+        public static readonly SpellType SummonCreatureVIII = new(179);
+        public static readonly SpellType Sunbeam = new(180);
+        public static readonly SpellType TensersTransformation = new(181);
+        public static readonly SpellType TimeStop = new(182);
+        public static readonly SpellType TrueSeeing = new(183);
+        public static readonly SpellType UnholyAura = new(184);
+        public static readonly SpellType VampiricTouch = new(185);
+        public static readonly SpellType Virtue = new(186);
+        public static readonly SpellType WailOfTheBanshee = new(187);
+        public static readonly SpellType WallOfFire = new(188);
+        public static readonly SpellType Web = new(189);
+        public static readonly SpellType Weird = new(190);
+        public static readonly SpellType WordOfFaith = new(191);
+        public static readonly SpellType ShadesSummonShadow = new(324);
+        public static readonly SpellType ShadesConeOfCold = new(340);
+        public static readonly SpellType ShadesFireball = new(341);
+        public static readonly SpellType ShadesStoneskin = new(342);
+        public static readonly SpellType ShadesWallOfFire = new(343);
+        public static readonly SpellType ShadowConjurationSummonShadow = new(344);
+        public static readonly SpellType ShadowConjurationDarkness = new(345);
+        public static readonly SpellType ShadowConjurationInivsibility = new(346);
+        public static readonly SpellType ShadowConjurationMageArmor = new(347);
+        public static readonly SpellType ShadowConjurationMagicMissile = new(348);
+        public static readonly SpellType GreaterShadowConjurationSummonShadow = new(349);
+        public static readonly SpellType GreaterShadowConjurationAcidArrow = new(350);
+        public static readonly SpellType GreaterShadowConjurationMirrorImage = new(351);
+        public static readonly SpellType GreaterShadowConjurationWeb = new(352);
+        public static readonly SpellType GreaterShadowConjurationMinorGlobe = new(353);
+        public static readonly SpellType EagleSpledor = new(354);
+        public static readonly SpellType OwlsWisdom = new(355);
+        public static readonly SpellType FoxsCunning = new(356);
+        public static readonly SpellType GreaterEagleSplendor = new(357);
+        public static readonly SpellType GreaterOwlsWisdom = new(358);
+        public static readonly SpellType GreaterFoxsCunning = new(359);
+        public static readonly SpellType GreaterBullsStrength = new(360);
+        public static readonly SpellType GreaterCatsGrace = new(361);
+        public static readonly SpellType GreaterEndurance = new(362);
+        public static readonly SpellType Awaken = new(363);
+        public static readonly SpellType CreepingDoom = new(364);
+        public static readonly SpellType Darkvision = new(365);
+        public static readonly SpellType Destruction = new(366);
+        public static readonly SpellType HorridWilting = new(367);
+        public static readonly SpellType IceStorm = new(368);
+        public static readonly SpellType EnergyBuffer = new(369);
+        public static readonly SpellType NegativeEnergyBurst = new(370);
+        public static readonly SpellType NegativeEnergyRay = new(371);
+        public static readonly SpellType AuraOfVitality = new(372);
+        public static readonly SpellType WarCry = new(373);
+        public static readonly SpellType Regenerate = new(374);
+        public static readonly SpellType EvardsBlackTentacles = new(375);
+        public static readonly SpellType LegendLore = new(376);
+        public static readonly SpellType FindTraps = new(377);
+        public static readonly SpellType SummonMephit = new(378);
+        public static readonly SpellType SummonCelestial = new(379);
+        public static readonly SpellType BattleMastery = new(380);
+        public static readonly SpellType DivineStrength = new(381);
+        public static readonly SpellType DivineProtection = new(382);
+        public static readonly SpellType NegativePlaneAvatar = new(383);
+        public static readonly SpellType DivineTrickery = new(384);
+        public static readonly SpellType RoguesCunning = new(385);
+        public static readonly SpellType ActivateItem = new(386);
+        public static readonly SpellType DragonFear = new(412);
+        public static readonly SpellType DivineFavor = new(413);
+        public static readonly SpellType TrueStrike = new(414);
+        public static readonly SpellType Flare = new(415);
+        public static readonly SpellType Shield = new(416);
+        public static readonly SpellType EntropicShield = new(417);
+        public static readonly SpellType ContinualFlame = new(418);
+        public static readonly SpellType OneWithTheLand = new(419);
+        public static readonly SpellType Camoflage = new(420);
+        public static readonly SpellType BloodFrenzy = new(421);
+        public static readonly SpellType Bombardment = new(422);
+        public static readonly SpellType AcidSplash = new(423);
+        public static readonly SpellType Quillfire = new(424);
+        public static readonly SpellType Earthquake = new(425);
+        public static readonly SpellType Sunburst = new(426);
+        public static readonly SpellType ActivateItemSelf2 = new(427);
+        public static readonly SpellType Auraofglory = new(428);
+        public static readonly SpellType Banishment = new(429);
+        public static readonly SpellType InflictMinorWounds = new(430);
+        public static readonly SpellType InflictLightWounds = new(431);
+        public static readonly SpellType InflictModerateWounds = new(432);
+        public static readonly SpellType InflictSeriousWounds = new(433);
+        public static readonly SpellType InflictCriticalWounds = new(434);
+        public static readonly SpellType Balagarnsironhorn = new(435);
+        public static readonly SpellType Drown = new(436);
+        public static readonly SpellType OwlsInsight = new(437);
+        public static readonly SpellType ElectricJolt = new(438);
+        public static readonly SpellType Firebrand = new(439);
+        public static readonly SpellType WoundingWhispers = new(440);
+        public static readonly SpellType Amplify = new(441);
+        public static readonly SpellType Etherealness = new(442);
+        public static readonly SpellType UndeathsEternalFoe = new(443);
+        public static readonly SpellType Dirge = new(444);
+        public static readonly SpellType Inferno = new(445);
+        public static readonly SpellType IsaacsLesserMissileStorm = new(446);
+        public static readonly SpellType IsaacsGreaterMissileStorm = new(447);
+        public static readonly SpellType Bane = new(448);
+        public static readonly SpellType ShieldOfFaith = new(449);
+        public static readonly SpellType PlanarAlly = new(450);
+        public static readonly SpellType MagicFang = new(451);
+        public static readonly SpellType GreaterMagicFang = new(452);
+        public static readonly SpellType SpikeGrowth = new(453);
+        public static readonly SpellType MassCamoflage = new(454);
+        public static readonly SpellType ExpeditiousRetreat = new(455);
+        public static readonly SpellType TashasHideousLaughter = new(456);
+        public static readonly SpellType Displacement = new(457);
+        public static readonly SpellType BigbysInterposingHand = new(458);
+        public static readonly SpellType BigbysForcefulHand = new(459);
+        public static readonly SpellType BigbysGraspingHand = new(460);
+        public static readonly SpellType BigbysClenchedFist = new(461);
+        public static readonly SpellType BigbysCrushingHand = new(462);
+        public static readonly SpellType GrenadeFire = new(463);
+        public static readonly SpellType GrenadeTangle = new(464);
+        public static readonly SpellType GrenadeHoly = new(465);
+        public static readonly SpellType GrenadeChoking = new(466);
+        public static readonly SpellType GrenadeThunderstone = new(467);
+        public static readonly SpellType GrenadeAcid = new(468);
+        public static readonly SpellType GrenadeChicken = new(469);
+        public static readonly SpellType GrenadeCaltrops = new(470);
+        public static readonly SpellType ActivateItemPortal = new(471);
+        public static readonly SpellType DivineMight = new(472);
+        public static readonly SpellType DivineShield = new(473);
+        public static readonly SpellType ShadowDaze = new(474);
+        public static readonly SpellType SummonShadow = new(475);
+        public static readonly SpellType ShadowEvade = new(476);
+        public static readonly SpellType TymorasSmile = new(477);
+        public static readonly SpellType CraftHarperItem = new(478);
+        public static readonly SpellType FleshToStone = new(485);
+        public static readonly SpellType StoneToFlesh = new(486);
+        public static readonly SpellType TrapArrow = new(487);
+        public static readonly SpellType TrapBolt = new(488);
+        public static readonly SpellType TrapDart = new(493);
+        public static readonly SpellType TrapShuriken = new(494);
+        public static readonly SpellType RodOfWonder = new(499);
+        public static readonly SpellType DeckOfManyThings = new(500);
+        public static readonly SpellType Charger = new(500);
+        public static readonly SpellType ElementalSummoningItem = new(502);
+        public static readonly SpellType DeckAvatar = new(503);
+        public static readonly SpellType DeckGemspray = new(504);
+        public static readonly SpellType DeckButterflyspray = new(505);
+        public static readonly SpellType Healingkit = new(506);
+        public static readonly SpellType Powerstone = new(507);
+        public static readonly SpellType Spellstaff = new(508);
+        public static readonly SpellType Unused279 = new(509);
+        public static readonly SpellType Decharger = new(510);
+        public static readonly SpellType KoboldJump = new(511);
+        public static readonly SpellType Crumble = new(512);
+        public static readonly SpellType InfestationOfMaggots = new(513);
+        public static readonly SpellType HealingSting = new(514);
+        public static readonly SpellType GreatThunderclap = new(515);
+        public static readonly SpellType BallLightning = new(516);
+        public static readonly SpellType Battletide = new(517);
+        public static readonly SpellType Combust = new(518);
+        public static readonly SpellType DeathArmor = new(519);
+        public static readonly SpellType GedleesElectricLoop = new(520);
+        public static readonly SpellType HorizikaulsBoom = new(521);
+        public static readonly SpellType Ironguts = new(522);
+        public static readonly SpellType MestilsAcidBreath = new(523);
+        public static readonly SpellType MestilsAcidSheath = new(524);
+        public static readonly SpellType MonstrousRegeneration = new(525);
+        public static readonly SpellType ScintillatingSphere = new(526);
+        public static readonly SpellType StoneBones = new(527);
+        public static readonly SpellType UndeathToDeath = new(528);
+        public static readonly SpellType VineMine = new(529);
+        public static readonly SpellType VineMineEntangle = new(530);
+        public static readonly SpellType VineMineHamperMovement = new(531);
+        public static readonly SpellType VineMineCamouflage = new(532);
+        public static readonly SpellType BlackBladeOfDisaster = new(533);
+        public static readonly SpellType ShelgarnsPersistentBlade = new(534);
+        public static readonly SpellType BladeThirst = new(535);
+        public static readonly SpellType DeafeningClang = new(536);
+        public static readonly SpellType HolySword = new(537);
+        public static readonly SpellType CloudOfBewilderment = new(538);
+        public static readonly SpellType KeenEdge = new(539);
+        public static readonly SpellType Blackstaff = new(541);
+        public static readonly SpellType FlameWeapon = new(542);
+        public static readonly SpellType IceDagger = new(543);
+        public static readonly SpellType MagicWeapon = new(544);
+        public static readonly SpellType GreaterMagicWeapon = new(545);
+        public static readonly SpellType MagicVestment = new(546);
+        public static readonly SpellType Stonehold = new(547);
+        public static readonly SpellType Darkfire = new(548);
+        public static readonly SpellType GlyphOfWarding = new(549);
+        public static readonly SpellType IounStoneDustyRose = new(554);
+        public static readonly SpellType IounStonePaleBlue = new(555);
+        public static readonly SpellType IounStoneScarletBlue = new(556);
+        public static readonly SpellType IounStoneBlue = new(557);
+        public static readonly SpellType IounStoneDeepRed = new(558);
+        public static readonly SpellType IounStonePink = new(559);
+        public static readonly SpellType IounStonePinkGreen = new(560);
+        public static readonly SpellType FlyingDebris = new(561);
+        public static readonly SpellType EpicHellball = new(562);
+        public static readonly SpellType EpicMummyDust = new(563);
+        public static readonly SpellType EpicDragonKnight = new(564);
+        public static readonly SpellType EpicMageArmor = new(565);
+        public static readonly SpellType EpicRuin = new(566);
+        public static readonly SpellType CraftDyeClothColor1 = new(648);
+        public static readonly SpellType CraftDyeClothColor2 = new(649);
+        public static readonly SpellType CraftDyeLeatherColor1 = new(650);
+        public static readonly SpellType CraftDyeLeatherColor2 = new(651);
+        public static readonly SpellType CraftDyeMetalColor1 = new(652);
+        public static readonly SpellType CraftDyeMetalColor2 = new(653);
+        public static readonly SpellType CraftAddItemProperty = new(654);
+        public static readonly SpellType CraftPoisonWeaponOrAmmo = new(655);
+        public static readonly SpellType CraftCraftWeaponSkill = new(656);
+        public static readonly SpellType CraftCraftArmorSkill = new(657);
+        public static readonly SpellType HorseMenu = new(812);
+        public static readonly SpellType HorseMount = new(813);
+        public static readonly SpellType HorseDismount = new(814);
+        public static readonly SpellType HorsePartyMount = new(815);
+        public static readonly SpellType HorsePartyDismount = new(816);
+        public static readonly SpellType HorseAssignMount = new(817);
+        public static readonly SpellType PaladinSummonMount = new(818);
 
-        Grenade10 = 974,
-        Grenade11 = 975,
-        Grenade12 = 976,
-        Grenade13 = 977,
-        Grenade14 = 978,
-        Grenade15 = 979,
+        public SpellType(int internalValue) : base(internalValue)
+        {
+        }
     }
 }

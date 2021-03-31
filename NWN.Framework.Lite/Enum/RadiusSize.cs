@@ -1,12 +1,16 @@
 ﻿namespace NWN.Framework.Lite.Enum
 {
-    public static class RadiusSize
+    public class RadiusSize: NWEnumBase<float>
     {
-        public const float Colossal = 10.0f;
-        public const float Gargantuan = 8.33f;
-        public const float Huge = 6.67f;
-        public const float Large = 5.0f;
-        public const float Medium = 3.33f;
-        public const float Small = 1.67f;
+        public static readonly RadiusSize Colossal = new(10.0f);
+        public static readonly RadiusSize Gargantuan = new(8.33f);
+        public static readonly RadiusSize Huge = new(6.67f);
+        public static readonly RadiusSize Large = new(5.0f);
+        public static readonly RadiusSize Medium = new(3.33f);
+        public static readonly RadiusSize Small = new(1.67f);
+
+        public RadiusSize(float internalValue) : base(internalValue)
+        {
+        }
     }
 }
