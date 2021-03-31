@@ -1,9 +1,13 @@
 ﻿namespace NWN.Framework.Lite.Enum
 {
-    public enum WeatherEffectType
+    public class WeatherEffectType
     {
-        Rain,
-        Snow,
-        Lightning
+        public static readonly WeatherEffectType Rain = new(0);
+        public static readonly WeatherEffectType Snow = new(0);
+        public static readonly WeatherEffectType Lightning = new(0);
+
+        public int InternalValue { get; protected set; }
+
+        public WeatherEffectType(int internalValue) => InternalValue = internalValue;
     }
 }
