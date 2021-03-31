@@ -1,10 +1,12 @@
 namespace NWN.Framework.Lite.Enum
 {
-    public enum SubSkillType
+    public class SubSkillType : NWEnumBase<int>
     {
-        None = 0,
-        FlagTrap = 100,
-        RecoverTrap = 101,
-        ExamineTrap = 102
+        public static readonly SubSkillType None = new(0);
+        public static readonly SubSkillType FlagTrap = new(100);
+        public static readonly SubSkillType RecoverTrap = new(101);
+        public static readonly SubSkillType ExamineTrap = new(102);
+
+        public SubSkillType(int internalValue) : base(internalValue) { }
     }
 }
