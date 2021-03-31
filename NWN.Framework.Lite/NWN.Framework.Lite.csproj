@@ -24,7 +24,7 @@
     <Configurations>Debug;Release;</Configurations>
     <Platforms>AnyCPU</Platforms>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>0.0.25</Version>
+    <Version>0.1.0</Version>
   </PropertyGroup>
 
   <Target Name="NWN" AfterTargets="Build">
