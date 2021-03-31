@@ -474,7 +474,7 @@ namespace NWN.Framework.Lite.Enum
         public static readonly VisualEffectType Vfx_Eyes_Green_Halfling_Female = new(576);
         public static readonly VisualEffectType Vfx_Eyes_Green_Halforc_Male = new(577);
         public static readonly VisualEffectType Vfx_Eyes_Green_Halforc_Female = new(578);
-        public static readonly VisualEffectType LightsaberHum = new(579);
+        public static readonly VisualEffectType Vfx_Eyes_Green_Troglodyte = new(579);
         public static readonly VisualEffectType Vfx_Eyes_Pur_Human_Male = new(580);
         public static readonly VisualEffectType Vfx_Eyes_Pur_Human_Female = new(581);
         public static readonly VisualEffectType Vfx_Eyes_Pur_Dwarf_Male = new(582);
