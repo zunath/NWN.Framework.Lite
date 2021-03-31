@@ -1,7 +1,11 @@
 namespace NWN.Framework.Lite.Enum
 {
-    public enum GuiPanelType
+    public class GuiPanelType: NWEnumBase<int>
     {
-        PlayerDeath = 0
+        public static readonly GuiPanelType PlayerDeath = new(0);
+
+        public GuiPanelType(int internalValue) : base(internalValue)
+        {
+        }
     }
 }

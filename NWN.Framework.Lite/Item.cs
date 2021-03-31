@@ -11,10 +11,10 @@ namespace NWN.Framework.Lite
         public static ItemAppearanceType GetItemAppearance(uint oItem, ItemColorModelAppearanceType nType, int nIndex)
         {
             Internal.NativeFunctions.StackPushInteger(nIndex);
-            Internal.NativeFunctions.StackPushInteger((int)nType);
+            Internal.NativeFunctions.StackPushInteger(nType.InternalValue);
             Internal.NativeFunctions.StackPushObject(oItem);
             Internal.NativeFunctions.CallBuiltIn(732);
-            return (ItemAppearanceType)Internal.NativeFunctions.StackPopInteger();
+            return new ItemAppearanceType(Internal.NativeFunctions.StackPopInteger());
         }
 
         /// <summary>
@@ -423,7 +423,7 @@ namespace NWN.Framework.Lite
         public static uint GetItemInSlot(InventorySlotType nInventorySlot, uint oCreature = OBJECT_INVALID)
         {
             Internal.NativeFunctions.StackPushObject(oCreature);
-            Internal.NativeFunctions.StackPushInteger((int)nInventorySlot);
+            Internal.NativeFunctions.StackPushInteger(nInventorySlot.InternalValue);
             Internal.NativeFunctions.CallBuiltIn(155);
             return Internal.NativeFunctions.StackPopObject();
         }

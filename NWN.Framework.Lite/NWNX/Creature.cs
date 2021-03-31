@@ -484,7 +484,7 @@ namespace NWN.Framework.Lite.NWNX
         public static void SetGender(uint creature, GenderType gender)
         {
             Internal.NativeFunctions.nwnxSetFunction(PLUGIN_NAME, "SetGender");
-            Internal.NativeFunctions.nwnxPushInt((int)gender);
+            Internal.NativeFunctions.nwnxPushInt(gender.InternalValue);
             Internal.NativeFunctions.nwnxPushObject(creature);
             Internal.NativeFunctions.nwnxCallFunction();
         }

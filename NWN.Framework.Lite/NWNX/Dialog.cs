@@ -35,21 +35,19 @@ namespace NWN.Framework.Lite.NWNX
             return Internal.NativeFunctions.nwnxPopInt();
         }
 
-        public static string GetCurrentNodeText(DialogLanguages language = DialogLanguages.English,
-            GenderType gender = GenderType.Male)
+        public static string GetCurrentNodeText(DialogLanguages language, GenderType gender)
         {
             Internal.NativeFunctions.nwnxSetFunction(PLUGIN_NAME, "GetCurrentNodeText");
-            Internal.NativeFunctions.nwnxPushInt((int)gender);
+            Internal.NativeFunctions.nwnxPushInt(gender.InternalValue);
             Internal.NativeFunctions.nwnxPushInt((int)language);
             Internal.NativeFunctions.nwnxCallFunction();
             return Internal.NativeFunctions.nwnxPopString();
         }
 
-        public static void SetCurrentNodeText(string text, DialogLanguages language = DialogLanguages.English,
-            GenderType gender = GenderType.Male)
+        public static void SetCurrentNodeText(string text, DialogLanguages language, GenderType gender)
         {
             Internal.NativeFunctions.nwnxSetFunction(PLUGIN_NAME, "SetCurrentNodeText");
-            Internal.NativeFunctions.nwnxPushInt((int)gender);
+            Internal.NativeFunctions.nwnxPushInt(gender.InternalValue);
             Internal.NativeFunctions.nwnxPushInt((int)language);
             Internal.NativeFunctions.nwnxPushString(text);
             Internal.NativeFunctions.nwnxCallFunction();

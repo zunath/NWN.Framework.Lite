@@ -320,8 +320,8 @@ namespace NWN.Framework.Lite
         public static void SetFogColor(FogType nFogType, FogColorType nFogColor, uint oArea = OBJECT_INVALID)
         {
             Internal.NativeFunctions.StackPushObject(oArea);
-            Internal.NativeFunctions.StackPushInteger((int)nFogColor);
-            Internal.NativeFunctions.StackPushInteger((int)nFogType);
+            Internal.NativeFunctions.StackPushInteger(nFogColor.InternalValue);
+            Internal.NativeFunctions.StackPushInteger(nFogType.InternalValue);
             Internal.NativeFunctions.CallBuiltIn(780);
         }
 
@@ -349,9 +349,9 @@ namespace NWN.Framework.Lite
         public static FogColorType GetFogColor(FogType nFogType, uint oArea = OBJECT_INVALID)
         {
             Internal.NativeFunctions.StackPushObject(oArea);
-            Internal.NativeFunctions.StackPushInteger((int)nFogType);
+            Internal.NativeFunctions.StackPushInteger(nFogType.InternalValue);
             Internal.NativeFunctions.CallBuiltIn(783);
-            return (FogColorType)Internal.NativeFunctions.StackPopInteger();
+            return new FogColorType(Internal.NativeFunctions.StackPopInteger());
         }
 
         /// <summary>
@@ -365,7 +365,7 @@ namespace NWN.Framework.Lite
         {
             Internal.NativeFunctions.StackPushObject(oArea);
             Internal.NativeFunctions.StackPushInteger(nFogAmount);
-            Internal.NativeFunctions.StackPushInteger((int)nFogType);
+            Internal.NativeFunctions.StackPushInteger(nFogType.InternalValue);
             Internal.NativeFunctions.CallBuiltIn(784);
         }
 
@@ -379,7 +379,7 @@ namespace NWN.Framework.Lite
         public static int GetFogAmount(FogType nFogType, uint oArea = OBJECT_INVALID)
         {
             Internal.NativeFunctions.StackPushObject(oArea);
-            Internal.NativeFunctions.StackPushInteger((int)nFogType);
+            Internal.NativeFunctions.StackPushInteger(nFogType.InternalValue);
             Internal.NativeFunctions.CallBuiltIn(785);
             return Internal.NativeFunctions.StackPopInteger();
         }

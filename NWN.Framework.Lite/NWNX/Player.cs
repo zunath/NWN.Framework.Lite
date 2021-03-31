@@ -230,7 +230,7 @@ namespace NWN.Framework.Lite.NWNX
         public static void ApplyInstantVisualEffectToObject(uint player, uint target, VisualEffectType visualEffect)
         {
             Internal.NativeFunctions.nwnxSetFunction(PLUGIN_NAME, "ApplyInstantVisualEffectToObject");
-            Internal.NativeFunctions.nwnxPushInt((int)visualEffect);
+            Internal.NativeFunctions.nwnxPushInt(visualEffect.InternalValue);
             Internal.NativeFunctions.nwnxPushObject(target);
             Internal.NativeFunctions.nwnxPushObject(player);
             Internal.NativeFunctions.nwnxCallFunction();
@@ -316,7 +316,7 @@ namespace NWN.Framework.Lite.NWNX
         public static void ApplyLoopingVisualEffectToObject(uint player, uint target, VisualEffectType visualEffect)
         {
             Internal.NativeFunctions.nwnxSetFunction(PLUGIN_NAME, "ApplyLoopingVisualEffectToObject");
-            Internal.NativeFunctions.nwnxPushInt((int)visualEffect);
+            Internal.NativeFunctions.nwnxPushInt(visualEffect.InternalValue);
             Internal.NativeFunctions.nwnxPushObject(target);
             Internal.NativeFunctions.nwnxPushObject(player);
             Internal.NativeFunctions.nwnxCallFunction();

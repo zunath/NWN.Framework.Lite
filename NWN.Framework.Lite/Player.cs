@@ -332,7 +332,7 @@ namespace NWN.Framework.Lite
         /// </summary>
         public static void PopUpGUIPanel(uint oPC, GuiPanelType nGUIPanel)
         {
-            Internal.NativeFunctions.StackPushInteger((int)nGUIPanel);
+            Internal.NativeFunctions.StackPushInteger(nGUIPanel.InternalValue);
             Internal.NativeFunctions.StackPushObject(oPC);
             Internal.NativeFunctions.CallBuiltIn(388);
         }

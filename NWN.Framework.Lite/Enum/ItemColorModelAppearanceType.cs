@@ -1,11 +1,15 @@
 namespace NWN.Framework.Lite.Enum
 {
-    public enum ItemColorModelAppearanceType
+    public class ItemColorModelAppearanceType: NWEnumBase<int>
     {
-        SimpleModel = 0,
-        WeaponColor = 1,
-        WeaponModel = 2,
-        ArmorModel = 3,
-        ArmorColor = 4
+        public static readonly ItemColorModelAppearanceType SimpleModel = new(0);
+        public static readonly ItemColorModelAppearanceType WeaponColor = new(1);
+        public static readonly ItemColorModelAppearanceType WeaponModel = new(2);
+        public static readonly ItemColorModelAppearanceType ArmorModel = new(3);
+        public static readonly ItemColorModelAppearanceType ArmorColor = new(4);
+
+        public ItemColorModelAppearanceType(int internalValue) : base(internalValue)
+        {
+        }
     }
 }

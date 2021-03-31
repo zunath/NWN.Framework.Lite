@@ -166,7 +166,7 @@ namespace NWN.Framework.Lite
         /// </summary>
         public static void ActionEquipItem(uint oItem, InventorySlotType nInventorySlot)
         {
-            Internal.NativeFunctions.StackPushInteger((int)nInventorySlot);
+            Internal.NativeFunctions.StackPushInteger(nInventorySlot.InternalValue);
             Internal.NativeFunctions.StackPushObject(oItem);
             Internal.NativeFunctions.CallBuiltIn(32);
         }
@@ -553,12 +553,11 @@ namespace NWN.Framework.Lite
         ///   summoned. If zero, it will just fade in somewhere near the target.  If the value is 1
         ///   it will use the appear animation, and if it's 2 it will use appear2 (which doesn't exist for most creatures)
         /// </summary>
-        public static Effect EffectSummonCreature(string sCreatureResref, VisualEffectType nVisualEffectId = VisualEffectType.Vfx_Com_Sparks_Parry,
-            float fDelaySeconds = 0.0f, bool nUseAppearAnimation = false)
+        public static Effect EffectSummonCreature(string sCreatureResref, VisualEffectType nVisualEffectId, float fDelaySeconds = 0.0f, bool nUseAppearAnimation = false)
         {
             Internal.NativeFunctions.StackPushInteger(nUseAppearAnimation ? 1 : 0);
             Internal.NativeFunctions.StackPushFloat(fDelaySeconds);
-            Internal.NativeFunctions.StackPushInteger((int)nVisualEffectId);
+            Internal.NativeFunctions.StackPushInteger(nVisualEffectId.InternalValue);
             Internal.NativeFunctions.StackPushStringUTF8(sCreatureResref);
             Internal.NativeFunctions.CallBuiltIn(83);
             return Internal.NativeFunctions.StackPopGameDefinedStructure((int)EngineStructureType.Effect);
@@ -794,7 +793,7 @@ namespace NWN.Framework.Lite
         /// </summary>
         public static Effect EffectInvisibility(InvisibilityType nInvisibilityType)
         {
-            Internal.NativeFunctions.StackPushInteger((int)nInvisibilityType);
+            Internal.NativeFunctions.StackPushInteger(nInvisibilityType.InternalValue);
             Internal.NativeFunctions.CallBuiltIn(457);
             return Internal.NativeFunctions.StackPopGameDefinedStructure((int)EngineStructureType.Effect);
         }
@@ -1182,7 +1181,7 @@ namespace NWN.Framework.Lite
         /// </summary>
         public static Effect EffectImmunity(ImmunityType nImmunityType)
         {
-            Internal.NativeFunctions.StackPushInteger((int)nImmunityType);
+            Internal.NativeFunctions.StackPushInteger(nImmunityType.InternalValue);
             Internal.NativeFunctions.CallBuiltIn(273);
             return Internal.NativeFunctions.StackPopGameDefinedStructure((int)EngineStructureType.Effect);
         }
@@ -1262,7 +1261,7 @@ namespace NWN.Framework.Lite
             Internal.NativeFunctions.StackPushInteger(bMissEffect ? 1 : 0);
             Internal.NativeFunctions.StackPushInteger(nBodyPart.InternalValue);
             Internal.NativeFunctions.StackPushObject(oEffector);
-            Internal.NativeFunctions.StackPushInteger((int)nBeamVisualEffect);
+            Internal.NativeFunctions.StackPushInteger(nBeamVisualEffect.InternalValue);
             Internal.NativeFunctions.CallBuiltIn(207);
             return Internal.NativeFunctions.StackPopGameDefinedStructure((int)EngineStructureType.Effect);
         }
@@ -1295,7 +1294,7 @@ namespace NWN.Framework.Lite
         public static Effect EffectVisualEffect(VisualEffectType visualEffectID, bool nMissEffect = false)
         {
             Internal.NativeFunctions.StackPushInteger(nMissEffect ? 1 : 0);
-            Internal.NativeFunctions.StackPushInteger((int)visualEffectID);
+            Internal.NativeFunctions.StackPushInteger(visualEffectID.InternalValue);
             Internal.NativeFunctions.CallBuiltIn(180);
             return Internal.NativeFunctions.StackPopGameDefinedStructure((int)EngineStructureType.Effect);
         }

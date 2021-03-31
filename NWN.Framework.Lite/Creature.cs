@@ -16,7 +16,7 @@ namespace NWN.Framework.Lite
         {
             Internal.NativeFunctions.StackPushObject(oCreature);
             Internal.NativeFunctions.CallBuiltIn(788);
-            return (FootstepType)Internal.NativeFunctions.StackPopInteger();
+            return new FootstepType(Internal.NativeFunctions.StackPopInteger());
         }
 
         /// <summary>
@@ -46,7 +46,7 @@ namespace NWN.Framework.Lite
         public static void SetFootstepType(FootstepType nFootstepType, uint oCreature = OBJECT_INVALID)
         {
             Internal.NativeFunctions.StackPushObject(oCreature);
-            Internal.NativeFunctions.StackPushInteger((int)nFootstepType);
+            Internal.NativeFunctions.StackPushInteger(nFootstepType.InternalValue);
             Internal.NativeFunctions.CallBuiltIn(789);
         }
 
@@ -897,7 +897,7 @@ namespace NWN.Framework.Lite
         {
             Internal.NativeFunctions.StackPushObject(oCreature);
             Internal.NativeFunctions.CallBuiltIn(358);
-            return (GenderType)Internal.NativeFunctions.StackPopInteger();
+            return new GenderType(Internal.NativeFunctions.StackPopInteger());
         }
 
         /// <summary>

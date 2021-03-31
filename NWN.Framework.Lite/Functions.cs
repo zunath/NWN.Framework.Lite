@@ -1316,9 +1316,9 @@ namespace NWN.Framework.Lite
         /// <summary>
         ///   Get a string from the talk table using nStrRef.
         /// </summary>
-        public static string GetStringByStrRef(int nStrRef, GenderType nGender = GenderType.Male)
+        public static string GetStringByStrRef(int nStrRef, GenderType nGender)
         {
-            Internal.NativeFunctions.StackPushInteger((int)nGender);
+            Internal.NativeFunctions.StackPushInteger(nGender.InternalValue);
             Internal.NativeFunctions.StackPushInteger(nStrRef);
             Internal.NativeFunctions.CallBuiltIn(239);
             return Internal.NativeFunctions.StackPopString();
@@ -1650,7 +1650,7 @@ namespace NWN.Framework.Lite
         public static bool GetIsImmune(uint oCreature, ImmunityType nImmunityType, uint oVersus = OBJECT_INVALID)
         {
             Internal.NativeFunctions.StackPushObject(oVersus);
-            Internal.NativeFunctions.StackPushInteger((int)nImmunityType);
+            Internal.NativeFunctions.StackPushInteger(nImmunityType.InternalValue);
             Internal.NativeFunctions.StackPushObject(oCreature);
             Internal.NativeFunctions.CallBuiltIn(274);
             return Internal.NativeFunctions.StackPopInteger() == 1;

@@ -1,9 +1,13 @@
 ﻿namespace NWN.Framework.Lite.Enum
 {
-    public enum InvisibilityType
+    public class InvisibilityType: NWEnumBase<int>
     {
-        Darkness = 2,
-        Improved = 4,
-        Normal = 1
+        public static readonly InvisibilityType Darkness = new(2);
+        public static readonly InvisibilityType Improved = new(4);
+        public static readonly InvisibilityType Normal = new(1);
+
+        public InvisibilityType(int internalValue) : base(internalValue)
+        {
+        }
     }
 }
