@@ -263,7 +263,7 @@ namespace NWN.Framework.Lite
         public static ClassType GetLastSpellCastClass()
         {
             Internal.NativeFunctions.CallBuiltIn(754);
-            return (ClassType)Internal.NativeFunctions.StackPopInteger();
+            return new ClassType(Internal.NativeFunctions.StackPopInteger());
         }
 
         /// <summary>
@@ -604,7 +604,7 @@ namespace NWN.Framework.Lite
         {
             Internal.NativeFunctions.StackPushObject(oCreature);
             Internal.NativeFunctions.CallBuiltIn(576);
-            return (CastingModeType)Internal.NativeFunctions.StackPopInteger();
+            return new CastingModeType(Internal.NativeFunctions.StackPopInteger());
         }
 
         /// <summary>
@@ -935,7 +935,7 @@ namespace NWN.Framework.Lite
             Internal.NativeFunctions.StackPushObject(oCreature);
             Internal.NativeFunctions.StackPushInteger(nClassPosition);
             Internal.NativeFunctions.CallBuiltIn(341);
-            return (ClassType)Internal.NativeFunctions.StackPopInteger();
+            return new ClassType(Internal.NativeFunctions.StackPopInteger());
         }
 
         /// <summary>
@@ -963,7 +963,7 @@ namespace NWN.Framework.Lite
         public static int GetLevelByClass(ClassType nClassType, uint oCreature = OBJECT_INVALID)
         {
             Internal.NativeFunctions.StackPushObject(oCreature);
-            Internal.NativeFunctions.StackPushInteger((int)nClassType);
+            Internal.NativeFunctions.StackPushInteger(nClassType.InternalValue);
             Internal.NativeFunctions.CallBuiltIn(343);
             return Internal.NativeFunctions.StackPopInteger();
         }

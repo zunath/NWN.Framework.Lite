@@ -277,7 +277,7 @@ namespace NWN.Framework.Lite
         {
             Internal.NativeFunctions.StackPushObject(oArea);
             Internal.NativeFunctions.CallBuiltIn(725);
-            return (ArtificialityType)Internal.NativeFunctions.StackPopInteger();
+            return new ArtificialityType(Internal.NativeFunctions.StackPopInteger());
         }
 
         /// <summary>
@@ -856,7 +856,7 @@ namespace NWN.Framework.Lite
             string sCustomAreaTransitionBMP = "")
         {
             Internal.NativeFunctions.StackPushStringUTF8(sCustomAreaTransitionBMP);
-            Internal.NativeFunctions.StackPushInteger((int)nPredefinedAreaTransition);
+            Internal.NativeFunctions.StackPushInteger(nPredefinedAreaTransition.InternalValue);
             Internal.NativeFunctions.CallBuiltIn(203);
         }
 

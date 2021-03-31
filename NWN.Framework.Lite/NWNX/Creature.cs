@@ -162,7 +162,7 @@ namespace NWN.Framework.Lite.NWNX
             Internal.NativeFunctions.nwnxPushInt(level);
             Internal.NativeFunctions.nwnxPushObject(creature);
             Internal.NativeFunctions.nwnxCallFunction();
-            return (ClassType)Internal.NativeFunctions.nwnxPopInt();
+            return new ClassType(Internal.NativeFunctions.nwnxPopInt());
         }
 
         // Sets the base AC for the provided creature.
@@ -231,7 +231,7 @@ namespace NWN.Framework.Lite.NWNX
             var spell = new MemorizedSpellSlot();
             Internal.NativeFunctions.nwnxPushInt(index);
             Internal.NativeFunctions.nwnxPushInt(level);
-            Internal.NativeFunctions.nwnxPushInt((int)classId);
+            Internal.NativeFunctions.nwnxPushInt(classId.InternalValue);
             Internal.NativeFunctions.nwnxPushObject(creature);
             Internal.NativeFunctions.nwnxCallFunction();
             spell.Domain = Internal.NativeFunctions.nwnxPopInt();
@@ -246,7 +246,7 @@ namespace NWN.Framework.Lite.NWNX
         {
             Internal.NativeFunctions.nwnxSetFunction(PLUGIN_NAME, "GetMemorisedSpellCountByLevel");
             Internal.NativeFunctions.nwnxPushInt(level);
-            Internal.NativeFunctions.nwnxPushInt((int)classId);
+            Internal.NativeFunctions.nwnxPushInt(classId.InternalValue);
             Internal.NativeFunctions.nwnxPushObject(creature);
             Internal.NativeFunctions.nwnxCallFunction();
             return Internal.NativeFunctions.nwnxPopInt();
@@ -264,7 +264,7 @@ namespace NWN.Framework.Lite.NWNX
             Internal.NativeFunctions.nwnxPushInt(spell.Domain);
             Internal.NativeFunctions.nwnxPushInt(index);
             Internal.NativeFunctions.nwnxPushInt(level);
-            Internal.NativeFunctions.nwnxPushInt((int)classId);
+            Internal.NativeFunctions.nwnxPushInt(classId.InternalValue);
             Internal.NativeFunctions.nwnxPushObject(creature);
             Internal.NativeFunctions.nwnxCallFunction();
         }
@@ -274,7 +274,7 @@ namespace NWN.Framework.Lite.NWNX
         {
             Internal.NativeFunctions.nwnxSetFunction(PLUGIN_NAME, "GetRemainingSpellSlots");
             Internal.NativeFunctions.nwnxPushInt(level);
-            Internal.NativeFunctions.nwnxPushInt((int)classId);
+            Internal.NativeFunctions.nwnxPushInt(classId.InternalValue);
             Internal.NativeFunctions.nwnxPushObject(creature);
             Internal.NativeFunctions.nwnxCallFunction();
             return Internal.NativeFunctions.nwnxPopInt();
@@ -286,7 +286,7 @@ namespace NWN.Framework.Lite.NWNX
             Internal.NativeFunctions.nwnxSetFunction(PLUGIN_NAME, "SetRemainingSpellSlots");
             Internal.NativeFunctions.nwnxPushInt(slots);
             Internal.NativeFunctions.nwnxPushInt(level);
-            Internal.NativeFunctions.nwnxPushInt((int)classId);
+            Internal.NativeFunctions.nwnxPushInt(classId.InternalValue);
             Internal.NativeFunctions.nwnxPushObject(creature);
             Internal.NativeFunctions.nwnxCallFunction();
         }
@@ -297,7 +297,7 @@ namespace NWN.Framework.Lite.NWNX
             Internal.NativeFunctions.nwnxSetFunction(PLUGIN_NAME, "GetKnownSpell");
             Internal.NativeFunctions.nwnxPushInt(index);
             Internal.NativeFunctions.nwnxPushInt(level);
-            Internal.NativeFunctions.nwnxPushInt((int)classId);
+            Internal.NativeFunctions.nwnxPushInt(classId.InternalValue);
             Internal.NativeFunctions.nwnxPushObject(creature);
             Internal.NativeFunctions.nwnxCallFunction();
             return Internal.NativeFunctions.nwnxPopInt();
@@ -307,7 +307,7 @@ namespace NWN.Framework.Lite.NWNX
         {
             Internal.NativeFunctions.nwnxSetFunction(PLUGIN_NAME, "GetKnownSpellCount");
             Internal.NativeFunctions.nwnxPushInt(level);
-            Internal.NativeFunctions.nwnxPushInt((int)classId);
+            Internal.NativeFunctions.nwnxPushInt(classId.InternalValue);
             Internal.NativeFunctions.nwnxPushObject(creature);
             Internal.NativeFunctions.nwnxCallFunction();
             return Internal.NativeFunctions.nwnxPopInt();
@@ -319,7 +319,7 @@ namespace NWN.Framework.Lite.NWNX
             Internal.NativeFunctions.nwnxSetFunction(PLUGIN_NAME, "RemoveKnownSpell");
             Internal.NativeFunctions.nwnxPushInt(spellId);
             Internal.NativeFunctions.nwnxPushInt(level);
-            Internal.NativeFunctions.nwnxPushInt((int)classId);
+            Internal.NativeFunctions.nwnxPushInt(classId.InternalValue);
             Internal.NativeFunctions.nwnxPushObject(creature);
             Internal.NativeFunctions.nwnxCallFunction();
         }
@@ -330,7 +330,7 @@ namespace NWN.Framework.Lite.NWNX
             Internal.NativeFunctions.nwnxSetFunction(PLUGIN_NAME, "AddKnownSpell");
             Internal.NativeFunctions.nwnxPushInt(spellId);
             Internal.NativeFunctions.nwnxPushInt(level);
-            Internal.NativeFunctions.nwnxPushInt((int)classId);
+            Internal.NativeFunctions.nwnxPushInt(classId.InternalValue);
             Internal.NativeFunctions.nwnxPushObject(creature);
             Internal.NativeFunctions.nwnxCallFunction();
         }
@@ -340,7 +340,7 @@ namespace NWN.Framework.Lite.NWNX
         {
             Internal.NativeFunctions.nwnxSetFunction(PLUGIN_NAME, "GetMaxSpellSlots");
             Internal.NativeFunctions.nwnxPushInt(level);
-            Internal.NativeFunctions.nwnxPushInt((int)classId);
+            Internal.NativeFunctions.nwnxPushInt(classId.InternalValue);
             Internal.NativeFunctions.nwnxPushObject(creature);
             Internal.NativeFunctions.nwnxCallFunction();
             return Internal.NativeFunctions.nwnxPopInt();
@@ -445,7 +445,7 @@ namespace NWN.Framework.Lite.NWNX
         public static void SetClassByPosition(uint creature, int position, ClassType classId)
         {
             Internal.NativeFunctions.nwnxSetFunction(PLUGIN_NAME, "SetClassByPosition");
-            Internal.NativeFunctions.nwnxPushInt((int)classId);
+            Internal.NativeFunctions.nwnxPushInt(classId.InternalValue);
             Internal.NativeFunctions.nwnxPushInt(position);
             Internal.NativeFunctions.nwnxPushObject(creature);
             Internal.NativeFunctions.nwnxCallFunction();
@@ -625,7 +625,7 @@ namespace NWN.Framework.Lite.NWNX
         {
             Internal.NativeFunctions.nwnxSetFunction(PLUGIN_NAME, "LevelUp");
             Internal.NativeFunctions.nwnxPushInt(count);
-            Internal.NativeFunctions.nwnxPushInt((int)classId);
+            Internal.NativeFunctions.nwnxPushInt(classId.InternalValue);
             Internal.NativeFunctions.nwnxPushObject(creature);
             Internal.NativeFunctions.nwnxCallFunction();
         }
@@ -709,7 +709,7 @@ namespace NWN.Framework.Lite.NWNX
         }
 
         // Get total effect bonus
-        public static int GetTotalEffectBonus(uint creature, BonusType bonusType = BonusType.Attack,
+        public static int GetTotalEffectBonus(uint creature, BonusType bonusType,
             uint target = NWScript.OBJECT_INVALID, bool isElemental = false,
             bool isForceMax = false, int saveType = -1, int saveSpecificType = -1, SkillType skill = SkillType.Invalid,
             int abilityScore = -1, bool isOffhand = false)
@@ -723,7 +723,7 @@ namespace NWN.Framework.Lite.NWNX
             Internal.NativeFunctions.nwnxPushInt(isForceMax ? 1 : 0);
             Internal.NativeFunctions.nwnxPushInt(isElemental ? 1 : 0);
             Internal.NativeFunctions.nwnxPushObject(target);
-            Internal.NativeFunctions.nwnxPushInt((int)bonusType);
+            Internal.NativeFunctions.nwnxPushInt(bonusType.InternalValue);
             Internal.NativeFunctions.nwnxPushObject(creature);
             Internal.NativeFunctions.nwnxCallFunction();
             return Internal.NativeFunctions.nwnxPopInt();
@@ -814,7 +814,7 @@ namespace NWN.Framework.Lite.NWNX
             Internal.NativeFunctions.nwnxSetFunction(PLUGIN_NAME, "SetDomain");
             Internal.NativeFunctions.nwnxPushInt(domain);
             Internal.NativeFunctions.nwnxPushInt(index);
-            Internal.NativeFunctions.nwnxPushInt((int)@class);
+            Internal.NativeFunctions.nwnxPushInt(@class.InternalValue);
             Internal.NativeFunctions.nwnxPushObject(creature);
             Internal.NativeFunctions.nwnxCallFunction();
         }
@@ -827,7 +827,7 @@ namespace NWN.Framework.Lite.NWNX
         {
             Internal.NativeFunctions.nwnxSetFunction(PLUGIN_NAME, "SetSpecialization");
             Internal.NativeFunctions.nwnxPushInt(school);
-            Internal.NativeFunctions.nwnxPushInt((int)@class);
+            Internal.NativeFunctions.nwnxPushInt(@class.InternalValue);
             Internal.NativeFunctions.nwnxPushObject(creature);
             Internal.NativeFunctions.nwnxCallFunction();
         }
@@ -1015,11 +1015,11 @@ namespace NWN.Framework.Lite.NWNX
         /// @param nHand 0 for all attacks, 1 for Mainhand, 2 for Offhand
         /// @param bPersist Whether the modifier should persist to .bic file if applicable
         /// @note Persistence is activated each server reset by first use of either 'SetCriticalMultiplier*' functions. Recommended to trigger on a dummy target OnModuleLoad to enable persistence.
-        public static void SetCriticalMultiplierModifier(uint oCreature, int nModifier, int nHand = 0, bool bPersist = false, BaseItemType baseItemType = BaseItemType.Invalid)
+        public static void SetCriticalMultiplierModifier(uint oCreature, int nModifier, int nHand, bool bPersist, BaseItemType baseItemType )
         {
             Internal.NativeFunctions.nwnxSetFunction(PLUGIN_NAME, "SetCriticalMultiplierModifier");
 
-            Internal.NativeFunctions.nwnxPushInt((int)baseItemType);
+            Internal.NativeFunctions.nwnxPushInt(baseItemType.InternalValue);
             Internal.NativeFunctions.nwnxPushInt(bPersist ? 1 : 0);
             Internal.NativeFunctions.nwnxPushInt(nHand);
             Internal.NativeFunctions.nwnxPushInt(nModifier);
@@ -1032,11 +1032,11 @@ namespace NWN.Framework.Lite.NWNX
         /// @param oCreature The target creature
         /// @param nHand 0 for all attacks, 1 for Mainhand, 2 for Offhand
         /// @return the current critical hit multiplier modifier for the creature
-        public static int GetCriticalMultiplierModifier(uint oCreature, int nHand = 0, BaseItemType baseItemType = BaseItemType.Invalid)
+        public static int GetCriticalMultiplierModifier(uint oCreature, int nHand, BaseItemType baseItemType)
         {
             Internal.NativeFunctions.nwnxSetFunction(PLUGIN_NAME, "GetCriticalMultiplierModifier");
 
-            Internal.NativeFunctions.nwnxPushInt((int)baseItemType);
+            Internal.NativeFunctions.nwnxPushInt(baseItemType.InternalValue);
             Internal.NativeFunctions.nwnxPushInt(nHand);
             Internal.NativeFunctions.nwnxPushObject(oCreature);
             Internal.NativeFunctions.nwnxCallFunction();
@@ -1044,11 +1044,11 @@ namespace NWN.Framework.Lite.NWNX
             return Internal.NativeFunctions.nwnxPopInt();
         }
 
-        public static void SetCriticalMultiplierOverride(uint oCreature, int nOverride, int nHand = 0, bool bPersist = false, BaseItemType baseItemType = BaseItemType.Invalid)
+        public static void SetCriticalMultiplierOverride(uint oCreature, int nOverride, int nHand, bool bPersist, BaseItemType baseItemType)
         {
             Internal.NativeFunctions.nwnxSetFunction(PLUGIN_NAME, "SetCriticalMultiplierOverride");
 
-            Internal.NativeFunctions.nwnxPushInt((int)baseItemType);
+            Internal.NativeFunctions.nwnxPushInt(baseItemType.InternalValue);
             Internal.NativeFunctions.nwnxPushInt(bPersist ? 1 : 0);
             Internal.NativeFunctions.nwnxPushInt(nHand);
             Internal.NativeFunctions.nwnxPushInt(nOverride);
@@ -1057,11 +1057,11 @@ namespace NWN.Framework.Lite.NWNX
             Internal.NativeFunctions.nwnxCallFunction();
         }
 
-        public static int GetCriticalMultiplierOverride(uint oCreature, int nHand = 0, BaseItemType baseItemType = BaseItemType.Invalid)
+        public static int GetCriticalMultiplierOverride(uint oCreature, int nHand, BaseItemType baseItemType)
         {
             Internal.NativeFunctions.nwnxSetFunction(PLUGIN_NAME, "GetCriticalMultiplierOverride");
 
-            Internal.NativeFunctions.nwnxPushInt((int)baseItemType);
+            Internal.NativeFunctions.nwnxPushInt(baseItemType.InternalValue);
             Internal.NativeFunctions.nwnxPushInt(nHand);
             Internal.NativeFunctions.nwnxPushObject(oCreature);
             Internal.NativeFunctions.nwnxCallFunction();
@@ -1069,11 +1069,11 @@ namespace NWN.Framework.Lite.NWNX
             return Internal.NativeFunctions.nwnxPopInt();
         }
 
-        public static void SetCriticalRangeModifier(uint oCreature, int nModifier, int nHand = 0, bool bPersist = false, BaseItemType baseItemType  = BaseItemType.Invalid)
+        public static void SetCriticalRangeModifier(uint oCreature, int nModifier, int nHand, bool bPersist, BaseItemType baseItemType)
         {
             Internal.NativeFunctions.nwnxSetFunction(PLUGIN_NAME, "SetCriticalRangeModifier");
 
-            Internal.NativeFunctions.nwnxPushInt((int)baseItemType);
+            Internal.NativeFunctions.nwnxPushInt(baseItemType.InternalValue);
             Internal.NativeFunctions.nwnxPushInt(bPersist ? 1 : 0);
             Internal.NativeFunctions.nwnxPushInt(nHand);
             Internal.NativeFunctions.nwnxPushInt(nModifier);
@@ -1082,11 +1082,11 @@ namespace NWN.Framework.Lite.NWNX
             Internal.NativeFunctions.nwnxCallFunction();
         }
 
-        public static int GetCriticalRangeModifier(uint oCreature, int nHand = 0, BaseItemType baseItemType = BaseItemType.Invalid)
+        public static int GetCriticalRangeModifier(uint oCreature, int nHand, BaseItemType baseItemType)
         {
             Internal.NativeFunctions.nwnxSetFunction(PLUGIN_NAME, "GetCriticalRangeModifier");
 
-            Internal.NativeFunctions.nwnxPushInt((int)baseItemType);
+            Internal.NativeFunctions.nwnxPushInt(baseItemType.InternalValue);
             Internal.NativeFunctions.nwnxPushInt(nHand);
             Internal.NativeFunctions.nwnxPushObject(oCreature);
             Internal.NativeFunctions.nwnxCallFunction();
@@ -1094,11 +1094,11 @@ namespace NWN.Framework.Lite.NWNX
             return Internal.NativeFunctions.nwnxPopInt();
         }
 
-        public static void SetCriticalRangeOverride(uint oCreature, int nOverride, int nHand = 0, bool bPersist = false, BaseItemType baseItemType = BaseItemType.Invalid)
+        public static void SetCriticalRangeOverride(uint oCreature, int nOverride, int nHand, bool bPersist, BaseItemType baseItemType)
         {
             Internal.NativeFunctions.nwnxSetFunction(PLUGIN_NAME, "SetCriticalRangeOverride");
 
-            Internal.NativeFunctions.nwnxPushInt((int)baseItemType);
+            Internal.NativeFunctions.nwnxPushInt(baseItemType.InternalValue);
             Internal.NativeFunctions.nwnxPushInt(bPersist ? 1 : 0);
             Internal.NativeFunctions.nwnxPushInt(nHand);
             Internal.NativeFunctions.nwnxPushInt(nOverride);
@@ -1107,11 +1107,11 @@ namespace NWN.Framework.Lite.NWNX
             Internal.NativeFunctions.nwnxCallFunction();
         }
 
-        public static int GetCriticalRangeOverride(uint oCreature, int nHand = 0, BaseItemType baseItemType = BaseItemType.Invalid)
+        public static int GetCriticalRangeOverride(uint oCreature, int nHand, BaseItemType baseItemType)
         {
             Internal.NativeFunctions.nwnxSetFunction(PLUGIN_NAME, "GetCriticalRangeOverride");
 
-            Internal.NativeFunctions.nwnxPushInt((int)baseItemType);
+            Internal.NativeFunctions.nwnxPushInt(baseItemType.InternalValue);
             Internal.NativeFunctions.nwnxPushInt(nHand);
             Internal.NativeFunctions.nwnxPushObject(oCreature);
             Internal.NativeFunctions.nwnxCallFunction();

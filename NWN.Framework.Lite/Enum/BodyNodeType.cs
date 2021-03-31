@@ -1,19 +1,22 @@
 ﻿namespace NWN.Framework.Lite.Enum
 {
-    public enum BodyNodeType
+    public class BodyNodeType: NWEnumBase<int>
     {
-        Chest = 1,
-        Hand = 0,
-        Monster0 = 2,
-        Monster1 = 3,
-        Monster2 = 4,
-        Monster3 = 5,
-        Monster4 = 6,
-        Monster5 = 7,
-        Monster6 = 8,
-        Monster7 = 9,
-        Monster8 = 10,
-        Monster9 = 11,
+        public static readonly BodyNodeType Chest = new(1);
+        public static readonly BodyNodeType Hand = new(0);
+        public static readonly BodyNodeType Monster0 = new(2);
+        public static readonly BodyNodeType Monster1 = new(3);
+        public static readonly BodyNodeType Monster2 = new(4);
+        public static readonly BodyNodeType Monster3 = new(5);
+        public static readonly BodyNodeType Monster4 = new(6);
+        public static readonly BodyNodeType Monster5 = new(7);
+        public static readonly BodyNodeType Monster6 = new(8);
+        public static readonly BodyNodeType Monster7 = new(9);
+        public static readonly BodyNodeType Monster8 = new(10);
+        public static readonly BodyNodeType Monster9 = new(11);
 
+        public BodyNodeType(int internalValue) : base(internalValue)
+        {
+        }
     }
 }

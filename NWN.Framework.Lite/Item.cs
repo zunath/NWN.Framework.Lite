@@ -317,7 +317,7 @@ namespace NWN.Framework.Lite
         {
             Internal.NativeFunctions.StackPushObject(oItem);
             Internal.NativeFunctions.CallBuiltIn(397);
-            return (BaseItemType)Internal.NativeFunctions.StackPopInteger();
+            return new BaseItemType(Internal.NativeFunctions.StackPopInteger());
         }
 
         /// <summary>
@@ -438,7 +438,7 @@ namespace NWN.Framework.Lite
         public static bool GetBaseItemFitsInInventory(BaseItemType baseItemType, uint target)
         {
             Internal.NativeFunctions.StackPushObject(target);
-            Internal.NativeFunctions.StackPushInteger((int) baseItemType);
+            Internal.NativeFunctions.StackPushInteger(baseItemType.InternalValue);
             Internal.NativeFunctions.CallBuiltIn(944);
             return Internal.NativeFunctions.StackPopInteger() == 1;
         }

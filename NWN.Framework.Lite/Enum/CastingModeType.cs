@@ -1,8 +1,12 @@
 namespace NWN.Framework.Lite.Enum
 {
-    public enum CastingModeType
+    public class CastingModeType: NWEnumBase<int>
     {
-        Disabled,
-        Activated
+        public static readonly CastingModeType Disabled = new(0);
+        public static readonly CastingModeType Activated = new(1);
+
+        public CastingModeType(int internalValue) : base(internalValue)
+        {
+        }
     }
 }

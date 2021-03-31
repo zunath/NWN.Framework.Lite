@@ -1,8 +1,12 @@
 ﻿namespace NWN.Framework.Lite.Enum
 {
-    public enum ArtificialityType
+    public class ArtificialityType: NWEnumBase<int>
     {
-        Artificial,
-        Natural
+        public static readonly ArtificialityType Artificial = new(0);
+        public static readonly ArtificialityType Natural = new(1);
+
+        public ArtificialityType(int internalValue) : base(internalValue)
+        {
+        }
     }
 }

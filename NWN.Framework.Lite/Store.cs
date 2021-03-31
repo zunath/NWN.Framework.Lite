@@ -1,3 +1,5 @@
+using NWN.Framework.Lite.Enum;
+
 namespace NWN.Framework.Lite
 {
     public partial class NWScript

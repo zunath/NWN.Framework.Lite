@@ -333,10 +333,9 @@ namespace NWN.Framework.Lite
         ///   Distance 1-25
         ///   Pitch 1-89
         /// </summary>
-        public static void SetCameraFacing(float fDirection, float fDistance = -1.0f, float fPitch = -1.0f,
-            CameraTransitionType nTransitionType = CameraTransitionType.Snap)
+        public static void SetCameraFacing(float fDirection, float fDistance, float fPitch, CameraTransitionType nTransitionType)
         {
-            Internal.NativeFunctions.StackPushInteger((int)nTransitionType);
+            Internal.NativeFunctions.StackPushInteger(nTransitionType.InternalValue);
             Internal.NativeFunctions.StackPushFloat(fPitch);
             Internal.NativeFunctions.StackPushFloat(fDistance);
             Internal.NativeFunctions.StackPushFloat(fDirection);
@@ -3439,7 +3438,7 @@ namespace NWN.Framework.Lite
         // Returns -1 on error
         public static SpellSchoolType GetSpecialization(uint creature, ClassType playerClass)
         {
-            Internal.NativeFunctions.StackPushInteger((int)playerClass);
+            Internal.NativeFunctions.StackPushInteger(playerClass.InternalValue);
             Internal.NativeFunctions.StackPushObject(creature);
             Internal.NativeFunctions.CallBuiltIn(902);
             return (SpellSchoolType)Internal.NativeFunctions.StackPopInteger();
@@ -3449,9 +3448,9 @@ namespace NWN.Framework.Lite
         // nDomainIndex - 1 or 2
         // Unless custom content is used, only Clerics have domains
         // Returns -1 on error
-        public static ClericDomainType GetDomain(uint creature, int DomainIndex = 1, ClassType playerClass = ClassType.Cleric)
+        public static ClericDomainType GetDomain(uint creature, int DomainIndex, ClassType playerClass)
         {
-            Internal.NativeFunctions.StackPushInteger((int)playerClass);
+            Internal.NativeFunctions.StackPushInteger(playerClass.InternalValue);
             Internal.NativeFunctions.StackPushObject(creature);
             Internal.NativeFunctions.CallBuiltIn(903);
             return (ClericDomainType)Internal.NativeFunctions.StackPopInteger();

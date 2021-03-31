@@ -1,11 +1,15 @@
 namespace NWN.Framework.Lite.Enum
 {
-    public enum ArmorClassBonusType
+    public class ArmorClassBonusType: NWEnumBase<int>
     {
-        Dodge,
-        Natural,
-        Armor,
-        Shield,
-        Deflection
+        public static ArmorClassBonusType Dodge = new(0);
+        public static ArmorClassBonusType Natural = new(1);
+        public static ArmorClassBonusType Armor = new(2);
+        public static ArmorClassBonusType Shield = new(3);
+        public static ArmorClassBonusType Deflection = new(4);
+
+        public ArmorClassBonusType(int internalValue) : base(internalValue)
+        {
+        }
     }
 }

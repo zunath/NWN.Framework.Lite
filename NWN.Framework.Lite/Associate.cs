@@ -46,13 +46,13 @@ namespace NWN.Framework.Lite
         /// </summary>
         public static int LevelUpHenchman(
             uint oCreature, 
-            ClassType nClass = ClassType.Invalid,
+            ClassType nClass,
             bool bReadyAllSpells = false, 
             PackageType nPackage = PackageType.Invalid)
         {
             Internal.NativeFunctions.StackPushInteger((int)nPackage);
             Internal.NativeFunctions.StackPushInteger(bReadyAllSpells ? 1 : 0);
-            Internal.NativeFunctions.StackPushInteger((int)nClass);
+            Internal.NativeFunctions.StackPushInteger(nClass.InternalValue);
             Internal.NativeFunctions.StackPushObject(oCreature);
             Internal.NativeFunctions.CallBuiltIn(704);
             return Internal.NativeFunctions.StackPopInteger();
@@ -129,7 +129,7 @@ namespace NWN.Framework.Lite
         {
             Internal.NativeFunctions.StackPushInteger(nTh);
             Internal.NativeFunctions.StackPushObject(oMaster);
-            Internal.NativeFunctions.StackPushInteger((int)nAssociateType);
+            Internal.NativeFunctions.StackPushInteger(nAssociateType.InternalValue);
             Internal.NativeFunctions.CallBuiltIn(364);
             return Internal.NativeFunctions.StackPopObject();
         }

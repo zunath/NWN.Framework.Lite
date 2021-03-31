@@ -310,9 +310,9 @@ namespace NWN.Framework.Lite
         ///   - nBonus: size of attack bonus
         ///   - nModifierType: ATTACK_BONUS_*
         /// </summary>
-        public static Effect EffectAttackIncrease(int nBonus, AttackBonusType nModifierType = AttackBonusType.Misc)
+        public static Effect EffectAttackIncrease(int nBonus, AttackBonusType nModifierType)
         {
-            Internal.NativeFunctions.StackPushInteger((int)nModifierType);
+            Internal.NativeFunctions.StackPushInteger(nModifierType.InternalValue);
             Internal.NativeFunctions.StackPushInteger(nBonus);
             Internal.NativeFunctions.CallBuiltIn(118);
             return Internal.NativeFunctions.StackPopGameDefinedStructure((int)EngineStructureType.Effect);
@@ -938,9 +938,9 @@ namespace NWN.Framework.Lite
         ///   - nPenalty
         ///   - nModifierType: ATTACK_BONUS_*
         /// </summary>
-        public static Effect EffectAttackDecrease(int nPenalty, AttackBonusType nModifierType = AttackBonusType.Misc)
+        public static Effect EffectAttackDecrease(int nPenalty, AttackBonusType nModifierType)
         {
-            Internal.NativeFunctions.StackPushInteger((int)nModifierType);
+            Internal.NativeFunctions.StackPushInteger(nModifierType.InternalValue);
             Internal.NativeFunctions.StackPushInteger(nPenalty);
             Internal.NativeFunctions.CallBuiltIn(447);
             return Internal.NativeFunctions.StackPopGameDefinedStructure((int)EngineStructureType.Effect);
@@ -1261,7 +1261,7 @@ namespace NWN.Framework.Lite
         public static Effect EffectBeam(VisualEffectType nBeamVisualEffect, uint oEffector, BodyNodeType nBodyPart, bool bMissEffect = false)
         {
             Internal.NativeFunctions.StackPushInteger(bMissEffect ? 1 : 0);
-            Internal.NativeFunctions.StackPushInteger((int)nBodyPart);
+            Internal.NativeFunctions.StackPushInteger(nBodyPart.InternalValue);
             Internal.NativeFunctions.StackPushObject(oEffector);
             Internal.NativeFunctions.StackPushInteger((int)nBeamVisualEffect);
             Internal.NativeFunctions.CallBuiltIn(207);
@@ -1335,7 +1335,7 @@ namespace NWN.Framework.Lite
             Internal.NativeFunctions.StackPushStringUTF8(sOnExitScript);
             Internal.NativeFunctions.StackPushStringUTF8(sHeartbeatScript);
             Internal.NativeFunctions.StackPushStringUTF8(sOnEnterScript);
-            Internal.NativeFunctions.StackPushInteger((int)nAreaEffect);
+            Internal.NativeFunctions.StackPushInteger(nAreaEffect.InternalValue);
             Internal.NativeFunctions.CallBuiltIn(171);
             return Internal.NativeFunctions.StackPopGameDefinedStructure((int)EngineStructureType.Effect);
         }

@@ -60,7 +60,7 @@ namespace NWN.Framework.Lite.NWNX
         public static void SetBaseItemType(uint oItem, BaseItemType baseitem)
         {
             Internal.NativeFunctions.nwnxSetFunction(PLUGIN_NAME, "SetBaseItemType");
-            Internal.NativeFunctions.nwnxPushInt((int)baseitem);
+            Internal.NativeFunctions.nwnxPushInt(baseitem.InternalValue);
             Internal.NativeFunctions.nwnxPushObject(oItem);
             Internal.NativeFunctions.nwnxCallFunction();
         }

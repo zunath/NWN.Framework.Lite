@@ -21,7 +21,7 @@ namespace NWN.Framework.Lite.NWNX
         {
             Internal.NativeFunctions.nwnxSetFunction(PLUGIN_NAME, "SetWeaponFocusFeat");
             Internal.NativeFunctions.nwnxPushInt((int)feat);
-            Internal.NativeFunctions.nwnxPushInt((int)baseItem);
+            Internal.NativeFunctions.nwnxPushInt(baseItem.InternalValue);
             Internal.NativeFunctions.nwnxCallFunction();
         }
 
@@ -29,7 +29,7 @@ namespace NWN.Framework.Lite.NWNX
         {
             Internal.NativeFunctions.nwnxSetFunction(PLUGIN_NAME, "SetEpicWeaponFocusFeat");
             Internal.NativeFunctions.nwnxPushInt((int)feat);
-            Internal.NativeFunctions.nwnxPushInt((int)baseItem);
+            Internal.NativeFunctions.nwnxPushInt(baseItem.InternalValue);
             Internal.NativeFunctions.nwnxCallFunction();
         }
 
@@ -37,7 +37,7 @@ namespace NWN.Framework.Lite.NWNX
         {
             Internal.NativeFunctions.nwnxSetFunction(PLUGIN_NAME, "SetGreaterWeaponFocusFeat");
             Internal.NativeFunctions.nwnxPushInt((int)feat);
-            Internal.NativeFunctions.nwnxPushInt((int)baseItem);
+            Internal.NativeFunctions.nwnxPushInt(baseItem.InternalValue);
             Internal.NativeFunctions.nwnxCallFunction();
         }
 
@@ -45,21 +45,21 @@ namespace NWN.Framework.Lite.NWNX
         {
             Internal.NativeFunctions.nwnxSetFunction(PLUGIN_NAME, "SetWeaponFinesseSize");
             Internal.NativeFunctions.nwnxPushInt((int)nCreatureSize);
-            Internal.NativeFunctions.nwnxPushInt((int)baseItem);
+            Internal.NativeFunctions.nwnxPushInt(baseItem.InternalValue);
             Internal.NativeFunctions.nwnxCallFunction();
         }
 
         public static void SetWeaponUnarmed(BaseItemType baseItem)
         {
             Internal.NativeFunctions.nwnxSetFunction(PLUGIN_NAME, "SetWeaponUnarmed");
-            Internal.NativeFunctions.nwnxPushInt((int)baseItem);
+            Internal.NativeFunctions.nwnxPushInt(baseItem.InternalValue);
             Internal.NativeFunctions.nwnxCallFunction();
         }
 
         public static void SetWeaponIsMonkWeapon(BaseItemType baseItem)
         {
             Internal.NativeFunctions.nwnxSetFunction(PLUGIN_NAME, "SetWeaponIsMonkWeapon");
-            Internal.NativeFunctions.nwnxPushInt((int)baseItem);
+            Internal.NativeFunctions.nwnxPushInt(baseItem.InternalValue);
             Internal.NativeFunctions.nwnxCallFunction();
         }
 
@@ -67,7 +67,7 @@ namespace NWN.Framework.Lite.NWNX
         {
             Internal.NativeFunctions.nwnxSetFunction(PLUGIN_NAME, "SetWeaponImprovedCriticalFeat");
             Internal.NativeFunctions.nwnxPushInt((int)feat);
-            Internal.NativeFunctions.nwnxPushInt((int)baseItem);
+            Internal.NativeFunctions.nwnxPushInt(baseItem.InternalValue);
             Internal.NativeFunctions.nwnxCallFunction();
         }
 
@@ -75,7 +75,7 @@ namespace NWN.Framework.Lite.NWNX
         {
             Internal.NativeFunctions.nwnxSetFunction(PLUGIN_NAME, "SetWeaponSpecializationFeat");
             Internal.NativeFunctions.nwnxPushInt((int)feat);
-            Internal.NativeFunctions.nwnxPushInt((int)baseItem);
+            Internal.NativeFunctions.nwnxPushInt(baseItem.InternalValue);
             Internal.NativeFunctions.nwnxCallFunction();
         }
 
@@ -83,7 +83,7 @@ namespace NWN.Framework.Lite.NWNX
         {
             Internal.NativeFunctions.nwnxSetFunction(PLUGIN_NAME, "SetGreaterWeaponSpecializationFeat");
             Internal.NativeFunctions.nwnxPushInt((int)feat);
-            Internal.NativeFunctions.nwnxPushInt((int)baseItem);
+            Internal.NativeFunctions.nwnxPushInt(baseItem.InternalValue);
             Internal.NativeFunctions.nwnxCallFunction();
         }
 
@@ -91,7 +91,7 @@ namespace NWN.Framework.Lite.NWNX
         {
             Internal.NativeFunctions.nwnxSetFunction(PLUGIN_NAME, "SetEpicWeaponSpecializationFeat");
             Internal.NativeFunctions.nwnxPushInt((int)feat);
-            Internal.NativeFunctions.nwnxPushInt((int)baseItem);
+            Internal.NativeFunctions.nwnxPushInt(baseItem.InternalValue);
             Internal.NativeFunctions.nwnxCallFunction();
         }
 
@@ -99,7 +99,7 @@ namespace NWN.Framework.Lite.NWNX
         {
             Internal.NativeFunctions.nwnxSetFunction(PLUGIN_NAME, "SetEpicWeaponOverwhelmingCriticalFeat");
             Internal.NativeFunctions.nwnxPushInt((int)feat);
-            Internal.NativeFunctions.nwnxPushInt((int)baseItem);
+            Internal.NativeFunctions.nwnxPushInt(baseItem.InternalValue);
             Internal.NativeFunctions.nwnxCallFunction();
         }
 
@@ -107,7 +107,7 @@ namespace NWN.Framework.Lite.NWNX
         {
             Internal.NativeFunctions.nwnxSetFunction(PLUGIN_NAME, "SetEpicWeaponDevastatingCriticalFeat");
             Internal.NativeFunctions.nwnxPushInt((int)feat);
-            Internal.NativeFunctions.nwnxPushInt((int)baseItem);
+            Internal.NativeFunctions.nwnxPushInt(baseItem.InternalValue);
             Internal.NativeFunctions.nwnxCallFunction();
         }
 
@@ -115,7 +115,7 @@ namespace NWN.Framework.Lite.NWNX
         {
             Internal.NativeFunctions.nwnxSetFunction(PLUGIN_NAME, "SetWeaponOfChoiceFeat");
             Internal.NativeFunctions.nwnxPushInt((int)feat);
-            Internal.NativeFunctions.nwnxPushInt((int)baseItem);
+            Internal.NativeFunctions.nwnxPushInt(baseItem.InternalValue);
             Internal.NativeFunctions.nwnxCallFunction();
         }
 
@@ -195,7 +195,7 @@ namespace NWN.Framework.Lite.NWNX
             Internal.NativeFunctions.nwnxPushFloat(fPreferred);
             Internal.NativeFunctions.nwnxPushFloat(fMaxPassive);
             Internal.NativeFunctions.nwnxPushFloat(fMax);
-            Internal.NativeFunctions.nwnxPushInt((int)nBaseItem);
+            Internal.NativeFunctions.nwnxPushInt(nBaseItem.InternalValue);
 
             Internal.NativeFunctions.nwnxCallFunction();
         }

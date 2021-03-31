@@ -1,6 +1,6 @@
 namespace NWN.Framework.Lite.Enum
 {
-    public class ActionModeType
+    public class ActionModeType: NWEnumBase<int>
     {
         public static readonly ActionModeType Detect = new(0);
         public static readonly ActionModeType Stealth = new(1);
@@ -15,11 +15,8 @@ namespace NWN.Framework.Lite.Enum
         public static readonly ActionModeType DefensiveCast = new(10);
         public static readonly ActionModeType DirtyFighting = new(11);
 
-        public int InternalValue { get; protected set; }
-
-        public ActionModeType(int internalValue)
+        public ActionModeType(int internalValue) : base(internalValue)
         {
-            InternalValue = internalValue;
         }
     }
 }
