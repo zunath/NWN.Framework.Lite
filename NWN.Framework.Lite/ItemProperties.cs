@@ -15,7 +15,7 @@ namespace NWN.Framework.Lite
             Internal.NativeFunctions.StackPushFloat(fDuration);
             Internal.NativeFunctions.StackPushObject(oItem);
             Internal.NativeFunctions.StackPushGameDefinedStructure((int)EngineStructureType.ItemProperty, ipProperty);
-            Internal.NativeFunctions.StackPushInteger((int)nDurationType);
+            Internal.NativeFunctions.StackPushInteger(nDurationType.InternalValue);
             Internal.NativeFunctions.CallBuiltIn(609);
         }
 
@@ -77,7 +77,7 @@ namespace NWN.Framework.Lite
         {
             Internal.NativeFunctions.StackPushGameDefinedStructure((int)EngineStructureType.ItemProperty, ip);
             Internal.NativeFunctions.CallBuiltIn(615);
-            return (DurationType)Internal.NativeFunctions.StackPopInteger();
+            return new DurationType(Internal.NativeFunctions.StackPopInteger());
         }
 
         /// <summary>

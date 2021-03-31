@@ -173,7 +173,7 @@ namespace NWN.Framework.Lite
         /// </summary>
         public static int GetColor(uint oObject, ColorChannelType nColorChannel)
         {
-            Internal.NativeFunctions.StackPushInteger((int)nColorChannel);
+            Internal.NativeFunctions.StackPushInteger(nColorChannel.InternalValue);
             Internal.NativeFunctions.StackPushObject(oObject);
             Internal.NativeFunctions.CallBuiltIn(843);
             return Internal.NativeFunctions.StackPopInteger();
@@ -193,7 +193,7 @@ namespace NWN.Framework.Lite
         public static void SetColor(uint oObject, ColorChannelType nColorChannel, int nColorValue)
         {
             Internal.NativeFunctions.StackPushInteger(nColorValue);
-            Internal.NativeFunctions.StackPushInteger((int)nColorChannel);
+            Internal.NativeFunctions.StackPushInteger(nColorChannel.InternalValue);
             Internal.NativeFunctions.StackPushObject(oObject);
             Internal.NativeFunctions.CallBuiltIn(844);
         }

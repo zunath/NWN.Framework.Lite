@@ -1,25 +1,29 @@
 namespace NWN.Framework.Lite.Enum
 {
-    public enum ClericDomainType
+    public class ClericDomainType: NWEnumBase<int>
     {
-        Air = 0,
-        Animal = 1,
-        Death = 3,
-        Destruction = 4,
-        Earth = 5,
-        Evil = 6,
-        Fire = 7,
-        Good = 8,
-        Healing = 9,
-        Knowledge = 10,
-        Magic = 13,
-        Plant = 14,
-        Protection = 15,
-        Strength = 16,
-        Sun = 17,
-        Travel = 18,
-        Trickery = 19,
-        War = 20,
-        Water = 21
+        public static readonly ClericDomainType Air = new(0);
+        public static readonly ClericDomainType Animal = new(1);
+        public static readonly ClericDomainType Death = new(3);
+        public static readonly ClericDomainType Destruction = new(4);
+        public static readonly ClericDomainType Earth = new(5);
+        public static readonly ClericDomainType Evil = new(6);
+        public static readonly ClericDomainType Fire = new(7);
+        public static readonly ClericDomainType Good = new(8);
+        public static readonly ClericDomainType Healing = new(9);
+        public static readonly ClericDomainType Knowledge = new(10);
+        public static readonly ClericDomainType Magic = new(13);
+        public static readonly ClericDomainType Plant = new(14);
+        public static readonly ClericDomainType Protection = new(15);
+        public static readonly ClericDomainType Strength = new(16);
+        public static readonly ClericDomainType Sun = new(17);
+        public static readonly ClericDomainType Travel = new(18);
+        public static readonly ClericDomainType Trickery = new(19);
+        public static readonly ClericDomainType War = new(20);
+        public static readonly ClericDomainType Water = new(21);
+
+        public ClericDomainType(int internalValue) : base(internalValue)
+        {
+        }
     }
 }

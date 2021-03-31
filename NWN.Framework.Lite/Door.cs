@@ -70,7 +70,7 @@ namespace NWN.Framework.Lite
         /// </summary>
         public static bool GetIsDoorActionPossible(uint oTargetDoor, DoorActionType nDoorAction)
         {
-            Internal.NativeFunctions.StackPushInteger((int)nDoorAction);
+            Internal.NativeFunctions.StackPushInteger(nDoorAction.InternalValue);
             Internal.NativeFunctions.StackPushObject(oTargetDoor);
             Internal.NativeFunctions.CallBuiltIn(337);
             return Internal.NativeFunctions.StackPopInteger() == 1;
@@ -81,7 +81,7 @@ namespace NWN.Framework.Lite
         /// </summary>
         public static void DoDoorAction(uint oTargetDoor, DoorActionType nDoorAction)
         {
-            Internal.NativeFunctions.StackPushInteger((int)nDoorAction);
+            Internal.NativeFunctions.StackPushInteger(nDoorAction.InternalValue);
             Internal.NativeFunctions.StackPushObject(oTargetDoor);
             Internal.NativeFunctions.CallBuiltIn(338);
         }

@@ -1,14 +1,18 @@
 namespace NWN.Framework.Lite.Enum
 {
-    public enum EncounterDifficultyType
+    public class EncounterDifficultyType : NWEnumBase<int>
     {
         // These represent the row in the difficulty 2da, rather than
         // a difficulty value.
-        Default = -1,
-        VeryLow = 0,
-        Low = 1,
-        Medium = 2,
-        High = 3,
-        VeryHigh = 4
+        public static readonly EncounterDifficultyType Default = new(-1);
+        public static readonly EncounterDifficultyType VeryLow = new(0);
+        public static readonly EncounterDifficultyType Low = new(1);
+        public static readonly EncounterDifficultyType Medium = new(2);
+        public static readonly EncounterDifficultyType High = new(3);
+        public static readonly EncounterDifficultyType VeryHigh = new(4);
+
+        public EncounterDifficultyType(int internalValue) : base(internalValue)
+        {
+        }
     }
 }

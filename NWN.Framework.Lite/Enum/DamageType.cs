@@ -1,22 +1,26 @@
 namespace NWN.Framework.Lite.Enum
 {
-    public enum DamageType
+    public class DamageType: NWEnumBase<int>
     {
-        Bludgeoning = 1,
-        Piercing = 2,
-        Slashing = 4,
-        Magical = 8,
-        Acid = 16,
-        Cold = 32,
-        Divine = 64,
-        Electrical = 128,
-        Fire = 256,
-        Negative = 512,
-        Positive = 1024,
-        Sonic = 2048,
+        public static readonly DamageType Bludgeoning = new(1);
+        public static readonly DamageType Piercing = new(2);
+        public static readonly DamageType Slashing = new(4);
+        public static readonly DamageType Magical = new(8);
+        public static readonly DamageType Acid = new(16);
+        public static readonly DamageType Cold = new(32);
+        public static readonly DamageType Divine = new(64);
+        public static readonly DamageType Electrical = new(128);
+        public static readonly DamageType Fire = new(256);
+        public static readonly DamageType Negative = new(512);
+        public static readonly DamageType Positive = new(1024);
+        public static readonly DamageType Sonic = new(2048);
 
         // The base weapon damage is the base damage delivered by the weapon before
         // any additional types of damage (e.g. fire) have been added.
-        BaseWeapon = 4096
+        public static readonly DamageType BaseWeapon = new(4096);
+
+        public DamageType(int internalValue) : base(internalValue)
+        {
+        }
     }
 }

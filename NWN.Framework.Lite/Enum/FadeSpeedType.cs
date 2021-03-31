@@ -1,11 +1,15 @@
 ﻿namespace NWN.Framework.Lite.Enum
 {
-    public static class FadeSpeedType
+    public class FadeSpeedType: NWEnumBase<float>
     {
-        public const float Slowest = 0.003f;
-        public const float Slow = 0.005f;
-        public const float Medium = 0.01f;
-        public const float Fast = 0.017f;
-        public const float Fastest = 0.25f;
+        public static readonly FadeSpeedType Slowest = new (0.003f);
+        public static readonly FadeSpeedType Slow = new(0.005f);
+        public static readonly FadeSpeedType Medium = new(0.01f);
+        public static readonly FadeSpeedType Fast = new (0.017f);
+        public static readonly FadeSpeedType Fastest = new(0.25f);
+
+        public FadeSpeedType(float internalValue) : base(internalValue)
+        {
+        }
     }
 }

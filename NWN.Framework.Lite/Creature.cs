@@ -67,7 +67,7 @@ namespace NWN.Framework.Lite
         {
             Internal.NativeFunctions.StackPushObject(oCreature);
             Internal.NativeFunctions.CallBuiltIn(790);
-            return (CreatureWingType)Internal.NativeFunctions.StackPopInteger();
+            return new CreatureWingType(Internal.NativeFunctions.StackPopInteger());
         }
 
         /// <summary>
@@ -88,7 +88,7 @@ namespace NWN.Framework.Lite
         public static void SetCreatureWingType(CreatureWingType nWingType, uint oCreature = OBJECT_INVALID)
         {
             Internal.NativeFunctions.StackPushObject(oCreature);
-            Internal.NativeFunctions.StackPushInteger((int)nWingType);
+            Internal.NativeFunctions.StackPushInteger(nWingType.InternalValue);
             Internal.NativeFunctions.CallBuiltIn(791);
         }
 
@@ -126,7 +126,7 @@ namespace NWN.Framework.Lite
         public static int GetCreatureBodyPart(CreaturePartType nPart, uint oCreature = OBJECT_INVALID)
         {
             Internal.NativeFunctions.StackPushObject(oCreature);
-            Internal.NativeFunctions.StackPushInteger((int)nPart);
+            Internal.NativeFunctions.StackPushInteger(nPart.InternalValue);
             Internal.NativeFunctions.CallBuiltIn(792);
             return Internal.NativeFunctions.StackPopInteger();
         }
@@ -175,7 +175,7 @@ namespace NWN.Framework.Lite
         {
             Internal.NativeFunctions.StackPushObject(oCreature);
             Internal.NativeFunctions.StackPushInteger(nModelNumber);
-            Internal.NativeFunctions.StackPushInteger((int)nPart);
+            Internal.NativeFunctions.StackPushInteger(nPart.InternalValue);
             Internal.NativeFunctions.CallBuiltIn(793);
         }
 
@@ -193,7 +193,7 @@ namespace NWN.Framework.Lite
         {
             Internal.NativeFunctions.StackPushObject(oCreature);
             Internal.NativeFunctions.CallBuiltIn(794);
-            return (CreatureTailType)Internal.NativeFunctions.StackPopInteger();
+            return new CreatureTailType(Internal.NativeFunctions.StackPopInteger());
         }
 
         /// <summary>
@@ -211,7 +211,7 @@ namespace NWN.Framework.Lite
         public static void SetCreatureTailType(CreatureTailType nTailType, uint oCreature = OBJECT_INVALID)
         {
             Internal.NativeFunctions.StackPushObject(oCreature);
-            Internal.NativeFunctions.StackPushInteger((int)nTailType);
+            Internal.NativeFunctions.StackPushInteger(nTailType.InternalValue);
             Internal.NativeFunctions.CallBuiltIn(795);
         }
 
@@ -417,7 +417,7 @@ namespace NWN.Framework.Lite
         /// </summary>
         public static void IncrementRemainingFeatUses(uint oCreature, FeatType nFeat)
         {
-            Internal.NativeFunctions.StackPushInteger((int)nFeat);
+            Internal.NativeFunctions.StackPushInteger(nFeat.InternalValue);
             Internal.NativeFunctions.StackPushObject(oCreature);
             Internal.NativeFunctions.CallBuiltIn(718);
         }
@@ -592,7 +592,7 @@ namespace NWN.Framework.Lite
         {
             Internal.NativeFunctions.StackPushObject(oCreature);
             Internal.NativeFunctions.CallBuiltIn(575);
-            return (DetectModeType)Internal.NativeFunctions.StackPopInteger();
+            return new DetectModeType(Internal.NativeFunctions.StackPopInteger());
         }
 
         /// <summary>
@@ -657,7 +657,7 @@ namespace NWN.Framework.Lite
         {
             Internal.NativeFunctions.StackPushObject(oCreature);
             Internal.NativeFunctions.CallBuiltIn(479);
-            return (CreatureSizeType)Internal.NativeFunctions.StackPopInteger();
+            return new CreatureSizeType(Internal.NativeFunctions.StackPopInteger());
         }
 
         /// <summary>
@@ -908,7 +908,7 @@ namespace NWN.Framework.Lite
         public static DisturbType GetInventoryDisturbType()
         {
             Internal.NativeFunctions.CallBuiltIn(352);
-            return (DisturbType)Internal.NativeFunctions.StackPopInteger();
+            return new DisturbType(Internal.NativeFunctions.StackPopInteger());
         }
 
         /// <summary>
@@ -1041,7 +1041,7 @@ namespace NWN.Framework.Lite
             Internal.NativeFunctions.StackPushInteger(nNth);
             Internal.NativeFunctions.StackPushGameDefinedStructure((int)EngineStructureType.Location, lLocation);
             Internal.NativeFunctions.StackPushInteger(nFirstCriteriaValue ? 1 : 0);
-            Internal.NativeFunctions.StackPushInteger((int)nFirstCriteriaType);
+            Internal.NativeFunctions.StackPushInteger(nFirstCriteriaType.InternalValue);
             Internal.NativeFunctions.CallBuiltIn(226);
             return Internal.NativeFunctions.StackPopObject();
         }

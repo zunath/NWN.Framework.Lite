@@ -1,10 +1,14 @@
 ﻿namespace NWN.Framework.Lite.Enum
 {
-    public enum ColorType
+    public class ColorType: NWEnumBase<int>
     {
-        MoonAmbient,
-        MoonDiffuse,
-        SunAmbient,
-        SunDiffuse
+        public static readonly ColorType MoonAmbient = new(0);
+        public static readonly ColorType MoonDiffuse = new(1);
+        public static readonly ColorType SunAmbient = new(2);
+        public static readonly ColorType SunDiffuse = new(3);
+
+        public ColorType(int internalValue) : base(internalValue)
+        {
+        }
     }
 }

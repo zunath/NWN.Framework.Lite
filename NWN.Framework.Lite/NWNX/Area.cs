@@ -207,7 +207,7 @@ namespace NWN.Framework.Lite.NWNX
             Internal.NativeFunctions.nwnxSetFunction(PLUGIN_NAME, "GetDayNightCycle");
             Internal.NativeFunctions.nwnxPushObject(area);
             Internal.NativeFunctions.nwnxCallFunction();
-            return (DayNightCycleType)Internal.NativeFunctions.nwnxPopInt();
+            return new DayNightCycleType(Internal.NativeFunctions.nwnxPopInt());
         }
 
         // Set the day/night cycle of area
@@ -215,7 +215,7 @@ namespace NWN.Framework.Lite.NWNX
         public static void SetDayNightCycle(uint area, DayNightCycleType type)
         {
             Internal.NativeFunctions.nwnxSetFunction(PLUGIN_NAME, "SetDayNightCycle");
-            Internal.NativeFunctions.nwnxPushInt((int)type);
+            Internal.NativeFunctions.nwnxPushInt(type.InternalValue);
             Internal.NativeFunctions.nwnxPushObject(area);
             Internal.NativeFunctions.nwnxCallFunction();
         }
@@ -227,7 +227,7 @@ namespace NWN.Framework.Lite.NWNX
         public static int GetSunMoonColors(uint area, ColorType type)
         {
             Internal.NativeFunctions.nwnxSetFunction(PLUGIN_NAME, "GetSunMoonColors");
-            Internal.NativeFunctions.nwnxPushInt((int)type);
+            Internal.NativeFunctions.nwnxPushInt(type.InternalValue);
             Internal.NativeFunctions.nwnxPushObject(area);
             Internal.NativeFunctions.nwnxCallFunction();
             return Internal.NativeFunctions.nwnxPopInt();
@@ -246,7 +246,7 @@ namespace NWN.Framework.Lite.NWNX
         {
             Internal.NativeFunctions.nwnxSetFunction(PLUGIN_NAME, "SetSunMoonColors");
             Internal.NativeFunctions.nwnxPushInt(color);
-            Internal.NativeFunctions.nwnxPushInt((int)type);
+            Internal.NativeFunctions.nwnxPushInt(type.InternalValue);
             Internal.NativeFunctions.nwnxPushObject(area);
             Internal.NativeFunctions.nwnxCallFunction();
         }

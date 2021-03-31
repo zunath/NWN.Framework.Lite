@@ -36,7 +36,7 @@ namespace NWN.Framework.Lite.NWNX
         public static void SetFavoredEnemyFeat(RacialType iRace, FeatType iFeat)
         {
             Internal.NativeFunctions.nwnxSetFunction(PLUGIN_NAME, "SetFavoredEnemyFeat");
-            Internal.NativeFunctions.nwnxPushInt((int)iFeat);
+            Internal.NativeFunctions.nwnxPushInt(iFeat.InternalValue);
             Internal.NativeFunctions.nwnxPushInt((int)iRace);
             Internal.NativeFunctions.nwnxCallFunction();
         }

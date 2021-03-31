@@ -1,8 +1,12 @@
 namespace NWN.Framework.Lite.Enum
 {
-    public enum DetectModeType
+    public class DetectModeType: NWEnumBase<int>
     {
-        Passive,
-        Active
+        public static readonly DetectModeType Passive = new(0);
+        public static readonly DetectModeType Active = new(1);
+
+        public DetectModeType(int internalValue) : base(internalValue)
+        {
+        }
     }
 }

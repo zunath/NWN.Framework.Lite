@@ -1,14 +1,18 @@
 ﻿namespace NWN.Framework.Lite.Enum
 {
-    public enum DirectionType
+    public class DirectionType: NWEnumBase<int>
     {
-        East = 0,
-        North = 90,
-        West = 180,
-        South = 270,
-        NorthEast = 45,
-        NorthWest = 135,
-        SouthEast = 315,
-        SouthWest = 225
+        public static readonly DirectionType East = new(0);
+        public static readonly DirectionType North = new(90);
+        public static readonly DirectionType West = new(180);
+        public static readonly DirectionType South = new(270);
+        public static readonly DirectionType NorthEast = new(45);
+        public static readonly DirectionType NorthWest = new(135);
+        public static readonly DirectionType SouthEast = new(315);
+        public static readonly DirectionType SouthWest = new(225);
+
+        public DirectionType(int internalValue) : base(internalValue)
+        {
+        }
     }
 }

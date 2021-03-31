@@ -1,24 +1,28 @@
 namespace NWN.Framework.Lite.Enum
 {
-    public enum DiseaseType
+    public class DiseaseType: NWEnumBase<int>
     {
         // these constants match those in disease.2da
-        Blinding_Sickness = 0,
-        Cackle_Fever = 1,
-        Devil_Chills = 2,
-        Demon_Fever = 3,
-        Filth_Fever = 4,
-        Mindfire = 5,
-        Mummy_Rot = 6,
-        Red_Ache = 7,
-        Shakes = 8,
-        Slimy_Doom = 9,
-        Red_Slaad_Eggs = 10,
-        Ghoul_Rot = 11,
-        Zombie_Creep = 12,
-        Dread_Blisters = 13,
-        Burrow_Maggots = 14,
-        Soldier_Shakes = 15,
-        Vermin_Madness = 16
+        public static readonly DiseaseType Blinding_Sickness = new(0);
+        public static readonly DiseaseType Cackle_Fever = new(1);
+        public static readonly DiseaseType Devil_Chills = new(2);
+        public static readonly DiseaseType Demon_Fever = new(3);
+        public static readonly DiseaseType Filth_Fever = new(4);
+        public static readonly DiseaseType Mindfire = new(5);
+        public static readonly DiseaseType Mummy_Rot = new(6);
+        public static readonly DiseaseType Red_Ache = new(7);
+        public static readonly DiseaseType Shakes = new(8);
+        public static readonly DiseaseType Slimy_Doom = new(9);
+        public static readonly DiseaseType Red_Slaad_Eggs = new(10);
+        public static readonly DiseaseType Ghoul_Rot = new(11);
+        public static readonly DiseaseType Zombie_Creep = new(12);
+        public static readonly DiseaseType Dread_Blisters = new(13);
+        public static readonly DiseaseType Burrow_Maggots = new(14);
+        public static readonly DiseaseType Soldier_Shakes = new(15);
+        public static readonly DiseaseType Vermin_Madness = new(16);
+
+        public DiseaseType(int internalValue) : base(internalValue)
+        {
+        }
     }
 }

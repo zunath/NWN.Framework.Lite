@@ -1,11 +1,15 @@
 namespace NWN.Framework.Lite.Enum
 {
-    public enum DurationType
+    public class DurationType: NWEnumBase<int>
     {
         //Effect type constants
-        Invalid = -1,
-        Instant = 0,
-        Temporary = 1,
-        Permanent = 2
+        public static readonly DurationType Invalid = new(-1);
+        public static readonly DurationType Instant = new(0);
+        public static readonly DurationType Temporary = new(1);
+        public static readonly DurationType Permanent = new(2);
+
+        public DurationType(int internalValue) : base(internalValue)
+        {
+        }
     }
 }

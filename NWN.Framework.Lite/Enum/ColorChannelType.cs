@@ -1,10 +1,14 @@
 namespace NWN.Framework.Lite.Enum
 {
-    public enum ColorChannelType
+    public class ColorChannelType: NWEnumBase<int>
     {
-        Skin,
-        Hair,
-        Tattoo1,
-        Tattoo2
+        public static readonly ColorChannelType Skin = new(0);
+        public static readonly ColorChannelType Hair = new(1);
+        public static readonly ColorChannelType Tattoo1 = new(2);
+        public static readonly ColorChannelType Tattoo2 = new(3);
+
+        public ColorChannelType(int internalValue) : base(internalValue)
+        {
+        }
     }
 }

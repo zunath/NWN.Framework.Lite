@@ -108,7 +108,7 @@ namespace NWN.Framework.Lite.NWNX
         {
             var qbs = Empty(QuickBarSlotType.Feat);
 
-            qbs.INTParam1 = (int)nFeat;
+            qbs.INTParam1 = nFeat.InternalValue;
 
             return qbs;
         }

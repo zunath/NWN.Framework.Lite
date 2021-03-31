@@ -12,7 +12,7 @@ namespace NWN.Framework.Lite.NWNX
         public static void AddFeat(uint creature, FeatType feat)
         {
             Internal.NativeFunctions.nwnxSetFunction(PLUGIN_NAME, "AddFeat");
-            Internal.NativeFunctions.nwnxPushInt((int)feat);
+            Internal.NativeFunctions.nwnxPushInt(feat.InternalValue);
             Internal.NativeFunctions.nwnxPushObject(creature);
             Internal.NativeFunctions.nwnxCallFunction();
         }
@@ -23,7 +23,7 @@ namespace NWN.Framework.Lite.NWNX
         {
             Internal.NativeFunctions.nwnxSetFunction(PLUGIN_NAME, "AddFeatByLevel");
             Internal.NativeFunctions.nwnxPushInt(level);
-            Internal.NativeFunctions.nwnxPushInt((int)feat);
+            Internal.NativeFunctions.nwnxPushInt(feat.InternalValue);
             Internal.NativeFunctions.nwnxPushObject(creature);
             Internal.NativeFunctions.nwnxCallFunction();
         }
@@ -32,7 +32,7 @@ namespace NWN.Framework.Lite.NWNX
         public static void RemoveFeat(uint creature, FeatType feat)
         {
             Internal.NativeFunctions.nwnxSetFunction(PLUGIN_NAME, "RemoveFeat");
-            Internal.NativeFunctions.nwnxPushInt((int)feat);
+            Internal.NativeFunctions.nwnxPushInt(feat.InternalValue);
             Internal.NativeFunctions.nwnxPushObject(creature);
             Internal.NativeFunctions.nwnxCallFunction();
         }
@@ -40,7 +40,7 @@ namespace NWN.Framework.Lite.NWNX
         public static bool GetKnowsFeat(uint creature, FeatType feat)
         {
             Internal.NativeFunctions.nwnxSetFunction(PLUGIN_NAME, "GetKnowsFeat");
-            Internal.NativeFunctions.nwnxPushInt((int)feat);
+            Internal.NativeFunctions.nwnxPushInt(feat.InternalValue);
             Internal.NativeFunctions.nwnxPushObject(creature);
             Internal.NativeFunctions.nwnxCallFunction();
             return Internal.NativeFunctions.nwnxPopInt() != 0;
@@ -65,7 +65,7 @@ namespace NWN.Framework.Lite.NWNX
             Internal.NativeFunctions.nwnxPushInt(level);
             Internal.NativeFunctions.nwnxPushObject(creature);
             Internal.NativeFunctions.nwnxCallFunction();
-            return (FeatType)Internal.NativeFunctions.nwnxPopInt();
+            return new FeatType(Internal.NativeFunctions.nwnxPopInt());
         }
 
         // Returns the total number of feats known by creature
@@ -85,14 +85,14 @@ namespace NWN.Framework.Lite.NWNX
             Internal.NativeFunctions.nwnxPushInt(index);
             Internal.NativeFunctions.nwnxPushObject(creature);
             Internal.NativeFunctions.nwnxCallFunction();
-            return (FeatType)Internal.NativeFunctions.nwnxPopInt();
+            return new FeatType(Internal.NativeFunctions.nwnxPopInt());
         }
 
         // Returns TRUE if creature meets all requirements to take given feat
         public static bool GetMeetsFeatRequirements(uint creature, FeatType feat)
         {
             Internal.NativeFunctions.nwnxSetFunction(PLUGIN_NAME, "GetMeetsFeatRequirements");
-            Internal.NativeFunctions.nwnxPushInt((int)feat);
+            Internal.NativeFunctions.nwnxPushInt(feat.InternalValue);
             Internal.NativeFunctions.nwnxPushObject(creature);
             Internal.NativeFunctions.nwnxCallFunction();
             return Internal.NativeFunctions.nwnxPopInt() != 0;
@@ -527,7 +527,7 @@ namespace NWN.Framework.Lite.NWNX
         public static void SetSize(uint creature, CreatureSizeType creatureSize)
         {
             Internal.NativeFunctions.nwnxSetFunction(PLUGIN_NAME, "SetSize");
-            Internal.NativeFunctions.nwnxPushInt((int)creatureSize);
+            Internal.NativeFunctions.nwnxPushInt(creatureSize.InternalValue);
             Internal.NativeFunctions.nwnxPushObject(creature);
             Internal.NativeFunctions.nwnxCallFunction();
         }
@@ -682,7 +682,7 @@ namespace NWN.Framework.Lite.NWNX
         public static int GetFeatRemainingUses(uint creature, FeatType feat)
         {
             Internal.NativeFunctions.nwnxSetFunction(PLUGIN_NAME, "GetFeatRemainingUses");
-            Internal.NativeFunctions.nwnxPushInt((int)feat);
+            Internal.NativeFunctions.nwnxPushInt(feat.InternalValue);
             Internal.NativeFunctions.nwnxPushObject(creature);
             Internal.NativeFunctions.nwnxCallFunction();
             return Internal.NativeFunctions.nwnxPopInt();
@@ -692,7 +692,7 @@ namespace NWN.Framework.Lite.NWNX
         public static int GetFeatTotalUses(uint creature, FeatType feat)
         {
             Internal.NativeFunctions.nwnxSetFunction(PLUGIN_NAME, "GetFeatTotalUses");
-            Internal.NativeFunctions.nwnxPushInt((int)feat);
+            Internal.NativeFunctions.nwnxPushInt(feat.InternalValue);
             Internal.NativeFunctions.nwnxPushObject(creature);
             Internal.NativeFunctions.nwnxCallFunction();
             return Internal.NativeFunctions.nwnxPopInt();
@@ -703,7 +703,7 @@ namespace NWN.Framework.Lite.NWNX
         {
             Internal.NativeFunctions.nwnxSetFunction(PLUGIN_NAME, "SetFeatRemainingUses");
             Internal.NativeFunctions.nwnxPushInt(uses);
-            Internal.NativeFunctions.nwnxPushInt((int)feat);
+            Internal.NativeFunctions.nwnxPushInt(feat.InternalValue);
             Internal.NativeFunctions.nwnxPushObject(creature);
             Internal.NativeFunctions.nwnxCallFunction();
         }

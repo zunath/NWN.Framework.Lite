@@ -10,7 +10,7 @@ namespace NWN.Framework.Lite.NWNX
         public static int GetSkillFeatCountForSkill(FeatType feat)
         {
             Internal.NativeFunctions.nwnxSetFunction(PLUGIN_NAME, "GetSkillFeatCountForSkill");
-            Internal.NativeFunctions.nwnxPushInt((int)feat);
+            Internal.NativeFunctions.nwnxPushInt(feat.InternalValue);
             Internal.NativeFunctions.nwnxCallFunction();
             return Internal.NativeFunctions.nwnxPopInt();
         }
@@ -18,7 +18,7 @@ namespace NWN.Framework.Lite.NWNX
         public static SkillFeat GetSkillFeatForSkillByIndex(FeatType feat, SkillType skill)
         {
             Internal.NativeFunctions.nwnxSetFunction(PLUGIN_NAME, "GetSkillFeatForSkillByIndex");
-            Internal.NativeFunctions.nwnxPushInt((int)feat);
+            Internal.NativeFunctions.nwnxPushInt(feat.InternalValue);
             Internal.NativeFunctions.nwnxPushInt((int)skill);
             Internal.NativeFunctions.nwnxCallFunction();
             return new SkillFeat
@@ -40,13 +40,13 @@ namespace NWN.Framework.Lite.NWNX
         public static SkillFeat GetSkillFeat(FeatType feat, SkillType skill)
         {
             Internal.NativeFunctions.nwnxSetFunction(PLUGIN_NAME, "GetSkillFeat");
-            Internal.NativeFunctions.nwnxPushInt((int)feat);
+            Internal.NativeFunctions.nwnxPushInt(feat.InternalValue);
             Internal.NativeFunctions.nwnxPushInt((int)skill);
             Internal.NativeFunctions.nwnxCallFunction();
             return new SkillFeat
             {
                 skill = (int)skill,
-                feat = (int)feat,
+                feat = feat.InternalValue,
                 modifier = Internal.NativeFunctions.nwnxPopInt(),
                 focusFeat = Internal.NativeFunctions.nwnxPopInt(),
                 classes = Internal.NativeFunctions.nwnxPopString(),

@@ -1,11 +1,15 @@
 namespace NWN.Framework.Lite.Enum
 {
-    public enum DoorActionType
+    public class DoorActionType: NWEnumBase<int>
     {
-        Open = 0,
-        Unlock = 1,
-        Bash = 2,
-        Ignore = 3,
-        Knock = 4
+        public static readonly DoorActionType Open = new(0);
+        public static readonly DoorActionType Unlock = new(1);
+        public static readonly DoorActionType Bash = new(2);
+        public static readonly DoorActionType Ignore = new(3);
+        public static readonly DoorActionType Knock = new(4);
+
+        public DoorActionType(int internalValue) : base(internalValue)
+        {
+        }
     }
 }

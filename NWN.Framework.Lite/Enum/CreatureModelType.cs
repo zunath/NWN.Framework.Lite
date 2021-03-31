@@ -1,10 +1,14 @@
 namespace NWN.Framework.Lite.Enum
 {
-    public enum CreatureModelType
+    public class CreatureModelType: NWEnumBase<int>
     {
-        None,
-        Skin,
-        Tattoo,
-        Undead = 255
+        public static readonly CreatureModelType None = new(0);
+        public static readonly CreatureModelType Skin = new(1);
+        public static readonly CreatureModelType Tattoo = new(2);
+        public static readonly CreatureModelType Undead = new(255);
+
+        public CreatureModelType(int internalValue) : base(internalValue)
+        {
+        }
     }
 }

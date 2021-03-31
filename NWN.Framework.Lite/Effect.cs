@@ -328,7 +328,7 @@ namespace NWN.Framework.Lite
         public static Effect EffectDamageReduction(int nAmount, DamagePowerType nDamagePower, int nLimit = 0)
         {
             Internal.NativeFunctions.StackPushInteger(nLimit);
-            Internal.NativeFunctions.StackPushInteger((int)nDamagePower);
+            Internal.NativeFunctions.StackPushInteger(nDamagePower.InternalValue);
             Internal.NativeFunctions.StackPushInteger(nAmount);
             Internal.NativeFunctions.CallBuiltIn(119);
             return Internal.NativeFunctions.StackPopGameDefinedStructure((int)EngineStructureType.Effect);
@@ -341,9 +341,9 @@ namespace NWN.Framework.Lite
         ///   NOTE! You *must* use the DAMAGE_BONUS_* constants! Using other values may
         ///   result in odd behaviour.
         /// </summary>
-        public static Effect EffectDamageIncrease(int nBonus, DamageType nDamageType = DamageType.Magical)
+        public static Effect EffectDamageIncrease(int nBonus, DamageType nDamageType)
         {
-            Internal.NativeFunctions.StackPushInteger((int)nDamageType);
+            Internal.NativeFunctions.StackPushInteger(nDamageType.InternalValue);
             Internal.NativeFunctions.StackPushInteger(nBonus);
             Internal.NativeFunctions.CallBuiltIn(120);
             return Internal.NativeFunctions.StackPopGameDefinedStructure((int)EngineStructureType.Effect);
@@ -496,11 +496,10 @@ namespace NWN.Framework.Lite
         ///   - nDamageType: DAMAGE_TYPE_*
         ///   - nDamagePower: DAMAGE_POWER_*
         /// </summary>
-        public static Effect EffectDamage(int nDamageAmount, DamageType nDamageType = DamageType.Magical,
-            DamagePowerType nDamagePower = DamagePowerType.Normal)
+        public static Effect EffectDamage(int nDamageAmount, DamageType nDamageType, DamagePowerType nDamagePower)
         {
-            Internal.NativeFunctions.StackPushInteger((int)nDamagePower);
-            Internal.NativeFunctions.StackPushInteger((int)nDamageType);
+            Internal.NativeFunctions.StackPushInteger(nDamagePower.InternalValue);
+            Internal.NativeFunctions.StackPushInteger(nDamageType.InternalValue);
             Internal.NativeFunctions.StackPushInteger(nDamageAmount);
             Internal.NativeFunctions.CallBuiltIn(79);
             return Internal.NativeFunctions.StackPopGameDefinedStructure((int)EngineStructureType.Effect);
@@ -529,7 +528,7 @@ namespace NWN.Framework.Lite
         {
             Internal.NativeFunctions.StackPushInteger(nLimit);
             Internal.NativeFunctions.StackPushInteger(nAmount);
-            Internal.NativeFunctions.StackPushInteger((int)nDamageType);
+            Internal.NativeFunctions.StackPushInteger(nDamageType.InternalValue);
             Internal.NativeFunctions.CallBuiltIn(81);
             return Internal.NativeFunctions.StackPopGameDefinedStructure((int)EngineStructureType.Effect);
         }
@@ -729,7 +728,7 @@ namespace NWN.Framework.Lite
         /// </summary>
         public static Effect EffectDamageShield(int nDamageAmount, ItemPropertyDamageBonusType nRandomAmount, DamageType nDamageType)
         {
-            Internal.NativeFunctions.StackPushInteger((int)nDamageType);
+            Internal.NativeFunctions.StackPushInteger(nDamageType.InternalValue);
             Internal.NativeFunctions.StackPushInteger((int)nRandomAmount);
             Internal.NativeFunctions.StackPushInteger(nDamageAmount);
             Internal.NativeFunctions.CallBuiltIn(487);
@@ -951,9 +950,9 @@ namespace NWN.Framework.Lite
         ///   - nPenalty
         ///   - nDamageType: DAMAGE_TYPE_*
         /// </summary>
-        public static Effect EffectDamageDecrease(int nPenalty, DamageType nDamageType = DamageType.Magical)
+        public static Effect EffectDamageDecrease(int nPenalty, DamageType nDamageType)
         {
-            Internal.NativeFunctions.StackPushInteger((int)nDamageType);
+            Internal.NativeFunctions.StackPushInteger(nDamageType.InternalValue);
             Internal.NativeFunctions.StackPushInteger(nPenalty);
             Internal.NativeFunctions.CallBuiltIn(448);
             return Internal.NativeFunctions.StackPopGameDefinedStructure((int)EngineStructureType.Effect);
@@ -1172,7 +1171,7 @@ namespace NWN.Framework.Lite
         public static Effect EffectDamageImmunityIncrease(DamageType nDamageType, int nPercentImmunity)
         {
             Internal.NativeFunctions.StackPushInteger(nPercentImmunity);
-            Internal.NativeFunctions.StackPushInteger((int)nDamageType);
+            Internal.NativeFunctions.StackPushInteger(nDamageType.InternalValue);
             Internal.NativeFunctions.CallBuiltIn(275);
             return Internal.NativeFunctions.StackPopGameDefinedStructure((int)EngineStructureType.Effect);
         }
@@ -1223,7 +1222,7 @@ namespace NWN.Framework.Lite
         /// </summary>
         public static Effect EffectDisease(DiseaseType nDiseaseType)
         {
-            Internal.NativeFunctions.StackPushInteger((int)nDiseaseType);
+            Internal.NativeFunctions.StackPushInteger(nDiseaseType.InternalValue);
             Internal.NativeFunctions.CallBuiltIn(251);
             return Internal.NativeFunctions.StackPopGameDefinedStructure((int)EngineStructureType.Effect);
         }
@@ -1310,7 +1309,7 @@ namespace NWN.Framework.Lite
             Internal.NativeFunctions.StackPushFloat(fDuration);
             Internal.NativeFunctions.StackPushObject(oTarget);
             Internal.NativeFunctions.StackPushGameDefinedStructure((int)EngineStructureType.Effect, eEffect);
-            Internal.NativeFunctions.StackPushInteger((int)nDurationType);
+            Internal.NativeFunctions.StackPushInteger(nDurationType.InternalValue);
             Internal.NativeFunctions.CallBuiltIn(220);
         }
 
@@ -1322,7 +1321,7 @@ namespace NWN.Framework.Lite
         {
             Internal.NativeFunctions.StackPushGameDefinedStructure((int)EngineStructureType.Effect, eEffect);
             Internal.NativeFunctions.CallBuiltIn(170);
-            return (EffectScriptType)Internal.NativeFunctions.StackPopInteger();
+            return new EffectScriptType(Internal.NativeFunctions.StackPopInteger());
         }
 
         /// <summary>

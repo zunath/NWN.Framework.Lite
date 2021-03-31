@@ -563,7 +563,7 @@ namespace NWN.Framework.Lite
             Internal.NativeFunctions.StackPushFloat(fDuration);
             Internal.NativeFunctions.StackPushGameDefinedStructure((int)EngineStructureType.Location, lLocation);
             Internal.NativeFunctions.StackPushGameDefinedStructure((int)EngineStructureType.Effect, eEffect);
-            Internal.NativeFunctions.StackPushInteger((int)nDurationType);
+            Internal.NativeFunctions.StackPushInteger(nDurationType.InternalValue);
             Internal.NativeFunctions.CallBuiltIn(216);
         }
 

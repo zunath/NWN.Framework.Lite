@@ -169,7 +169,7 @@ namespace NWN.Framework.Lite
         ///   Fades the screen for the given creature/player from black to regular screen
         ///   - oCreature: creature controlled by player that should fade from black
         /// </summary>
-        public static void FadeFromBlack(uint oCreature, float fSpeed = FadeSpeedType.Medium)
+        public static void FadeFromBlack(uint oCreature, float fSpeed )
         {
             Internal.NativeFunctions.StackPushFloat(fSpeed);
             Internal.NativeFunctions.StackPushObject(oCreature);
@@ -180,7 +180,7 @@ namespace NWN.Framework.Lite
         ///   Fades the screen for the given creature/player from regular screen to black
         ///   - oCreature: creature controlled by player that should fade to black
         /// </summary>
-        public static void FadeToBlack(uint oCreature, float fSpeed = FadeSpeedType.Medium)
+        public static void FadeToBlack(uint oCreature, float fSpeed)
         {
             Internal.NativeFunctions.StackPushFloat(fSpeed);
             Internal.NativeFunctions.StackPushObject(oCreature);

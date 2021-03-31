@@ -1,11 +1,15 @@
 namespace NWN.Framework.Lite.Enum
 {
-    public enum CreatureTailType
+    public class CreatureTailType: NWEnumBase<int>
     {
         // these constants must match those in the TailModel.2da
-        None,
-        Lizard,
-        Bone,
-        Devil
+        public static readonly CreatureTailType None = new(0);
+        public static readonly CreatureTailType Lizard = new(1);
+        public static readonly CreatureTailType Bone = new(2);
+        public static readonly CreatureTailType Devil = new(3);
+
+        public CreatureTailType(int internalValue) : base(internalValue)
+        {
+        }
     }
 }

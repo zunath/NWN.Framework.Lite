@@ -283,7 +283,7 @@ namespace NWN.Framework.Lite
             Internal.NativeFunctions.StackPushInteger(nNth);
             Internal.NativeFunctions.StackPushObject(oTarget);
             Internal.NativeFunctions.StackPushInteger(nFirstCriteriaValue);
-            Internal.NativeFunctions.StackPushInteger((int)nFirstCriteriaType);
+            Internal.NativeFunctions.StackPushInteger(nFirstCriteriaType.InternalValue);
             Internal.NativeFunctions.CallBuiltIn(38);
             return Internal.NativeFunctions.StackPopObject();
         }
@@ -1736,7 +1736,7 @@ namespace NWN.Framework.Lite
         public static bool GetHasFeat(FeatType nFeat, uint oCreature = OBJECT_INVALID)
         {
             Internal.NativeFunctions.StackPushObject(oCreature);
-            Internal.NativeFunctions.StackPushInteger((int)nFeat);
+            Internal.NativeFunctions.StackPushInteger(nFeat.InternalValue);
             Internal.NativeFunctions.CallBuiltIn(285);
             return Internal.NativeFunctions.StackPopInteger() != 0;
         }
@@ -1762,7 +1762,7 @@ namespace NWN.Framework.Lite
         public static void ActionUseFeat(FeatType nFeat, uint oTarget)
         {
             Internal.NativeFunctions.StackPushObject(oTarget);
-            Internal.NativeFunctions.StackPushInteger((int)nFeat);
+            Internal.NativeFunctions.StackPushInteger(nFeat.InternalValue);
             Internal.NativeFunctions.CallBuiltIn(287);
         }
 
@@ -1848,7 +1848,7 @@ namespace NWN.Framework.Lite
             uint oEncounter = OBJECT_INVALID)
         {
             Internal.NativeFunctions.StackPushObject(oEncounter);
-            Internal.NativeFunctions.StackPushInteger((int)nEncounterDifficulty);
+            Internal.NativeFunctions.StackPushInteger(nEncounterDifficulty.InternalValue);
             Internal.NativeFunctions.CallBuiltIn(296);
         }
 
@@ -1925,7 +1925,7 @@ namespace NWN.Framework.Lite
         /// </summary>
         public static Talent TalentFeat(FeatType nFeat)
         {
-            Internal.NativeFunctions.StackPushInteger((int)nFeat);
+            Internal.NativeFunctions.StackPushInteger(nFeat.InternalValue);
             Internal.NativeFunctions.CallBuiltIn(302);
             return Internal.NativeFunctions.StackPopGameDefinedStructure((int)EngineStructureType.Talent);
         }
@@ -2096,7 +2096,7 @@ namespace NWN.Framework.Lite
         {
             Internal.NativeFunctions.StackPushObject(oCreature);
             Internal.NativeFunctions.CallBuiltIn(318);
-            return (CombatModeType)Internal.NativeFunctions.StackPopInteger();
+            return new CombatModeType(Internal.NativeFunctions.StackPopInteger());
         }
 
         /// <summary>
@@ -2159,7 +2159,7 @@ namespace NWN.Framework.Lite
         /// </summary>
         public static int GetDamageDealtByType(DamageType nDamageType)
         {
-            Internal.NativeFunctions.StackPushInteger((int)nDamageType);
+            Internal.NativeFunctions.StackPushInteger(nDamageType.InternalValue);
             Internal.NativeFunctions.CallBuiltIn(344);
             return Internal.NativeFunctions.StackPopInteger();
         }
@@ -3453,7 +3453,7 @@ namespace NWN.Framework.Lite
             Internal.NativeFunctions.StackPushInteger(playerClass.InternalValue);
             Internal.NativeFunctions.StackPushObject(creature);
             Internal.NativeFunctions.CallBuiltIn(903);
-            return (ClericDomainType)Internal.NativeFunctions.StackPopInteger();
+            return new ClericDomainType(Internal.NativeFunctions.StackPopInteger());
         }
 
 
