@@ -32,7 +32,7 @@ public static void SitOnAChair()
 
 ```csharp
 NWNX_DOTNET_ASSEMBLY=/nwn/home/dotnet/NWN.Framework.Lite 
-NWNX_DOTNET_ENTRYPOINT=NWN.Framework.Lite.Core.Internal
+NWNX_DOTNET_ENTRYPOINT=NWN.Framework.Lite.Internal
 ```
 
 5. Add the script "sit" to the OnUsed event of a placeable chair.
