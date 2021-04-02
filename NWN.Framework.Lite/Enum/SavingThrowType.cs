@@ -3,6 +3,7 @@ namespace NWN.Framework.Lite.Enum
     public class SavingThrowType : NWEnumBase<int>
     {
         public static readonly SavingThrowType All = new(0);
+        public static readonly SavingThrowType None = new(0);
         public static readonly SavingThrowType MindSpells = new(1);
         public static readonly SavingThrowType Poison = new(2);
         public static readonly SavingThrowType Disease = new(3);
