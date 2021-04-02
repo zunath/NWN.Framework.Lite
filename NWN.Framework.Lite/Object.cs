@@ -718,6 +718,17 @@ namespace NWN.Framework.Lite
         }
 
         /// <summary>
+        ///  Destroy oObject (irrevocably).
+        ///  This will not work on modules and areas.
+        /// </summary>
+        public static void DestroyObject(uint oDestroy, float fDelay = 0.0f)
+        {
+            Internal.NativeFunctions.StackPushFloat(fDelay);
+            Internal.NativeFunctions.StackPushObject(oDestroy);
+            Internal.NativeFunctions.CallBuiltIn(241);
+        }
+
+        /// <summary>
         ///   Get the Nth object nearest to oTarget that is of the specified type.
         ///   - nObjectType: OBJECT_TYPE_*
         ///   - oTarget
