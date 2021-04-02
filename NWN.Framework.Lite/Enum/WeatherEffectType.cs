@@ -9,5 +9,7 @@
         public WeatherEffectType(int internalValue) : base(internalValue)
         {
         }
+
+        public static explicit operator WeatherEffectType(int internalValue) => new(internalValue);
     }
 }

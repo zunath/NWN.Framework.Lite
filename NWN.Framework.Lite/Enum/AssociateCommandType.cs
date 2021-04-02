@@ -30,5 +30,7 @@ namespace NWN.Framework.Lite.Enum
         public AssociateCommandType(int internalValue) : base(internalValue)
         {
         }
+
+        public static explicit operator AssociateCommandType(int internalValue) => new(internalValue);
     }
 }

@@ -31,5 +31,7 @@ namespace NWN.Framework.Lite.Enum
         public ItemPropertyOnHitType(int internalValue) : base(internalValue)
         {
         }
+
+        public static explicit operator ItemPropertyOnHitType(int internalValue) => new(internalValue);
     }
 }

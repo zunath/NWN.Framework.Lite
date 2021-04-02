@@ -51,5 +51,7 @@ namespace NWN.Framework.Lite.Enum
         public PoisonType(int internalValue) : base(internalValue)
         {
         }
+
+        public static explicit operator PoisonType(int internalValue) => new(internalValue);
     }
 }

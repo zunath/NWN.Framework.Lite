@@ -20,5 +20,7 @@ namespace NWN.Framework.Lite.Enum
         public ItemPropertySaveVsType(int internalValue) : base(internalValue)
         {
         }
+
+        public static explicit operator ItemPropertySaveVsType(int internalValue) => new(internalValue);
     }
 }

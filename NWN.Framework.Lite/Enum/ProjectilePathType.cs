@@ -8,6 +8,11 @@ namespace NWN.Framework.Lite.Enum
         public static readonly ProjectilePathType HighBallistic = new(3);
         public static readonly ProjectilePathType Accelerating = new(4);
 
-        public ProjectilePathType(int internalValue) : base(internalValue) { }
+        public ProjectilePathType(int internalValue) : base(internalValue)
+        {
+
+        }
+
+        public static explicit operator ProjectilePathType(int internalValue) => new(internalValue);
     }
 }

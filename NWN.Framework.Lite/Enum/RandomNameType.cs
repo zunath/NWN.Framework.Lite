@@ -29,6 +29,11 @@ namespace NWN.Framework.Lite.Enum
         public static readonly RandomNameType FirstHumanFemale = new(21);
         public static readonly RandomNameType LastHuman = new(22);
 
-        public RandomNameType(int internalValue) : base(internalValue) { }
+        public RandomNameType(int internalValue) : base(internalValue)
+        {
+
+        }
+
+        public static explicit operator RandomNameType(int internalValue) => new(internalValue);
     }
 }

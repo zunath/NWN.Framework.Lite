@@ -414,5 +414,6 @@ namespace NWN.Framework.Lite.Enum
             InternalValue = internalValue;
         }
 
+        public static explicit operator AppearanceType(int internalValue) => new(internalValue);
     }
 }

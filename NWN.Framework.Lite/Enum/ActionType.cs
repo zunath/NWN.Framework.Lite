@@ -40,5 +40,6 @@
             InternalValue = internalValue;
         }
 
+        public static explicit operator ActionType(int internalValue) => new(internalValue);
     }
 }

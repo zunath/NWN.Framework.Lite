@@ -396,5 +396,7 @@ namespace NWN.Framework.Lite.Enum
         public SpellType(int internalValue) : base(internalValue)
         {
         }
+
+        public static explicit operator SpellType(int internalValue) => new(internalValue);
     }
 }

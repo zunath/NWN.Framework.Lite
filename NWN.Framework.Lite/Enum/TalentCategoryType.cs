@@ -26,6 +26,11 @@ namespace NWN.Framework.Lite.Enum
         public static readonly TalentCategoryType Beneficial_Enhancement_Potion = new(21);
         public static readonly TalentCategoryType Harmful_Melee = new(22);
 
-        public TalentCategoryType(int internalValue) : base(internalValue) { }
+        public TalentCategoryType(int internalValue) : base(internalValue)
+        {
+
+        }
+
+        public static explicit operator TalentCategoryType(int internalValue) => new(internalValue);
     }
 }

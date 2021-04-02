@@ -12,5 +12,7 @@ namespace NWN.Framework.Lite.Enum
         public ItemPropertyPoisonOneDTwoType(int internalValue) : base(internalValue)
         {
         }
+
+        public static explicit operator ItemPropertyPoisonOneDTwoType(int internalValue) => new(internalValue);
     }
 }

@@ -51,5 +51,7 @@ namespace NWN.Framework.Lite.Enum
         public ClassType(int internalValue) : base(internalValue)
         {
         }
+
+        public static explicit operator ClassType(int internalValue) => new(internalValue);
     }
 }

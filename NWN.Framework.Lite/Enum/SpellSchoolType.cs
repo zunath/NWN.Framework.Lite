@@ -12,6 +12,11 @@ namespace NWN.Framework.Lite.Enum
         public static readonly SpellSchoolType Necromancy = new(7);
         public static readonly SpellSchoolType Transmutation = new(8);
 
-        public SpellSchoolType(int internalValue) : base(internalValue) { }
+        public SpellSchoolType(int internalValue) : base(internalValue)
+        {
+
+        }
+
+        public static explicit operator SpellSchoolType(int internalValue) => new(internalValue);
     }
 }

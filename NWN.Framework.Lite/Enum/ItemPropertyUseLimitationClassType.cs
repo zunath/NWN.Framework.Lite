@@ -17,5 +17,7 @@ namespace NWN.Framework.Lite.Enum
         public ItemPropertyUseLimitationClassType(int internalValue) : base(internalValue)
         {
         }
+
+        public static explicit operator ItemPropertyUseLimitationClassType(int internalValue) => new(internalValue);
     }
 }

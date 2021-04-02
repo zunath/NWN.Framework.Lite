@@ -34,5 +34,7 @@ namespace NWN.Framework.Lite.Enum
         public ItemAppearanceType(int internalValue) : base(internalValue)
         {
         }
+
+        public static explicit operator ItemAppearanceType(int internalValue) => new(internalValue);
     }
 }

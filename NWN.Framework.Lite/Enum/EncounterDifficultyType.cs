@@ -14,5 +14,7 @@ namespace NWN.Framework.Lite.Enum
         public EncounterDifficultyType(int internalValue) : base(internalValue)
         {
         }
+
+        public static explicit operator EncounterDifficultyType(int internalValue) => new(internalValue);
     }
 }

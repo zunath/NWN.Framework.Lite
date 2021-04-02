@@ -7,6 +7,11 @@
         public static readonly RestType Finished = new(2);
         public static readonly RestType Cancelled = new(3);
 
-        public RestType(int internalValue) : base(internalValue) { }
+        public RestType(int internalValue) : base(internalValue)
+        {
+
+        }
+
+        public static explicit operator RestType(int internalValue) => new(internalValue);
     }
 }

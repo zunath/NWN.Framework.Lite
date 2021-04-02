@@ -15,5 +15,7 @@ namespace NWN.Framework.Lite.Enum
         public ItemPropertyAlignmentType(int internalValue) : base(internalValue)
         {
         }
+
+        public static explicit operator ItemPropertyAlignmentType(int internalValue) => new(internalValue);
     }
 }

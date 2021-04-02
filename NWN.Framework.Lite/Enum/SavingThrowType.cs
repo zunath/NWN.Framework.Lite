@@ -23,6 +23,11 @@ namespace NWN.Framework.Lite.Enum
         public static readonly SavingThrowType Law = new(18);
         public static readonly SavingThrowType Chaos = new(19);
 
-        public SavingThrowType(int internalValue) : base(internalValue) { }
+        public SavingThrowType(int internalValue) : base(internalValue)
+        {
+
+        }
+
+        public static explicit operator SavingThrowType(int internalValue) => new(internalValue);
     }
 }

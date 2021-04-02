@@ -63,5 +63,7 @@ namespace NWN.Framework.Lite.Enum
         public ItemPropertyMonsterDamageType(int internalValue) : base(internalValue)
         {
         }
+
+        public static explicit operator ItemPropertyMonsterDamageType(int internalValue) => new(internalValue);
     }
 }

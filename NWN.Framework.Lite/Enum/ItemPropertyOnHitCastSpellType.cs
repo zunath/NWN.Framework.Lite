@@ -140,5 +140,7 @@ namespace NWN.Framework.Lite.Enum
         public ItemPropertyOnHitCastSpellType(int internalValue) : base(internalValue)
         {
         }
+
+        public static explicit operator ItemPropertyOnHitCastSpellType(int internalValue) => new(internalValue);
     }
 }

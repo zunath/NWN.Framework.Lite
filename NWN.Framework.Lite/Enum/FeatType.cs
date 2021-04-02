@@ -1090,5 +1090,7 @@ namespace NWN.Framework.Lite.Enum
         {
 
         }
+
+        public static explicit operator FeatType(int internalValue) => new(internalValue);
     }
 }

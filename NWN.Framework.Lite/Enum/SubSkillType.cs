@@ -7,6 +7,11 @@ namespace NWN.Framework.Lite.Enum
         public static readonly SubSkillType RecoverTrap = new(101);
         public static readonly SubSkillType ExamineTrap = new(102);
 
-        public SubSkillType(int internalValue) : base(internalValue) { }
+        public SubSkillType(int internalValue) : base(internalValue)
+        {
+
+        }
+
+        public static explicit operator SubSkillType(int internalValue) => new(internalValue);
     }
 }

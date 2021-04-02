@@ -26,5 +26,7 @@ namespace NWN.Framework.Lite.Enum
         public CreaturePartType(int internalValue) : base(internalValue)
         {
         }
+
+        public static explicit operator CreaturePartType(int internalValue) => new(internalValue);
     }
 }

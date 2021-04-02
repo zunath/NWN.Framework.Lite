@@ -6,6 +6,11 @@ namespace NWN.Framework.Lite.Enum
         public static readonly MissChanceType Ranged = new(1);
         public static readonly MissChanceType Melee = new(2);
 
-        public MissChanceType(int internalValue) : base(internalValue) { }
+        public MissChanceType(int internalValue) : base(internalValue)
+        {
+
+        }
+
+        public static explicit operator MissChanceType(int internalValue) => new(internalValue);
     }
 }

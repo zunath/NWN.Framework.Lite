@@ -19,5 +19,7 @@ namespace NWN.Framework.Lite.Enum
         public ToggleModeType(int internalValue) : base(internalValue)
         {
         }
+
+        public static explicit operator ToggleModeType(int internalValue) => new(internalValue);
     }
 }

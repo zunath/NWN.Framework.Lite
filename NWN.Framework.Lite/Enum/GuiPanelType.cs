@@ -7,5 +7,7 @@ namespace NWN.Framework.Lite.Enum
         public GuiPanelType(int internalValue) : base(internalValue)
         {
         }
+
+        public static explicit operator GuiPanelType(int internalValue) => new(internalValue);
     }
 }

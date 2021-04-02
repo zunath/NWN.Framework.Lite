@@ -9,5 +9,7 @@ namespace NWN.Framework.Lite.Enum
         public ItemPropertyAmmoType(int internalValue) : base(internalValue)
         {
         }
+
+        public static explicit operator ItemPropertyAmmoType(int internalValue) => new(internalValue);
     }
 }

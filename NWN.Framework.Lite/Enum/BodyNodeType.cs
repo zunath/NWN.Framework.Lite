@@ -18,5 +18,7 @@
         public BodyNodeType(int internalValue) : base(internalValue)
         {
         }
+
+        public static explicit operator BodyNodeType(int internalValue) => new(internalValue);
     }
 }

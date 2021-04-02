@@ -65,5 +65,7 @@ namespace NWN.Framework.Lite.Enum
         public AreaOfEffectType(int internalValue) : base(internalValue)
         {
         }
+
+        public static explicit operator AreaOfEffectType(int internalValue) => new(internalValue);
     }
 }

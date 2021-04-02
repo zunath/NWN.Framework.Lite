@@ -14,5 +14,7 @@
         public DirectionType(int internalValue) : base(internalValue)
         {
         }
+
+        public static explicit operator DirectionType(int internalValue) => new(internalValue);
     }
 }

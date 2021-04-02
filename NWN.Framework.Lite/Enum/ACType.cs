@@ -17,5 +17,6 @@
             InternalValue = internalValue;
         }
 
+        public static explicit operator ACType(int internalValue) => new(internalValue);
     }
 }

@@ -10,5 +10,7 @@
         public ColorType(int internalValue) : base(internalValue)
         {
         }
+
+        public static explicit operator ColorType(int internalValue) => new(internalValue);
     }
 }

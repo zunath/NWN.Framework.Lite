@@ -14,6 +14,11 @@ namespace NWN.Framework.Lite.Enum
         public static readonly SpecialAttackType FlurryOfBlows = new(9);
         public static readonly SpecialAttackType RapidShot = new(10);
 
-        public SpecialAttackType(int internalValue) : base(internalValue) { }
+        public SpecialAttackType(int internalValue) : base(internalValue)
+        {
+
+        }
+
+        public static explicit operator SpecialAttackType(int internalValue) => new(internalValue);
     }
 }

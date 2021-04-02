@@ -13,5 +13,7 @@ namespace NWN.Framework.Lite.Enum
         public AssociateType(int internalValue) : base(internalValue)
         {
         }
+
+        public static explicit operator AssociateType(int internalValue) => new(internalValue);
     }
 }

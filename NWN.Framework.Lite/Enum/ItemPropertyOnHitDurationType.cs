@@ -11,5 +11,7 @@ namespace NWN.Framework.Lite.Enum
         public ItemPropertyOnHitDurationType(int internalValue) : base(internalValue)
         {
         }
+
+        public static explicit operator ItemPropertyOnHitDurationType(int internalValue) => new(internalValue);
     }
 }

@@ -22,5 +22,7 @@ namespace NWN.Framework.Lite.Enum
         public DamageType(int internalValue) : base(internalValue)
         {
         }
+
+        public static explicit operator DamageType(int internalValue) => new(internalValue);
     }
 }

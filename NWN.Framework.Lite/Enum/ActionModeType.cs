@@ -18,5 +18,7 @@ namespace NWN.Framework.Lite.Enum
         public ActionModeType(int internalValue) : base(internalValue)
         {
         }
+
+        public static explicit operator ActionModeType(int internalValue) => new(internalValue);
     }
 }

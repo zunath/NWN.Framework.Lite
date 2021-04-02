@@ -5,6 +5,11 @@ namespace NWN.Framework.Lite.Enum
         public static readonly StealthModeType Passive = new(0);
         public static readonly StealthModeType Active = new(1);
 
-        public StealthModeType(int internalValue) : base(internalValue) { }
+        public StealthModeType(int internalValue) : base(internalValue)
+        {
+
+        }
+
+        public static explicit operator StealthModeType(int internalValue) => new(internalValue);
     }
 }

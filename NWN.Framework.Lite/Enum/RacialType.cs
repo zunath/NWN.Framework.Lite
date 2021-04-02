@@ -34,5 +34,7 @@ namespace NWN.Framework.Lite.Enum
         public RacialType(int internalValue) : base(internalValue)
         {
         }
+
+        public static explicit operator RacialType(int internalValue) => new(internalValue);
     }
 }

@@ -56,5 +56,7 @@ namespace NWN.Framework.Lite.Enum
 
             return !lhs.InternalValue.Equals(rhs.InternalValue);
         }
+
+        public static explicit operator T(NWEnumBase<T> obj) => obj.InternalValue;
     }
 }

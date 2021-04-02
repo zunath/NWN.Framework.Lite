@@ -6,6 +6,11 @@
         public static readonly ReputationType Friend = new(0);
         public static readonly ReputationType Neutral = new(2);
 
-        public ReputationType(int internalValue) : base(internalValue) { }
+        public ReputationType(int internalValue) : base(internalValue)
+        {
+
+        }
+
+        public static explicit operator ReputationType(int internalValue) => new(internalValue);
     }
 }

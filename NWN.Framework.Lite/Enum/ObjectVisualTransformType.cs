@@ -11,6 +11,11 @@ namespace NWN.Framework.Lite.Enum
         public static readonly ObjectVisualTransformType TranslateZ = new(33);
         public static readonly ObjectVisualTransformType AnimationSpeed = new(40);
 
-        public ObjectVisualTransformType(int internalValue) : base(internalValue) { }
+        public ObjectVisualTransformType(int internalValue) : base(internalValue)
+        {
+
+        }
+
+        public static explicit operator ObjectVisualTransformType(int internalValue) => new(internalValue);
     }
 }

@@ -16,5 +16,7 @@ namespace NWN.Framework.Lite.Enum
         public ItemPropertyDamageResistType(int internalValue) : base(internalValue)
         {
         }
+
+        public static explicit operator ItemPropertyDamageResistType(int internalValue) => new(internalValue);
     }
 }

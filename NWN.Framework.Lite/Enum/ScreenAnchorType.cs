@@ -8,6 +8,11 @@
         public static readonly ScreenAnchorType BottomRight = new(3);
         public static readonly ScreenAnchorType Center = new(4);
 
-        public ScreenAnchorType(int internalValue) : base(internalValue) { }
+        public ScreenAnchorType(int internalValue) : base(internalValue)
+        {
+
+        }
+
+        public static explicit operator ScreenAnchorType(int internalValue) => new(internalValue);
     }
 }

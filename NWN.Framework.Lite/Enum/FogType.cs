@@ -9,5 +9,7 @@ namespace NWN.Framework.Lite.Enum
         public FogType(int internalValue) : base(internalValue)
         {
         }
+
+        public static explicit operator FogType(int internalValue) => new(internalValue);
     }
 }

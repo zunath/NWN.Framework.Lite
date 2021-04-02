@@ -9,5 +9,7 @@
         public InvisibilityType(int internalValue) : base(internalValue)
         {
         }
+
+        public static explicit operator InvisibilityType(int internalValue) => new(internalValue);
     }
 }

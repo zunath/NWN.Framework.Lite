@@ -25,5 +25,7 @@ namespace NWN.Framework.Lite.Enum
         public ClericDomainType(int internalValue) : base(internalValue)
         {
         }
+
+        public static explicit operator ClericDomainType(int internalValue) => new(internalValue);
     }
 }

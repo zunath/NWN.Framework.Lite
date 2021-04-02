@@ -139,5 +139,7 @@ namespace NWN.Framework.Lite.Enum
         public PackageType(int internalValue) : base(internalValue)
         {
         }
+
+        public static explicit operator PackageType(int internalValue) => new(internalValue);
     }
 }

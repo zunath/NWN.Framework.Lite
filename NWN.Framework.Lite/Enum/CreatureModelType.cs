@@ -10,5 +10,7 @@ namespace NWN.Framework.Lite.Enum
         public CreatureModelType(int internalValue) : base(internalValue)
         {
         }
+
+        public static explicit operator CreatureModelType(int internalValue) => new(internalValue);
     }
 }

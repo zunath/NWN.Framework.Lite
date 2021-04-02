@@ -383,5 +383,7 @@ namespace NWN.Framework.Lite.Enum
         public ItemPropertyCastSpellType(int internalValue) : base(internalValue)
         {
         }
+
+        public static explicit operator ItemPropertyCastSpellType(int internalValue) => new(internalValue);
     }
 }

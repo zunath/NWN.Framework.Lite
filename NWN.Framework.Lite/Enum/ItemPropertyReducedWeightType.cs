@@ -11,5 +11,7 @@ namespace NWN.Framework.Lite.Enum
         public ItemPropertyReducedWeightType(int internalValue) : base(internalValue)
         {
         }
+
+        public static explicit operator ItemPropertyReducedWeightType(int internalValue) => new(internalValue);
     }
 }

@@ -76,5 +76,7 @@
         public MouseCursorType(int internalValue) : base(internalValue)
         {
         }
+
+        public static explicit operator MouseCursorType(int internalValue) => new(internalValue);
     }
 }

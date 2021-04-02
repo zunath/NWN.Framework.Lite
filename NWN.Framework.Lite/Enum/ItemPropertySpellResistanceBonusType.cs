@@ -18,5 +18,7 @@ namespace NWN.Framework.Lite.Enum
         public ItemPropertySpellResistanceBonusType(int internalValue) : base(internalValue)
         {
         }
+
+        public static explicit operator ItemPropertySpellResistanceBonusType(int internalValue) => new(internalValue);
     }
 }

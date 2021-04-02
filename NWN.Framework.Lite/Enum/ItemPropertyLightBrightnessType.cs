@@ -10,5 +10,7 @@ namespace NWN.Framework.Lite.Enum
         public ItemPropertyLightBrightnessType(int internalValue) : base(internalValue)
         {
         }
+
+        public static explicit operator ItemPropertyLightBrightnessType(int internalValue) => new(internalValue);
     }
 }

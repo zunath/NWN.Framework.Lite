@@ -6,6 +6,11 @@ namespace NWN.Framework.Lite.Enum
         public static readonly SaveReturnType Success = new(1);
         public static readonly SaveReturnType Immune = new(2);
 
-        public SaveReturnType(int internalValue) : base(internalValue) { }
+        public SaveReturnType(int internalValue) : base(internalValue)
+        {
+
+        }
+
+        public static explicit operator SaveReturnType(int internalValue) => new(internalValue);
     }
 }

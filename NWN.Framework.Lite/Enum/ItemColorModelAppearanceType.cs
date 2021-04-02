@@ -11,5 +11,7 @@ namespace NWN.Framework.Lite.Enum
         public ItemColorModelAppearanceType(int internalValue) : base(internalValue)
         {
         }
+
+        public static explicit operator ItemColorModelAppearanceType(int internalValue) => new(internalValue);
     }
 }

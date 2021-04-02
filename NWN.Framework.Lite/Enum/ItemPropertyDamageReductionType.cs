@@ -26,5 +26,7 @@ namespace NWN.Framework.Lite.Enum
         public ItemPropertyDamageReductionType(int internalValue) : base(internalValue)
         {
         }
+
+        public static explicit operator ItemPropertyDamageReductionType(int internalValue) => new(internalValue);
     }
 }

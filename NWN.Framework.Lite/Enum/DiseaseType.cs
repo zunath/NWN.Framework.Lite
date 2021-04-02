@@ -24,5 +24,7 @@ namespace NWN.Framework.Lite.Enum
         public DiseaseType(int internalValue) : base(internalValue)
         {
         }
+
+        public static explicit operator DiseaseType(int internalValue) => new(internalValue);
     }
 }

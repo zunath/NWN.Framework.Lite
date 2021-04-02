@@ -11,5 +11,7 @@ namespace NWN.Framework.Lite.Enum
         public ArmorClassType(int internalValue) : base(internalValue)
         {
         }
+
+        public static explicit operator ArmorClassType(int internalValue) => new(internalValue);
     }
 }

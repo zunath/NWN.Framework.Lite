@@ -29,6 +29,11 @@ namespace NWN.Framework.Lite
 
         private static Dictionary<string, List<ActionScript>> _scripts;
         private static Dictionary<string, List<ConditionalScript>> _conditionalScripts;
+
+        /// <summary>
+        /// This event runs once every main loop frame, outside of the NWN context.
+        /// Ensure this code is performant.
+        /// </summary>
         public static event EventHandler MainLoopEvent;
 
         //

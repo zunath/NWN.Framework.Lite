@@ -10,5 +10,7 @@ namespace NWN.Framework.Lite.Enum
         public ColorChannelType(int internalValue) : base(internalValue)
         {
         }
+
+        public static explicit operator ColorChannelType(int internalValue) => new(internalValue);
     }
 }

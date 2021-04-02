@@ -118,5 +118,7 @@ namespace NWN.Framework.Lite.Enum
         public AreaTransitionType(int internalValue) : base(internalValue)
         {
         }
+
+        public static explicit operator AreaTransitionType(int internalValue) => new(internalValue);
     }
 }

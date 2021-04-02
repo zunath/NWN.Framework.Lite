@@ -13,5 +13,7 @@ namespace NWN.Framework.Lite.Enum
         public ItemVisualType(int internalValue) : base(internalValue)
         {
         }
+
+        public static explicit operator ItemVisualType(int internalValue) => new(internalValue);
     }
 }

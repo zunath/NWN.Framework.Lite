@@ -7,6 +7,11 @@ namespace NWN.Framework.Lite.Enum
         public static readonly SubSkillType Merchant = new(2);
         public static readonly SubSkillType Defender = new(3);
 
-        public StandardFactionType(int internalValue) : base(internalValue) { }
+        public StandardFactionType(int internalValue) : base(internalValue)
+        {
+
+        }
+
+        public static explicit operator StandardFactionType(int internalValue) => new(internalValue);
     }
 }

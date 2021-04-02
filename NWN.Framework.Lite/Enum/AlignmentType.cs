@@ -16,5 +16,6 @@ namespace NWN.Framework.Lite.Enum
             InternalValue = internalValue;
         }
 
+        public static explicit operator AlignmentType(int internalValue) => new(internalValue);
     }
 }

@@ -538,5 +538,7 @@ namespace NWN.Framework.Lite.Enum
         public VisualEffectType(int internalValue) : base(internalValue)
         {
         }
+
+        public static explicit operator VisualEffectType(int internalValue) => new(internalValue);
     }
 }
