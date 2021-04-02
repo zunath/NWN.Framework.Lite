@@ -15,5 +15,7 @@ namespace NWN.Framework.Lite.Enum
         public ItemPropertyUnlimitedType(int internalValue) : base(internalValue)
         {
         }
+
+        public static explicit operator ItemPropertyUnlimitedType(int internalValue) => new(internalValue);
     }
 }

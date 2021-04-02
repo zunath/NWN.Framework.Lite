@@ -99,5 +99,7 @@ namespace NWN.Framework.Lite.Enum
         public EffectEngineType(int internalValue) : base(internalValue)
         {
         }
+
+        public static explicit operator EffectEngineType(int internalValue) => new(internalValue);
     }
 }

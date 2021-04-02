@@ -9,5 +9,7 @@ namespace NWN.Framework.Lite.Enum
         public TouchAttackReturnType(int internalValue) : base(internalValue)
         {
         }
+
+        public static explicit operator TouchAttackReturnType(int internalValue) => new(internalValue);
     }
 }

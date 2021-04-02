@@ -122,5 +122,7 @@ namespace NWN.Framework.Lite.Enum
         public ItemPropertyImmunitySpellType(int internalValue) : base(internalValue)
         {
         }
+
+        public static explicit operator ItemPropertyImmunitySpellType(int internalValue) => new(internalValue);
     }
 }

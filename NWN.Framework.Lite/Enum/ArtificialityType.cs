@@ -8,5 +8,7 @@
         public ArtificialityType(int internalValue) : base(internalValue)
         {
         }
+
+        public static explicit operator ArtificialityType(int internalValue) => new(internalValue);
     }
 }

@@ -33,6 +33,11 @@ namespace NWN.Framework.Lite.Enum
         public static readonly SkillType Ride = new(27);
         public static readonly SkillType AllSkills = new(255);
 
-        public SkillType(int internalValue) : base(internalValue) { }
+        public SkillType(int internalValue) : base(internalValue)
+        {
+
+        }
+
+        public static explicit operator SkillType(int internalValue) => new(internalValue);
     }
 }

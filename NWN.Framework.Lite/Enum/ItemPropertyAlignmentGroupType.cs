@@ -12,5 +12,7 @@
         public ItemPropertyAlignmentGroupType(int internalValue) : base(internalValue)
         {
         }
+
+        public static explicit operator ItemPropertyAlignmentGroupType(int internalValue) => new(internalValue);
     }
 }

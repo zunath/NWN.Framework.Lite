@@ -13,5 +13,7 @@ namespace NWN.Framework.Lite.Enum
         public CameraTransitionType(int internalValue) : base(internalValue)
         {
         }
+
+        public static explicit operator CameraTransitionType(int internalValue) => new(internalValue);
     }
 }

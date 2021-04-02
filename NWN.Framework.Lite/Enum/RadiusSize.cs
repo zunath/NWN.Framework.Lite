@@ -12,5 +12,7 @@
         public RadiusSize(float internalValue) : base(internalValue)
         {
         }
+
+        public static explicit operator RadiusSize(float internalValue) => new(internalValue);
     }
 }

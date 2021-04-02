@@ -12,6 +12,11 @@
         public static readonly MovementRateType Default = new(7);
         public static readonly MovementRateType DMFast = new(8);
 
-        public MovementRateType(int internalValue) : base(internalValue) { }
+        public MovementRateType(int internalValue) : base(internalValue)
+        {
+
+        }
+
+        public static explicit operator MovementRateType(int internalValue) => new(internalValue);
     }
 }

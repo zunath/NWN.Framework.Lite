@@ -11,5 +11,7 @@ namespace NWN.Framework.Lite.Enum
         public CreatureTailType(int internalValue) : base(internalValue)
         {
         }
+
+        public static explicit operator CreatureTailType(int internalValue) => new(internalValue);
     }
 }

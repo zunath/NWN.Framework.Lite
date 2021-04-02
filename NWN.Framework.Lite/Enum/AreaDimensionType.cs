@@ -11,5 +11,7 @@
         {
             InternalValue = internalValue;
         }
+
+        public static explicit operator AreaDimensionType(int internalValue) => new(internalValue);
     }
 }

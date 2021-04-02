@@ -26,5 +26,7 @@ namespace NWN.Framework.Lite.Enum
         public FootstepType(int internalValue) : base(internalValue)
         {
         }
+
+        public static explicit operator FootstepType(int internalValue) => new(internalValue);
     }
 }

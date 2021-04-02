@@ -9,5 +9,7 @@ namespace NWN.Framework.Lite.Enum
         public AttackBonusType(int internalValue) : base(internalValue)
         {
         }
+
+        public static explicit operator AttackBonusType(int internalValue) => new(internalValue);
     }
 }

@@ -8,6 +8,11 @@ namespace NWN.Framework.Lite.Enum
         public static readonly ShapeType SpellCone = new(3);
         public static readonly ShapeType Sphere = new(4);
 
-        public ShapeType(int internalValue) : base(internalValue) { }
+        public ShapeType(int internalValue) : base(internalValue)
+        {
+
+        }
+
+        public static explicit operator ShapeType(int internalValue) => new(internalValue);
     }
 }

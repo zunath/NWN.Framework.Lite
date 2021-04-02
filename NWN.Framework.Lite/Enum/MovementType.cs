@@ -8,6 +8,11 @@
         public static readonly MovementType Sidestep = new(3);
         public static readonly MovementType WalkBackwards = new(4);
 
-        public MovementType(int internalValue) : base(internalValue) { }
+        public MovementType(int internalValue) : base(internalValue)
+        {
+
+        }
+
+        public static explicit operator MovementType(int internalValue) => new(internalValue);
     }
 }

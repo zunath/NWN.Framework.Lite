@@ -11,5 +11,7 @@ namespace NWN.Framework.Lite.Enum
         public DurationType(int internalValue) : base(internalValue)
         {
         }
+
+        public static explicit operator DurationType(int internalValue) => new(internalValue);
     }
 }

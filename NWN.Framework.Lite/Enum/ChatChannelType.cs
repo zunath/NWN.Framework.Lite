@@ -19,5 +19,7 @@
         public ChatChannelType(int internalValue) : base(internalValue)
         {
         }
+
+        public static explicit operator ChatChannelType(int internalValue) => new(internalValue);
     }
 }

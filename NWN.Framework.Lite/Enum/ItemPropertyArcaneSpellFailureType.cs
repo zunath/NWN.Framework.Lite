@@ -26,5 +26,7 @@ namespace NWN.Framework.Lite.Enum
         public ItemPropertyArcaneSpellFailureType(int internalValue) : base(internalValue)
         {
         }
+
+        public static explicit operator ItemPropertyArcaneSpellFailureType(int internalValue) => new(internalValue);
     }
 }

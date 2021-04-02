@@ -11,5 +11,7 @@
         public FadeSpeedType(float internalValue) : base(internalValue)
         {
         }
+
+        public static explicit operator FadeSpeedType(float internalValue) => new(internalValue);
     }
 }

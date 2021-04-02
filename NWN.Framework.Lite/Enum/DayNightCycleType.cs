@@ -9,5 +9,7 @@
         public DayNightCycleType(int internalValue) : base(internalValue)
         {
         }
+
+        public static explicit operator DayNightCycleType(int internalValue) => new(internalValue);
     }
 }

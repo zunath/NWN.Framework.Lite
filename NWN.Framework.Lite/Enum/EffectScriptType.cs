@@ -98,5 +98,7 @@ namespace NWN.Framework.Lite.Enum
         public EffectScriptType(int internalValue) : base(internalValue)
         {
         }
+
+        public static explicit operator EffectScriptType(int internalValue) => new(internalValue);
     }
 }

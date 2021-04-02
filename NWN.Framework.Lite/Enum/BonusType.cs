@@ -12,5 +12,7 @@ namespace NWN.Framework.Lite.Enum
         public BonusType(int internalValue) : base(internalValue)
         {
         }
+
+        public static explicit operator BonusType(int internalValue) => new(internalValue);
     }
 }

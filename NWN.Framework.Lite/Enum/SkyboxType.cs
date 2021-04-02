@@ -10,6 +10,11 @@ namespace NWN.Framework.Lite.Enum
         public static readonly SkyboxType WinterClear = new(4);
         public static readonly SkyboxType Icy  = new(5);
 
-        public SkyboxType(int internalValue) : base(internalValue) { }
+        public SkyboxType(int internalValue) : base(internalValue)
+        {
+
+        }
+
+        public static explicit operator SkyboxType(int internalValue) => new(internalValue);
     }
 }

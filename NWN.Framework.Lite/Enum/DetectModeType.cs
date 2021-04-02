@@ -8,5 +8,7 @@ namespace NWN.Framework.Lite.Enum
         public DetectModeType(int internalValue) : base(internalValue)
         {
         }
+
+        public static explicit operator DetectModeType(int internalValue) => new(internalValue);
     }
 }

@@ -55,5 +55,7 @@
         public VoiceChatType(int internalValue) : base(internalValue)
         {
         }
+
+        public static explicit operator VoiceChatType(int internalValue) => new(internalValue);
     }
 }

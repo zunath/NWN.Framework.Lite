@@ -87,5 +87,6 @@ namespace NWN.Framework.Lite.Enum
             InternalValue = internalValue;
         }
 
+        public static explicit operator AnimationType(int internalValue) => new(internalValue);
     }
 }

@@ -7,6 +7,11 @@ namespace NWN.Framework.Lite.Enum
         public static readonly RestEventType Finished = new(2);
         public static readonly RestEventType Cancelled = new(3);
 
-        public RestEventType(int internalValue) : base(internalValue) { }
+        public RestEventType(int internalValue) : base(internalValue)
+        {
+
+        }
+
+        public static explicit operator RestEventType(int internalValue) => new(internalValue);
     }
 }

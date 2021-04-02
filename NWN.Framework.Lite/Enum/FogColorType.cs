@@ -23,5 +23,7 @@ namespace NWN.Framework.Lite.Enum
         public FogColorType(int internalValue) : base(internalValue)
         {
         }
+
+        public static explicit operator FogColorType(int internalValue) => new(internalValue);
     }
 }

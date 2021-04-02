@@ -10,5 +10,7 @@ namespace NWN.Framework.Lite.Enum
         public ItemPropertyTrapStrengthType(int internalValue) : base(internalValue)
         {
         }
+
+        public static explicit operator ItemPropertyTrapStrengthType(int internalValue) => new(internalValue);
     }
 }

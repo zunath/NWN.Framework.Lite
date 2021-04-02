@@ -15,5 +15,7 @@ namespace NWN.Framework.Lite.Enum
             : base(internalValue)
         {
         }
+
+        public static explicit operator AbilityType(int internalValue) => new(internalValue);
     }
 }

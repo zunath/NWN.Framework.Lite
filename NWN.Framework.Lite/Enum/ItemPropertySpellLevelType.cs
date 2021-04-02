@@ -16,5 +16,7 @@ namespace NWN.Framework.Lite.Enum
         public ItemPropertySpellLevelType(int internalValue) : base(internalValue)
         {
         }
+
+        public static explicit operator ItemPropertySpellLevelType(int internalValue) => new(internalValue);
     }
 }

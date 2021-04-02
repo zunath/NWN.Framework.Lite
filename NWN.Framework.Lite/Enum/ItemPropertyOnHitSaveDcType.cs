@@ -13,5 +13,7 @@ namespace NWN.Framework.Lite.Enum
         public ItemPropertyOnHitSaveDcType(int internalValue) : base(internalValue)
         {
         }
+
+        public static explicit operator ItemPropertyOnHitSaveDcType(int internalValue) => new(internalValue);
     }
 }

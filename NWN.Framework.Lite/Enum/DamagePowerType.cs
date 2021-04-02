@@ -28,5 +28,7 @@ namespace NWN.Framework.Lite.Enum
         public DamagePowerType(int internalValue) : base(internalValue)
         {
         }
+
+        public static explicit operator DamagePowerType(int internalValue) => new(internalValue);
     }
 }

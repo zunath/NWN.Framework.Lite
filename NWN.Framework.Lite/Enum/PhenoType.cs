@@ -24,6 +24,11 @@ namespace NWN.Framework.Lite.Enum
         public static readonly PhenoType Custom17 = new(19);
         public static readonly PhenoType Custom18 = new(20);
 
-        public PhenoType(int internalValue) : base(internalValue) { }
+        public PhenoType(int internalValue) : base(internalValue)
+        {
+
+        }
+
+        public static explicit operator PhenoType(int internalValue) => new(internalValue);
     }
 }

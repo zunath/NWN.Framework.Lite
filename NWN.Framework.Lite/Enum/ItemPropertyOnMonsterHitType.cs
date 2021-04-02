@@ -16,5 +16,7 @@ namespace NWN.Framework.Lite.Enum
         public ItemPropertyOnMonsterHitType(int internalValue) : base(internalValue)
         {
         }
+
+        public static explicit operator ItemPropertyOnMonsterHitType(int internalValue) => new(internalValue);
     }
 }

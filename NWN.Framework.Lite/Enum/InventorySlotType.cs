@@ -25,5 +25,7 @@
         public InventorySlotType(int internalValue) : base(internalValue)
         {
         }
+
+        public static explicit operator InventorySlotType(int internalValue) => new(internalValue);
     }
 }

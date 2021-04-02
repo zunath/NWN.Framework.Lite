@@ -29,12 +29,19 @@ namespace NWN.Framework.Lite
 
         private static Dictionary<string, List<ActionScript>> _scripts;
         private static Dictionary<string, List<ConditionalScript>> _conditionalScripts;
-        
+
+        /// <summary>
+        /// This event runs once every main loop frame, outside of the NWN context.
+        /// Ensure this code is performant.
+        /// </summary>
+        public static event EventHandler MainLoopEvent;
+
         //
         // This is called once every main loop frame, outside of object context
         //
-        public static void OnMainLoop(ulong frame)
+        internal static void OnMainLoop(ulong frame)
         {
+            MainLoopEvent?.Invoke(null, new EventArgs());
         }
 
         //
@@ -46,7 +53,7 @@ namespace NWN.Framework.Lite
         // Otherwise, return either 0/SCRIPT_HANDLED for void main() scripts,
         // or an int (0 or 1) for StartingConditionals
         //
-        public static int OnRunScript(string script, uint oidSelf)
+        internal static int OnRunScript(string script, uint oidSelf)
         {
             var retVal = RunScripts(script);
 
@@ -58,7 +65,7 @@ namespace NWN.Framework.Lite
         // The module is not yet loaded, so most NWScript functions will fail if
         // called here.
         //
-        public static void OnStart()
+        internal static void OnStart()
         {
             Console.WriteLine("Registering scripts...");
             LoadHandlersFromAssembly();
@@ -71,7 +78,7 @@ namespace NWN.Framework.Lite
         // This is called once, just before the module load script is called.
         // Unlike OnStart, NWScript functions are available to use here.
         //
-        public static void OnModuleLoad()
+        internal static void OnModuleLoad()
         {
             Console.WriteLine("OnModuleLoad() called");
         }
@@ -81,7 +88,7 @@ namespace NWN.Framework.Lite
         // save anything that might not be flushed to disk, and perform any last cleanup.
         // NWScript functions are available to use.
         //
-        public static void OnShutdown()
+        internal static void OnShutdown()
         {
             Console.WriteLine("OnShutdown() called");
         }
@@ -208,7 +215,7 @@ namespace NWN.Framework.Lite
             while (e != null)
             {
                 s.AppendLine("Exception type: " + e.GetType().FullName);
-                s.AppendLine("Message       : " + (e.Message ?? string.Empty));
+                s.AppendLine("Message       : " + e.Message);
                 s.AppendLine("Stacktrace:");
                 s.AppendLine(e.StackTrace);
 

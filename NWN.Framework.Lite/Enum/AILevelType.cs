@@ -15,5 +15,7 @@
         {
             InternalValue = internalValue;
         }
+
+        public static explicit operator AILevelType(int internalValue) => new(internalValue);
     }
 }

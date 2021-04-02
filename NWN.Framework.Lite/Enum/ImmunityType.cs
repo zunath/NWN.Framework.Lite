@@ -39,5 +39,7 @@ namespace NWN.Framework.Lite.Enum
         public ImmunityType(int internalValue) : base(internalValue)
         {
         }
+
+        public static explicit operator ImmunityType(int internalValue) => new(internalValue);
     }
 }

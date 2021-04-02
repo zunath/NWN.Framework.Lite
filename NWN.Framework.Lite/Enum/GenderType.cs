@@ -11,5 +11,7 @@ namespace NWN.Framework.Lite.Enum
         public GenderType(int internalValue) : base(internalValue)
         {
         }
+
+        public static explicit operator GenderType(int internalValue) => new(internalValue);
     }
 }

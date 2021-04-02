@@ -8,5 +8,7 @@ namespace NWN.Framework.Lite.Enum
         public CastingModeType(int internalValue) : base(internalValue)
         {
         }
+
+        public static explicit operator CastingModeType(int internalValue) => new(internalValue);
     }
 }

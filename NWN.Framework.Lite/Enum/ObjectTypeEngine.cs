@@ -20,6 +20,11 @@ namespace NWN.Framework.Lite.Enum
         public static readonly ObjectTypeEngine Portal = new(15);
         public static readonly ObjectTypeEngine Sound = new(16);
 
-        public ObjectTypeEngine(int internalValue) : base(internalValue) { }
+        public ObjectTypeEngine(int internalValue) : base(internalValue)
+        {
+
+        }
+
+        public static explicit operator ObjectTypeEngine(int internalValue) => new(internalValue);
     }
 }

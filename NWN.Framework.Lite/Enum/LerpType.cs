@@ -11,6 +11,11 @@
         public static readonly LerpType Quadratic = new(6); // x * x
         public static readonly LerpType SmootherStep = new(7); // (x * x * x * (x * (6.0 * x - 15.0) + 10.0))
 
-        public LerpType(int internalValue) : base(internalValue) { }
+        public LerpType(int internalValue) : base(internalValue)
+        {
+
+        }
+
+        public static explicit operator LerpType(int internalValue) => new(internalValue);
     }
 }

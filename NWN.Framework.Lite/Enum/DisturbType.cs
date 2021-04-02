@@ -9,5 +9,7 @@
         public DisturbType(int internalValue) : base(internalValue)
         {
         }
+
+        public static explicit operator DisturbType(int internalValue) => new(internalValue);
     }
 }

@@ -11,5 +11,7 @@
         {
             InternalValue = internalValue;
         }
+
+        public static explicit operator GroundType(int internalValue) => new(internalValue);
     }
 }

@@ -16,5 +16,7 @@ namespace NWN.Framework.Lite.Enum
         public ItemPropertyImmunityMiscType(int internalValue) : base(internalValue)
         {
         }
+
+        public static explicit operator ItemPropertyImmunityMiscType(int internalValue) => new(internalValue);
     }
 }

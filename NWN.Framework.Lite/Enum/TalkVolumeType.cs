@@ -13,5 +13,7 @@
         public TalkVolumeType(int internalValue) : base(internalValue)
         {
         }
+
+        public static explicit operator TalkVolumeType(int internalValue) => new(internalValue);
     }
 }

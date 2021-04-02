@@ -18,5 +18,7 @@ namespace NWN.Framework.Lite.Enum
         public CombatModeEngineType(int internalValue) : base(internalValue)
         {
         }
+
+        public static explicit operator CombatModeEngineType(int internalValue) => new(internalValue);
     }
 }

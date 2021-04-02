@@ -101,5 +101,7 @@ namespace NWN.Framework.Lite.Enum
         public BaseItemType(int internalValue) : base(internalValue)
         {
         }
+
+        public static explicit operator BaseItemType(int internalValue) => new(internalValue);
     }
 }

@@ -54,5 +54,7 @@ namespace NWN.Framework.Lite.Enum
         public TrapBaseType(int internalValue) : base(internalValue)
         {
         }
+
+        public static explicit operator TrapBaseType(int internalValue) => new(internalValue);
     }
 }

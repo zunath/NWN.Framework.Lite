@@ -16,6 +16,11 @@ namespace NWN.Framework.Lite.Enum
         public static readonly ObjectType All = new(32767);
         public static readonly ObjectType Invalid = new(32767);
 
-        public ObjectType(int internalValue) : base(internalValue) { }
+        public ObjectType(int internalValue) : base(internalValue)
+        {
+
+        }
+
+        public static explicit operator ObjectType(int internalValue) => new(internalValue);
     }
 }

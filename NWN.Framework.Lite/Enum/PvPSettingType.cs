@@ -7,6 +7,11 @@
         public static readonly PvPSettingType FullPvP = new(2);
         public static readonly PvPSettingType ServerDefault = new(3);
 
-        public PvPSettingType(int internalValue) : base(internalValue) { }
+        public PvPSettingType(int internalValue) : base(internalValue)
+        {
+
+        }
+
+        public static explicit operator PvPSettingType(int internalValue) => new(internalValue);
     }
 }

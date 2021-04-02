@@ -11,5 +11,7 @@ namespace NWN.Framework.Lite.Enum
         public ItemPropertyAdditionalType(int internalValue) : base(internalValue)
         {
         }
+
+        public static explicit operator ItemPropertyAdditionalType(int internalValue) => new(internalValue);
     }
 }

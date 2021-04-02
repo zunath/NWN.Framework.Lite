@@ -14,5 +14,7 @@ namespace NWN.Framework.Lite.Enum
         public ItemPropertySpellSchoolType(int internalValue) : base(internalValue)
         {
         }
+
+        public static explicit operator ItemPropertySpellSchoolType(int internalValue) => new(internalValue);
     }
 }

@@ -10,6 +10,11 @@ namespace NWN.Framework.Lite.Enum
         public static readonly MetaMagicType Silent = new(16);
         public static readonly MetaMagicType Any = new(255);
 
-        public MetaMagicType(int internalValue) : base(internalValue) { }
+        public MetaMagicType(int internalValue) : base(internalValue)
+        {
+
+        }
+
+        public static explicit operator MetaMagicType(int internalValue) => new(internalValue);
     }
 }

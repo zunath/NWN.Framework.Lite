@@ -1,78 +1,78 @@
 ﻿
+using static NWN.Framework.Lite.NWScript;
+
 namespace NWN.Framework.Lite.NWNX
 {
     public static class NWNXCore
     {
-        private static string NWNX_INTERNAL_BuildString(string pluginName, string functionName, string operation)
-        {
-            return "NWNXEE!ABIv2!" + pluginName + "!" + functionName + "!" + operation;
-        }
+        private const string NWNX_PUSH = "NWNXEE!ABIv2!X!Y!PUSH";
+        private const string NWNX_POP = "NWNXEE!ABIv2!X!Y!POP";
 
         public static void NWNX_CallFunction(string pluginName, string functionName)
         {
-            NWScript.PlaySound(NWNX_INTERNAL_BuildString(pluginName, functionName, "CALL"));
+            PlaySound("NWNXEE!ABIv2!" + pluginName + "!" + functionName + "!CALL");
         }
 
-        public static void NWNX_PushArgumentInt(string pluginName, string functionName, int value)
+        public static void NWNX_PushArgumentInt(int value)
         {
-            NWScript.SetLocalInt(NWScript.OBJECT_INVALID, NWNX_INTERNAL_BuildString(pluginName, functionName, "PUSH"), value);
+            SetLocalInt(OBJECT_INVALID, NWNX_PUSH, value);
         }
 
-        public static void NWNX_PushArgumentFloat(string pluginName, string functionName, float value)
+        public static void NWNX_PushArgumentFloat(float value)
         {
-            NWScript.SetLocalFloat(NWScript.OBJECT_INVALID, NWNX_INTERNAL_BuildString(pluginName, functionName, "PUSH"), value);
+            SetLocalFloat(OBJECT_INVALID, NWNX_PUSH, value);
         }
 
-        public static void NWNX_PushArgumentObject(string pluginName, string functionName, uint value)
+        public static void NWNX_PushArgumentObject(uint value)
         {
-            NWScript.SetLocalObject(NWScript.OBJECT_INVALID, NWNX_INTERNAL_BuildString(pluginName, functionName, "PUSH"), value);
+            SetLocalObject(OBJECT_INVALID, NWNX_PUSH, value);
         }
 
-        public static void NWNX_PushArgumentString(string pluginName, string functionName, string value)
+        public static void NWNX_PushArgumentString(string value)
         {
-            NWScript.SetLocalString(NWScript.OBJECT_INVALID, NWNX_INTERNAL_BuildString(pluginName, functionName, "PUSH"), value);
+            SetLocalString(OBJECT_INVALID, NWNX_PUSH, value);
         }
 
-        public static void NWNX_PushArgumentEffect(string pluginName, string functionName, Lite.Effect value)
+        public static void NWNX_PushArgumentEffect(Lite.Effect value)
         {
-            NWScript.TagEffect(value, NWNX_INTERNAL_BuildString(pluginName, functionName, "PUSH"));
+            TagEffect(value, NWNX_PUSH);
         }
 
-        public static void NWNX_PushArgumentItemProperty(string pluginName, string functionName, Lite.ItemProperty value)
+        public static void NWNX_PushArgumentItemProperty(Lite.ItemProperty value)
         {
-            NWScript.TagItemProperty(value, NWNX_INTERNAL_BuildString(pluginName, functionName, "PUSH"));
+            TagItemProperty(value, NWNX_PUSH);
         }
 
-        public static int NWNX_GetReturnValueInt(string pluginName, string functionName)
+        public static int NWNX_GetReturnValueInt()
         {
-            return NWScript.GetLocalInt(NWScript.OBJECT_INVALID, NWNX_INTERNAL_BuildString(pluginName, functionName, "POP"));
+            return GetLocalInt(OBJECT_INVALID, NWNX_POP);
         }
 
-        public static float NWNX_GetReturnValueFloat(string pluginName, string functionName)
+        public static float NWNX_GetReturnValueFloat()
         {
-            return NWScript.GetLocalFloat(NWScript.OBJECT_INVALID, NWNX_INTERNAL_BuildString(pluginName, functionName, "POP"));
+            return GetLocalFloat(OBJECT_INVALID, NWNX_POP);
         }
 
-        public static uint NWNX_GetReturnValueObject(string pluginName, string functionName)
+        public static uint NWNX_GetReturnValueObject()
         {
-            return NWScript.GetLocalObject(NWScript.OBJECT_INVALID, NWNX_INTERNAL_BuildString(pluginName, functionName, "POP"));
+            return GetLocalObject(OBJECT_INVALID, NWNX_POP);
         }
 
-        public static string NWNX_GetReturnValueString(string pluginName, string functionName)
+        public static string NWNX_GetReturnValueString()
         {
-            return NWScript.GetLocalString(NWScript.OBJECT_INVALID, NWNX_INTERNAL_BuildString(pluginName, functionName, "POP"));
+            return GetLocalString(OBJECT_INVALID, NWNX_POP);
         }
 
-        public static Lite.Effect NWNX_GetReturnValueEffect(string pluginName, string functionName)
+        public static Lite.Effect NWNX_GetReturnValueEffect()
         {
-            var e = NWScript.EffectBlindness();
-            return NWScript.TagEffect(e, NWNX_INTERNAL_BuildString(pluginName, functionName, "POP"));
+            var e = EffectBlindness();
+            return TagEffect(e, NWNX_POP);
         }
 
-        public static Lite.ItemProperty NWNX_GetReturnValueItemProperty(string pluginName, string functionName)
+        public static Lite.ItemProperty NWNX_GetReturnValueItemProperty()
         {
-            var ip = NWScript.ItemPropertyTrueSeeing();
-            return NWScript.TagItemProperty(ip, NWNX_INTERNAL_BuildString(pluginName, functionName, "POP"));
+            var ip = ItemPropertyTrueSeeing();
+            return TagItemProperty(ip, NWNX_POP);
         }
     }
 }

@@ -9,5 +9,7 @@ namespace NWN.Framework.Lite.Enum
         public TalentType(int internalValue) : base(internalValue)
         {
         }
+
+        public static explicit operator TalentType(int internalValue) => new(internalValue);
     }
 }

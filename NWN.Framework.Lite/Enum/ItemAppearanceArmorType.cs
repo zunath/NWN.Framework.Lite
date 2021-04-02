@@ -26,5 +26,7 @@ namespace NWN.Framework.Lite.Enum
         public ItemAppearanceArmorType(int internalValue) : base(internalValue)
         {
         }
+
+        public static explicit operator ItemAppearanceArmorType(int internalValue) => new(internalValue);
     }
 }

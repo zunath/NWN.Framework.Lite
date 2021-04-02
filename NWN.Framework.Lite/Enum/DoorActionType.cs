@@ -11,5 +11,7 @@ namespace NWN.Framework.Lite.Enum
         public DoorActionType(int internalValue) : base(internalValue)
         {
         }
+
+        public static explicit operator DoorActionType(int internalValue) => new(internalValue);
     }
 }
