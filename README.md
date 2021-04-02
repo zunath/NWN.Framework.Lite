@@ -49,8 +49,6 @@ And that's it!
 
 [![NWN Managed](https://github.com/nwn-dotnet/NWN.Managed)] - An alternative, opinionated framework.
 
-[![Star Wars: LOR](https://github.com/zunath/SWLOR_NWN/tree/feature/ffo-rewrite)] - An example of this framework being used in a production environment.
-
 # Contributing
 We welcome all contributions via Pull Request. Please read the following as they serve as our guiding principles on this project. We expect all contributions to adhere to these guidelines.
 
