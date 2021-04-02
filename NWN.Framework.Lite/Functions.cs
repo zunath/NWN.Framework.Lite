@@ -723,7 +723,7 @@ namespace NWN.Framework.Lite
         public static uint GetFirstObjectInShape(ShapeType nShape, float fSize, Location lTarget, bool bLineOfSight, ObjectType nObjectFilter, Vector3 vOrigin = default)
         {
             Internal.NativeFunctions.StackPushVector(vOrigin);
-            Internal.NativeFunctions.StackPushInteger(nObjectFilter.InternalValue);
+            Internal.NativeFunctions.StackPushInteger((int)nObjectFilter);
             Internal.NativeFunctions.StackPushInteger(bLineOfSight ? 1 : 0);
             Internal.NativeFunctions.StackPushGameDefinedStructure((int)EngineStructureType.Location, lTarget);
             Internal.NativeFunctions.StackPushFloat(fSize);
@@ -761,7 +761,7 @@ namespace NWN.Framework.Lite
         public static uint GetNextObjectInShape(ShapeType nShape, float fSize, Location lTarget, bool bLineOfSight, ObjectType nObjectFilter, Vector3 vOrigin = default)
         {
             Internal.NativeFunctions.StackPushVector(vOrigin);
-            Internal.NativeFunctions.StackPushInteger(nObjectFilter.InternalValue);
+            Internal.NativeFunctions.StackPushInteger((int)nObjectFilter);
             Internal.NativeFunctions.StackPushInteger(bLineOfSight ? 1 : 0);
             Internal.NativeFunctions.StackPushGameDefinedStructure((int)EngineStructureType.Location, lTarget);
             Internal.NativeFunctions.StackPushFloat(fSize);
@@ -1525,7 +1525,7 @@ namespace NWN.Framework.Lite
         public static uint GetFirstInPersistentObject(uint oPersistentObject, ObjectType nResidentObjectType, PersistentZoneType nPersistentZone)
         {
             Internal.NativeFunctions.StackPushInteger(nPersistentZone.InternalValue);
-            Internal.NativeFunctions.StackPushInteger(nResidentObjectType.InternalValue);
+            Internal.NativeFunctions.StackPushInteger((int)nResidentObjectType);
             Internal.NativeFunctions.StackPushObject(oPersistentObject);
             Internal.NativeFunctions.CallBuiltIn(262);
             return Internal.NativeFunctions.StackPopObject();
@@ -1542,7 +1542,7 @@ namespace NWN.Framework.Lite
         public static uint GetNextInPersistentObject(uint oPersistentObject, ObjectType nResidentObjectType, PersistentZoneType nPersistentZone)
         {
             Internal.NativeFunctions.StackPushInteger(nPersistentZone.InternalValue);
-            Internal.NativeFunctions.StackPushInteger(nResidentObjectType.InternalValue);
+            Internal.NativeFunctions.StackPushInteger((int)nResidentObjectType);
             Internal.NativeFunctions.StackPushObject(oPersistentObject);
             Internal.NativeFunctions.CallBuiltIn(263);
             return Internal.NativeFunctions.StackPopObject();
@@ -3485,7 +3485,7 @@ namespace NWN.Framework.Lite
         {
             Internal.NativeFunctions.StackPushInteger(nBadTargetCursor.InternalValue);
             Internal.NativeFunctions.StackPushInteger(nMouseCursorId.InternalValue);
-            Internal.NativeFunctions.StackPushInteger(nValidObjectTypes.InternalValue);
+            Internal.NativeFunctions.StackPushInteger((int)nValidObjectTypes);
             Internal.NativeFunctions.StackPushObject(oPC);
             Internal.NativeFunctions.CallBuiltIn(912);
         }

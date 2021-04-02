@@ -712,7 +712,7 @@ namespace NWN.Framework.Lite
             Internal.NativeFunctions.StackPushInteger(nUseAppearAnimation ? 1 : 0);
             Internal.NativeFunctions.StackPushGameDefinedStructure((int)EngineStructureType.Location, lLocation);
             Internal.NativeFunctions.StackPushStringUTF8(sTemplate);
-            Internal.NativeFunctions.StackPushInteger(nObjectType.InternalValue);
+            Internal.NativeFunctions.StackPushInteger((int)nObjectType);
             Internal.NativeFunctions.CallBuiltIn(243);
             return Internal.NativeFunctions.StackPopObject();
         }
@@ -739,7 +739,7 @@ namespace NWN.Framework.Lite
         {
             Internal.NativeFunctions.StackPushInteger(nNth);
             Internal.NativeFunctions.StackPushObject(oTarget);
-            Internal.NativeFunctions.StackPushInteger(nObjectType.InternalValue);
+            Internal.NativeFunctions.StackPushInteger((int)nObjectType);
             Internal.NativeFunctions.CallBuiltIn(227);
             return Internal.NativeFunctions.StackPopObject();
         }
@@ -756,7 +756,7 @@ namespace NWN.Framework.Lite
         {
             Internal.NativeFunctions.StackPushInteger(nNth);
             Internal.NativeFunctions.StackPushGameDefinedStructure((int)EngineStructureType.Location, lLocation);
-            Internal.NativeFunctions.StackPushInteger(nObjectType.InternalValue);
+            Internal.NativeFunctions.StackPushInteger((int)nObjectType);
             Internal.NativeFunctions.CallBuiltIn(228);
             return Internal.NativeFunctions.StackPopObject();
         }
@@ -796,7 +796,7 @@ namespace NWN.Framework.Lite
         {
             Internal.NativeFunctions.StackPushObject(oTarget);
             Internal.NativeFunctions.CallBuiltIn(106);
-            return new ObjectType(Internal.NativeFunctions.StackPopInteger());
+            return (ObjectType)Internal.NativeFunctions.StackPopInteger();
         }
 
         /// <summary>
