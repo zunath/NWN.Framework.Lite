@@ -19,6 +19,7 @@ namespace NWN.Framework.Lite.NWNX
         public static void SetPlayerPassword(string password)
         {
             Internal.NativeFunctions.nwnxSetFunction(PLUGIN_NAME, "SetPlayerPassword");
+            Internal.NativeFunctions.nwnxPushString(password);
             Internal.NativeFunctions.nwnxCallFunction();
         }
 
@@ -41,6 +42,7 @@ namespace NWN.Framework.Lite.NWNX
         public static void SetDMPassword(string password)
         {
             Internal.NativeFunctions.nwnxSetFunction(PLUGIN_NAME, "SetDMPassword");
+            Internal.NativeFunctions.nwnxPushString(password);
             Internal.NativeFunctions.nwnxCallFunction();
         }
 
@@ -53,9 +55,10 @@ namespace NWN.Framework.Lite.NWNX
 
         // Deletes the player character from the servervault
         // The PC will be immediately booted from the game with a "Delete Character" message
-        public static void DeletePlayerCharacter(uint pc, bool bPreserveBackup)
+        public static void DeletePlayerCharacter(uint pc, bool bPreserveBackup = true, string kickMessage = "")
         {
             Internal.NativeFunctions.nwnxSetFunction(PLUGIN_NAME, "DeletePlayerCharacter");
+            Internal.NativeFunctions.nwnxPushString(kickMessage);
             Internal.NativeFunctions.StackPushInteger(bPreserveBackup ? 1 : 0);
             Internal.NativeFunctions.StackPushObject(pc);
             Internal.NativeFunctions.nwnxCallFunction();
@@ -133,20 +136,20 @@ namespace NWN.Framework.Lite.NWNX
         }
 
         // Get an AdministrationOption value
-        public static int GetPlayOption(AdministrationOption option)
+        public static AdministrationOption GetPlayOption(AdministrationOption option)
         {
             Internal.NativeFunctions.nwnxSetFunction(PLUGIN_NAME, "GetPlayOption");
             Internal.NativeFunctions.StackPushInteger((int)option);
             Internal.NativeFunctions.nwnxCallFunction();
-            return Internal.NativeFunctions.nwnxPopInt();
+            return (AdministrationOption)Internal.NativeFunctions.nwnxPopInt();
         }
 
         // Set an AdministrationOption value
         public static void SetPlayOption(AdministrationOption option, int value)
         {
             Internal.NativeFunctions.nwnxSetFunction(PLUGIN_NAME, "SetPlayOption");
-            Internal.NativeFunctions.StackPushInteger((int)option);
             Internal.NativeFunctions.StackPushInteger(value);
+            Internal.NativeFunctions.StackPushInteger((int)option);
             Internal.NativeFunctions.nwnxCallFunction();
         }
 
@@ -163,12 +166,12 @@ namespace NWN.Framework.Lite.NWNX
         // Get an admin_debug "Administration Debug Type" value.
         // An "Administration Debug Type"
         // The current value for the supplied debug type from admin_debug "Administration Debug Types".
-        public static bool GetDebugValue(AdministrationDebugType type)
+        public static int GetDebugValue(AdministrationDebugType type)
         {
             Internal.NativeFunctions.nwnxSetFunction(PLUGIN_NAME, "GetDebugValue");
             Internal.NativeFunctions.StackPushInteger((int)type);
             Internal.NativeFunctions.nwnxCallFunction();
-            return Internal.NativeFunctions.nwnxPopInt() == 1;
+            return Internal.NativeFunctions.nwnxPopInt();
         }
 
         // Set an "Administration Debug Type" to a value.
@@ -179,6 +182,14 @@ namespace NWN.Framework.Lite.NWNX
             Internal.NativeFunctions.nwnxSetFunction(PLUGIN_NAME, "SetDebugValue");
             Internal.NativeFunctions.StackPushInteger(state ? 1 : 0);
             Internal.NativeFunctions.StackPushInteger((int)type);
+            Internal.NativeFunctions.nwnxCallFunction();
+        }
+
+        /// @brief Reload all rules (2da stuff etc).
+        /// @warning DANGER, DRAGONS. Bad things may or may not happen.
+        public static void ReloadRules()
+        {
+            Internal.NativeFunctions.nwnxSetFunction(PLUGIN_NAME, "ReloadRules");
             Internal.NativeFunctions.nwnxCallFunction();
         }
 
