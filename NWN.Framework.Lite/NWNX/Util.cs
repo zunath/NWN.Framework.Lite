@@ -32,7 +32,7 @@ namespace NWN.Framework.Lite.NWNX
 
         public static string GetCustomToken(int customTokenNumber)
         {
-            Internal.NativeFunctions.nwnxSetFunction(PLUGIN_NAME, "customTokenNumber");
+            Internal.NativeFunctions.nwnxSetFunction(PLUGIN_NAME, "GetCustomToken");
             Internal.NativeFunctions.nwnxPushInt(customTokenNumber);
             Internal.NativeFunctions.nwnxCallFunction();
             return Internal.NativeFunctions.nwnxPopString();
