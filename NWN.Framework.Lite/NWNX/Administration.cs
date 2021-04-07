@@ -5,229 +5,219 @@ namespace NWN.Framework.Lite.NWNX
 {
     public static class Administration
     {
-        private const string PLUGIN_NAME = "NWNX_Administration";
+        private const string NWNX_Administration = "NWNX_Administration";
 
-        // Gets the current player password.
         public static string GetPlayerPassword()
         {
-            Internal.NativeFunctions.nwnxSetFunction(PLUGIN_NAME, "GetPlayerPassword");
-            Internal.NativeFunctions.nwnxCallFunction();
-            return Internal.NativeFunctions.nwnxPopString();
+            var sFunc = "GetPlayerPassword";
+
+            NWNXCore.NWNX_CallFunction(NWNX_Administration, sFunc);
+            return NWNXCore.NWNX_GetReturnValueString();
         }
 
-        // Sets the current player password.
         public static void SetPlayerPassword(string password)
         {
-            Internal.NativeFunctions.nwnxSetFunction(PLUGIN_NAME, "SetPlayerPassword");
-            Internal.NativeFunctions.nwnxPushString(password);
-            Internal.NativeFunctions.nwnxCallFunction();
+            var sFunc = "SetPlayerPassword";
+
+            NWNXCore.NWNX_PushArgumentString(password);
+            NWNXCore.NWNX_CallFunction(NWNX_Administration, sFunc);
         }
 
-        // Removes the current player password.
         public static void ClearPlayerPassword()
         {
-            Internal.NativeFunctions.nwnxSetFunction(PLUGIN_NAME, "ClearPlayerPassword");
-            Internal.NativeFunctions.nwnxCallFunction();
+            var sFunc = "ClearPlayerPassword";
+
+            NWNXCore.NWNX_CallFunction(NWNX_Administration, sFunc);
         }
 
-        // Gets the current DM password.
         public static string GetDMPassword()
         {
-            Internal.NativeFunctions.nwnxSetFunction(PLUGIN_NAME, "GetDMPassword");
-            Internal.NativeFunctions.nwnxCallFunction();
-            return Internal.NativeFunctions.nwnxPopString();
+            var sFunc = "GetDMPassword";
+
+            NWNXCore.NWNX_CallFunction(NWNX_Administration, sFunc);
+            return NWNXCore.NWNX_GetReturnValueString();
         }
 
-        // Sets the current DM password. May be set to an empty string.
         public static void SetDMPassword(string password)
         {
-            Internal.NativeFunctions.nwnxSetFunction(PLUGIN_NAME, "SetDMPassword");
-            Internal.NativeFunctions.nwnxPushString(password);
-            Internal.NativeFunctions.nwnxCallFunction();
+            var sFunc = "SetDMPassword";
+
+            NWNXCore.NWNX_PushArgumentString(password);
+            NWNXCore.NWNX_CallFunction(NWNX_Administration, sFunc);
         }
 
-        /// Signals the server to immediately shut down.
         public static void ShutdownServer()
         {
-            Internal.NativeFunctions.nwnxSetFunction(PLUGIN_NAME, "ShutdownServer");
-            Internal.NativeFunctions.nwnxCallFunction();
+            var sFunc = "ShutdownServer";
+
+            NWNXCore.NWNX_CallFunction(NWNX_Administration, sFunc);
         }
 
-        // Deletes the player character from the servervault
-        // The PC will be immediately booted from the game with a "Delete Character" message
-        public static void DeletePlayerCharacter(uint pc, bool bPreserveBackup = true, string kickMessage = "")
+        public static void DeletePlayerCharacter(uint oPC, bool bPreserveBackup = true, string sKickMessage = "")
         {
-            Internal.NativeFunctions.nwnxSetFunction(PLUGIN_NAME, "DeletePlayerCharacter");
-            Internal.NativeFunctions.nwnxPushString(kickMessage);
-            Internal.NativeFunctions.StackPushInteger(bPreserveBackup ? 1 : 0);
-            Internal.NativeFunctions.StackPushObject(pc);
-            Internal.NativeFunctions.nwnxCallFunction();
+            var sFunc = "DeletePlayerCharacter";
+
+            NWNXCore.NWNX_PushArgumentString(sKickMessage);
+            NWNXCore.NWNX_PushArgumentInt(bPreserveBackup ? 1 : 0);
+            NWNXCore.NWNX_PushArgumentObject(oPC);
+            NWNXCore.NWNX_CallFunction(NWNX_Administration, sFunc);
         }
 
-        /// Ban a given IP - get via GetPCIPAddress()
         public static void AddBannedIP(string ip)
         {
-            Internal.NativeFunctions.nwnxSetFunction(PLUGIN_NAME, "AddBannedIP");
-            Internal.NativeFunctions.StackPushString(ip);
-            Internal.NativeFunctions.nwnxCallFunction();
-        }
+            var sFunc = "AddBannedIP";
 
-        // Removes a banned IP address.
+            NWNXCore.NWNX_PushArgumentString(ip);
+            NWNXCore.NWNX_CallFunction(NWNX_Administration, sFunc);
+        }
         public static void RemoveBannedIP(string ip)
         {
-            Internal.NativeFunctions.nwnxSetFunction(PLUGIN_NAME, "RemoveBannedIP");
-            Internal.NativeFunctions.StackPushString(ip);
-            Internal.NativeFunctions.nwnxCallFunction();
-        }
+            var sFunc = "RemoveBannedIP";
 
-        // Adds a banned CD key. Get via GetPCPublicCDKey
+            NWNXCore.NWNX_PushArgumentString(ip);
+            NWNXCore.NWNX_CallFunction(NWNX_Administration, sFunc);
+        }
         public static void AddBannedCDKey(string key)
         {
-            Internal.NativeFunctions.nwnxSetFunction(PLUGIN_NAME, "AddBannedCDKey");
-            Internal.NativeFunctions.StackPushString(key);
-            Internal.NativeFunctions.nwnxCallFunction();
-        }
+            var sFunc = "AddBannedCDKey";
 
-        /// Removes a banned CD key.
+            NWNXCore.NWNX_PushArgumentString(key);
+            NWNXCore.NWNX_CallFunction(NWNX_Administration, sFunc);
+        }
         public static void RemoveBannedCDKey(string key)
         {
-            Internal.NativeFunctions.nwnxSetFunction(PLUGIN_NAME, "RemoveBannedCDKey");
-            Internal.NativeFunctions.StackPushString(key);
-            Internal.NativeFunctions.nwnxCallFunction();
-        }
+            var sFunc = "RemoveBannedCDKey";
 
-        // Adds a banned player name - get via GetPCPlayerName.
+            NWNXCore.NWNX_PushArgumentString(key);
+            NWNXCore.NWNX_CallFunction(NWNX_Administration, sFunc);
+        }
         public static void AddBannedPlayerName(string playerName)
         {
-            Internal.NativeFunctions.nwnxSetFunction(PLUGIN_NAME, "AddBannedPlayerName");
-            Internal.NativeFunctions.StackPushString(playerName);
-            Internal.NativeFunctions.nwnxCallFunction();
-        }
+            var sFunc = "AddBannedPlayerName";
 
-        /// Removes a banned player name.
+            NWNXCore.NWNX_PushArgumentString(playerName);
+            NWNXCore.NWNX_CallFunction(NWNX_Administration, sFunc);
+        }
         public static void RemoveBannedPlayerName(string playerName)
         {
-            Internal.NativeFunctions.nwnxSetFunction(PLUGIN_NAME, "RemoveBannedPlayerName");
-            Internal.NativeFunctions.StackPushString(playerName);
-            Internal.NativeFunctions.nwnxCallFunction();
-        }
+            var sFunc = "RemoveBannedPlayerName";
 
-        // Gets a list of all banned IPs, CD Keys, and player names as a string.
+            NWNXCore.NWNX_PushArgumentString(playerName);
+            NWNXCore.NWNX_CallFunction(NWNX_Administration, sFunc);
+        }
         public static string GetBannedList()
         {
-            Internal.NativeFunctions.nwnxSetFunction(PLUGIN_NAME, "GetBannedList");
-            return Internal.NativeFunctions.nwnxPopString();
+            var sFunc = "GetBannedList";
+
+            NWNXCore.NWNX_CallFunction(NWNX_Administration, sFunc);
+            return NWNXCore.NWNX_GetReturnValueString();
         }
 
-        // Sets the module's name as shown in the server list.
         public static void SetModuleName(string name)
         {
-            Internal.NativeFunctions.nwnxSetFunction(PLUGIN_NAME, "SetModuleName");
-            Internal.NativeFunctions.StackPushString(name);
-            Internal.NativeFunctions.nwnxCallFunction();
+            var sFunc = "SetModuleName";
+
+            NWNXCore.NWNX_PushArgumentString(name);
+            NWNXCore.NWNX_CallFunction(NWNX_Administration, sFunc);
         }
 
-        // Sets the server's name as shown in the server list.
         public static void SetServerName(string name)
         {
-            Internal.NativeFunctions.nwnxSetFunction(PLUGIN_NAME, "SetServerName");
-            Internal.NativeFunctions.StackPushString(name);
-            Internal.NativeFunctions.nwnxCallFunction();
+            var sFunc = "SetServerName";
+
+            NWNXCore.NWNX_PushArgumentString(name);
+            NWNXCore.NWNX_CallFunction(NWNX_Administration, sFunc);
         }
 
-        // Get an AdministrationOption value
-        public static AdministrationOption GetPlayOption(AdministrationOption option)
+        public static string GetServerName()
         {
-            Internal.NativeFunctions.nwnxSetFunction(PLUGIN_NAME, "GetPlayOption");
-            Internal.NativeFunctions.StackPushInteger((int)option);
-            Internal.NativeFunctions.nwnxCallFunction();
-            return (AdministrationOption)Internal.NativeFunctions.nwnxPopInt();
+            var sFunc = "GetServerName";
+            NWNXCore.NWNX_CallFunction(NWNX_Administration, sFunc);
+            return NWNXCore.NWNX_GetReturnValueString();
         }
 
-        // Set an AdministrationOption value
+        public static int GetPlayOption(AdministrationOption option)
+        {
+            var sFunc = "GetPlayOption";
+
+            NWNXCore.NWNX_PushArgumentInt((int)option);
+            NWNXCore.NWNX_CallFunction(NWNX_Administration, sFunc);
+
+            return NWNXCore.NWNX_GetReturnValueInt();
+        }
+
         public static void SetPlayOption(AdministrationOption option, int value)
         {
-            Internal.NativeFunctions.nwnxSetFunction(PLUGIN_NAME, "SetPlayOption");
-            Internal.NativeFunctions.StackPushInteger(value);
-            Internal.NativeFunctions.StackPushInteger((int)option);
-            Internal.NativeFunctions.nwnxCallFunction();
+            var sFunc = "SetPlayOption";
+
+            NWNXCore.NWNX_PushArgumentInt(value);
+            NWNXCore.NWNX_PushArgumentInt((int)option);
+            NWNXCore.NWNX_CallFunction(NWNX_Administration, sFunc);
         }
 
-        // Delete the temporary user resource data (TURD) of a playerName + characterName
-        public static bool DeleteTURD(string playerName, string characterName)
+        public static int DeleteTURD(string playerName, string characterName)
         {
-            Internal.NativeFunctions.nwnxSetFunction(PLUGIN_NAME, "DeleteTURD");
-            Internal.NativeFunctions.StackPushString(characterName);
-            Internal.NativeFunctions.StackPushString(playerName);
-            Internal.NativeFunctions.nwnxCallFunction();
-            return Convert.ToBoolean(Internal.NativeFunctions.nwnxPopInt());
+            var sFunc = "DeleteTURD";
+
+            NWNXCore.NWNX_PushArgumentString(characterName);
+            NWNXCore.NWNX_PushArgumentString(playerName);
+            NWNXCore.NWNX_CallFunction(NWNX_Administration, sFunc);
+
+            return NWNXCore.NWNX_GetReturnValueInt();
         }
 
-        // Get an admin_debug "Administration Debug Type" value.
-        // An "Administration Debug Type"
-        // The current value for the supplied debug type from admin_debug "Administration Debug Types".
-        public static int GetDebugValue(AdministrationDebugType type)
+        public static AdministrationDebugType GetDebugValue(int type)
         {
-            Internal.NativeFunctions.nwnxSetFunction(PLUGIN_NAME, "GetDebugValue");
-            Internal.NativeFunctions.StackPushInteger((int)type);
-            Internal.NativeFunctions.nwnxCallFunction();
-            return Internal.NativeFunctions.nwnxPopInt();
+            var sFunc = "GetDebugValue";
+
+            NWNXCore.NWNX_PushArgumentInt(type);
+            NWNXCore.NWNX_CallFunction(NWNX_Administration, sFunc);
+
+            return (AdministrationDebugType)NWNXCore.NWNX_GetReturnValueInt();
         }
 
-        // Set an "Administration Debug Type" to a value.
-        // The debug type to adjust from "Administration Debug Types".
-        // The new state for the debug type, true or false
-        public static void SetDebugValue(AdministrationDebugType type, bool state)
+        public static void SetDebugValue(AdministrationDebugType type, int state)
         {
-            Internal.NativeFunctions.nwnxSetFunction(PLUGIN_NAME, "SetDebugValue");
-            Internal.NativeFunctions.StackPushInteger(state ? 1 : 0);
-            Internal.NativeFunctions.StackPushInteger((int)type);
-            Internal.NativeFunctions.nwnxCallFunction();
+            var sFunc = "SetDebugValue";
+
+            NWNXCore.NWNX_PushArgumentInt(state);
+            NWNXCore.NWNX_PushArgumentInt((int)type);
+            NWNXCore.NWNX_CallFunction(NWNX_Administration, sFunc);
         }
 
-        /// @brief Reload all rules (2da stuff etc).
-        /// @warning DANGER, DRAGONS. Bad things may or may not happen.
         public static void ReloadRules()
         {
-            Internal.NativeFunctions.nwnxSetFunction(PLUGIN_NAME, "ReloadRules");
-            Internal.NativeFunctions.nwnxCallFunction();
+            var sFunc = "ReloadRules";
+
+            NWNXCore.NWNX_CallFunction(NWNX_Administration, sFunc);
         }
 
-        /// @brief Get the servers minimum level.
-        /// @return The minimum level for the server.
         public static int GetMinLevel()
         {
-            Internal.NativeFunctions.nwnxSetFunction(PLUGIN_NAME, "GetMinLevel");
-            Internal.NativeFunctions.nwnxCallFunction();
-            return Internal.NativeFunctions.nwnxPopInt();
+            var sFunc = "GetMinLevel";
+            NWNXCore.NWNX_CallFunction(NWNX_Administration, sFunc);
+            return NWNXCore.NWNX_GetReturnValueInt();
         }
 
-        /// @brief Set the servers minimum level.
-        /// @param nLevel The minimum level for the server.
         public static void SetMinLevel(int nLevel)
         {
-            Internal.NativeFunctions.nwnxSetFunction(PLUGIN_NAME, "SetMinLevel");
-            Internal.NativeFunctions.StackPushInteger(nLevel);
-            Internal.NativeFunctions.nwnxCallFunction();
+            var sFunc = "SetMinLevel";
+            NWNXCore.NWNX_PushArgumentInt(nLevel);
+            NWNXCore.NWNX_CallFunction(NWNX_Administration, sFunc);
         }
 
-        /// @brief Get the servers maximum level.
-        /// @return The maximum level for the server.
         public static int GetMaxLevel()
         {
-            Internal.NativeFunctions.nwnxSetFunction(PLUGIN_NAME, "GetMaxLevel");
-            Internal.NativeFunctions.nwnxCallFunction();
-            return Internal.NativeFunctions.nwnxPopInt();
+            var sFunc = "GetMaxLevel";
+            NWNXCore.NWNX_CallFunction(NWNX_Administration, sFunc);
+            return NWNXCore.NWNX_GetReturnValueInt();
         }
 
-        /// @brief Set the servers maximum level.
-        /// @note Attention when using this and the MaxLevel plugin. They both change the same value.
-        /// @param nLevel The maximum level for the server.
         public static void SetMaxLevel(int nLevel)
         {
-            Internal.NativeFunctions.nwnxSetFunction(PLUGIN_NAME, "SetMaxLevel");
-            Internal.NativeFunctions.StackPushInteger(nLevel);
-            Internal.NativeFunctions.nwnxCallFunction();
+            var sFunc = "SetMaxLevel";
+            NWNXCore.NWNX_PushArgumentInt(nLevel);
+            NWNXCore.NWNX_CallFunction(NWNX_Administration, sFunc);
         }
     }
 }
