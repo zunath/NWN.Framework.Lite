@@ -132,7 +132,7 @@ namespace NWN.Framework.Lite
         ///   the enmity lasts.
         ///   Note: If bDecays is TRUE, the personal reputation amount decreases in size
         ///   over fDurationInSeconds. Enmity will only be in effect as long as
-        ///   (faction reputation + total personal reputation) <= REPUTATION_TYPE_ENEMY.
+        ///   (faction reputation + total personal reputation) less than or equal to REPUTATION_TYPE_ENEMY.
         /// </summary>
         public static void SetIsTemporaryEnemy(uint oTarget, uint oSource = OBJECT_INVALID, bool bDecays = false,
             float fDurationInSeconds = 180.0f)
@@ -155,7 +155,7 @@ namespace NWN.Framework.Lite
         ///   Note: If bDecays is TRUE, the personal reputation amount decreases in size
         ///   over fDurationInSeconds. Neutrality will only be in effect as long as
         ///   (faction reputation + total personal reputation) > REPUTATION_TYPE_ENEMY and
-        ///   (faction reputation + total personal reputation) < REPUTATION_TYPE_FRIEND.
+        ///   (faction reputation + total personal reputation) less than REPUTATION_TYPE_FRIEND.
         /// </summary>
         public static void SetIsTemporaryNeutral(uint oTarget, uint oSource = OBJECT_INVALID, bool bDecays = false,
             float fDurationInSeconds = 180.0f)
