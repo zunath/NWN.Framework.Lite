@@ -135,12 +135,12 @@ namespace NWN.Framework.Lite
         ///   Sets the body part model to be used on the creature specified.
         ///   The model names for parts need to be in the following format:
         ///   p
-        ///   <m/ f>
-        ///     <race letter>
-        ///       <phenotype>
+        ///   m / f
+        ///     race letter
+        ///       phenotype
         ///         _
-        ///         <body part>
-        ///           <model number>
+        ///         body part
+        ///           model number
         ///             .mdl
         ///             - nPart (CREATURE_PART_*)
         ///             CREATURE_PART_RIGHT_FOOT
