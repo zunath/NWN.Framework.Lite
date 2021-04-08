@@ -5,11 +5,11 @@ namespace NWN.Framework.Lite.NWNX
 {
     public struct TileInfo
     {
-        public int nID; /// The tile's ID
-        public int nHeight; /// The tile's height
-        public int nOrientation; /// The tile's orientation
-        public int nGridX; /// The tile's grid x position
-        public int nGridY; /// The tile's grid y position
+        public int nID; // The tile's ID
+        public int nHeight; // The tile's height
+        public int nOrientation; // The tile's orientation
+        public int nGridX; // The tile's grid x position
+        public int nGridY; // The tile's grid y position
     };
 
     public static class Area
