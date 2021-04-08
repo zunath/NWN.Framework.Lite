@@ -375,7 +375,7 @@ namespace NWN.Framework.Lite
         /// <summary>
         ///   Returns Item property damage penalty.  You must specify the damage penalty.
         ///   The damage penalty should be a uint, 1 - 5 only.
-        ///   will reduce any value < 5 to 5.
+        ///   will reduce any value less than 5 to 5.
         /// </summary>
         public static ItemProperty ItemPropertyDamagePenalty(int nPenalty)
         {
@@ -490,7 +490,7 @@ namespace NWN.Framework.Lite
         /// <summary>
         ///   Returns Item property extra melee damage type.  You must specify the extra
         ///   melee base damage type that you want applied.  It is a constant(IP_CONST_DAMAGETYPE_*).
-        ///   NOTE: only the first 3 base types (piercing, slashing, & bludgeoning are applicable
+        ///   NOTE: only the first 3 base types (piercing, slashing, and bludgeoning are applicable
         ///   here.
         ///   NOTE: It is also only applicable to melee weapons.
         /// </summary>
@@ -504,7 +504,7 @@ namespace NWN.Framework.Lite
         /// <summary>
         ///   Returns Item property extra ranged damage type.  You must specify the extra
         ///   melee base damage type that you want applied.  It is a constant(IP_CONST_DAMAGETYPE_*).
-        ///   NOTE: only the first 3 base types (piercing, slashing, & bludgeoning are applicable
+        ///   NOTE: only the first 3 base types (piercing, slashing, and bludgeoning are applicable
         ///   here.
         ///   NOTE: It is also only applicable to ranged weapons.
         /// </summary>

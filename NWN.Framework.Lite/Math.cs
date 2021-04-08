@@ -47,7 +47,7 @@ namespace NWN.Framework.Lite
 
         /// <summary>
         ///   Maths operation: arccosine of fValue
-        ///   * Returns zero if fValue > 1 or fValue < -1
+        ///   * Returns zero if fValue > 1 or fValue less than -1
         /// </summary>
         public static float acos(float fValue)
         {
@@ -58,7 +58,7 @@ namespace NWN.Framework.Lite
 
         /// <summary>
         ///   Maths operation: arcsine of fValue
-        ///   * Returns zero if fValue >1 or fValue < -1
+        ///   * Returns zero if fValue >1 or fValue less than -1
         /// </summary>
         public static float asin(float fValue)
         {
@@ -79,7 +79,7 @@ namespace NWN.Framework.Lite
 
         /// <summary>
         ///   Maths operation: log of fValue
-        ///   * Returns zero if fValue <= zero
+        ///   * Returns zero if fValue less than or equal to zero
         /// </summary>
         public static float log(float fValue)
         {
@@ -90,7 +90,7 @@ namespace NWN.Framework.Lite
 
         /// <summary>
         ///   Maths operation: fValue is raised to the power of fExponent
-        ///   * Returns zero if fValue ==0 and fExponent <0
+        ///   * Returns zero if fValue ==0 and fExponent less than 0
         /// </summary>
         public static float pow(float fValue, float fExponent)
         {
@@ -102,7 +102,7 @@ namespace NWN.Framework.Lite
 
         /// <summary>
         ///   Maths operation: square root of fValue
-        ///   * Returns zero if fValue <0
+        ///   * Returns zero if fValue less than 0
         /// </summary>
         public static float sqrt(float fValue)
         {

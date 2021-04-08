@@ -479,7 +479,7 @@ namespace NWN.Framework.Lite
 
         /// <summary>
         ///   Create a Heal effect. This should be applied as an instantaneous effect.
-        ///   * Returns an effect of type EFFECT_TYPE_INVALIDEFFECT if nDamageToHeal < 0.
+        ///   * Returns an effect of type EFFECT_TYPE_INVALIDEFFECT if nDamageToHeal less than 0.
         /// </summary>
         public static Effect EffectHeal(int nDamageToHeal)
         {
@@ -737,7 +737,7 @@ namespace NWN.Framework.Lite
         ///   - nPercentage: 1-100 inclusive
         ///   - nMissChanceType: MISS_CHANCE_TYPE_*
         ///   * Returns an effect of type EFFECT_TYPE_INVALIDEFFECT if nPercentage
-        ///   < 1 or
+        ///   less than 1 or
         ///     nPercentage>
         ///     100.
         /// </summary>
@@ -800,7 +800,7 @@ namespace NWN.Framework.Lite
         ///   - nPercentage: 1-100 inclusive
         ///   - nMissChanceType: MISS_CHANCE_TYPE_*
         ///   * Returns an effect of type EFFECT_TYPE_INVALIDEFFECT if nPercentage
-        ///   < 1 or
+        ///   less than 1 or
         ///     nPercentage>
         ///     100.
         /// </summary>
@@ -870,7 +870,7 @@ namespace NWN.Framework.Lite
         /// <summary>
         ///   Create a Sanctuary effect.
         ///   - nDifficultyClass: must be a non-zero, positive number
-        ///   * Returns an effect of type EFFECT_TYPE_INVALIDEFFECT if nDifficultyClass <= 0.
+        ///   * Returns an effect of type EFFECT_TYPE_INVALIDEFFECT if nDifficultyClass less than or equal to 0.
         /// </summary>
         public static Effect EffectSanctuary(int nDifficultyClass)
         {
@@ -1132,7 +1132,7 @@ namespace NWN.Framework.Lite
         /// <summary>
         ///   Create a Temporary Hitpoints effect.
         ///   - nHitPoints: a positive integer
-        ///   * Returns an effect of type EFFECT_TYPE_INVALIDEFFECT if nHitPoints < 0.
+        ///   * Returns an effect of type EFFECT_TYPE_INVALIDEFFECT if nHitPoints less than 0.
         /// </summary>
         public static Effect EffectTemporaryHitpoints(int nHitPoints)
         {
