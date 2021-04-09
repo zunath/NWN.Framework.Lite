@@ -9,11 +9,11 @@ Its intention is to provide you with minimal structure to your project while bei
 
 ## Getting Started
 
-- Find NWN.Framework.Lite on the Nuget feed and install it into your project.
+1. Find NWN.Framework.Lite on the Nuget feed and install it into your project.
 
-- Create a class where your code will be written.
+1. Create a class where your code will be written.
 
-- Create a method like the following
+1. Create a method like the following
 
 ```cs
 // This method will be run whenever the script "sit" is run. In our example module, this happens when a player clicks a chair.
@@ -30,16 +30,16 @@ public static void SitOnAChair()
 }
 ```
 
-- Configure your NWNX server with the following environment variables. Setting up an NWNX server is outside the scope of this guide - more information can be found in the Additional Resources section of this guide.
+1. Configure your NWNX server with the following environment variables. Setting up an NWNX server is outside the scope of this guide. More information can be found in the Additional Resources section of this guide.
 
 ```cs
 NWNX_DOTNET_ASSEMBLY=/nwn/home/dotnet/NWN.Framework.Lite 
 NWNX_DOTNET_ENTRYPOINT=NWN.Framework.Lite.Internal
 ```
 
-- Add the script "sit" to the OnUsed event of a placeable chair.
-- Build the project and run the NWNX server
-- Log in and click the chair. Your character should sit down.
+1. Add the script "sit" to the OnUsed event of a placeable chair.
+1. Build the project and run the NWNX server
+1. Log in and click the chair. Your character should sit down.
 
 And that's it!
 
@@ -56,4 +56,4 @@ And that's it!
 We welcome all contributions via Pull Request. Please read the following as they serve as our guiding principles on this project. We expect all contributions to adhere to these guidelines.
 
 1. The Lite framework is intended to be exactly as it sounds - light and unobtrusive. There are no fancy frameworks to learn. Install the package and go.
-2. We don't provide everything and the kitchen sink. There's some glue code, the NWScript and NWNX methods, and assorted enumerations. On the rare occasion we will also provide conversions of commonly used NWScript functions found in include files.
+1. We don't provide everything and the kitchen sink. There's some glue code, the NWScript and NWNX methods, and assorted enumerations. On the rare occasion we will also provide conversions of commonly used NWScript functions found in include files.
