@@ -10,9 +10,7 @@ Its intention is to provide you with minimal structure to your project while bei
 ## Getting Started
 
 1. Find NWN.Framework.Lite on the Nuget feed and install it into your project.
-
 1. Create a class where your code will be written.
-
 1. Create a method like the following
 
 ```cs
