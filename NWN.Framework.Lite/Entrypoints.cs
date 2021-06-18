@@ -96,6 +96,8 @@ namespace NWN.Framework.Lite
 
         private static int RunScripts(string script)
         {
+            script = script.ToLower();
+
             if (_conditionalScripts.ContainsKey(script) )
             {
                 // Always default conditional scripts to true. If one or more of the actions return a false,
@@ -164,7 +166,7 @@ namespace NWN.Framework.Lite
             {
                 foreach (var attr in mi.GetCustomAttributes(typeof(ScriptHandler), false))
                 {
-                    var script = ((ScriptHandler)attr).Script;
+                    var script = ((ScriptHandler)attr).Script.ToLower();
                     if (script.Length > MaxCharsInScriptName || script.Length == 0)
                     {
                         Console.WriteLine($"Script name '{script}' is invalid on method {mi.Name}.");
